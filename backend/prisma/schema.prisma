@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  nickname  String   @unique
+  email     String   @unique
+  password  String
+  role      String   @default("STUDENT") // STUDENT | ADMIN
+  xp        Int      @default(0)
+  streak    Int      @default(0)
+  lastActiveDay String?
+  createdAt DateTime @default(now())
+
+  attempts             QuestionAttempt[]
+  stepCompletions      StepCompletion[]
+  trailCompletions     TrailCompletion[]
+  achievements         UserAchievement[]
+  challengeCompletions DailyChallengeCompletion[]
+  xpTransactions       XpTransaction[]
+  passwordResetTokens  PasswordResetToken[]
+}
+
+model Subject {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  icon   String  @default("📘")
+  color  String  @default("#6366f1")
+
+  topics           Topic[]
+  trails           Trail[]
+  dailyChallenges  DailyChallenge[]
+}
+
+model Topic {
+  id        Int      @id @default(autoincrement())
+  name      String
+  subjectId Int
+  subject   Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  questions Question[]
+
+  @@unique([subjectId, name])
+}
+
+model Question {
+  id          Int      @id @default(autoincrement())
+  statement   String   @db.Text
+  explanation String   @db.Text
+  difficulty  String   @default("media") // facil | media | dificil
+  grade       String   @default("Ensino Médio")
+  topicId     Int
+  topic       Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  options    Option[]
+  attempts   QuestionAttempt[]
+  stepLinks  TrailStepQuestion[]
+}
+
+model Option {
+  id         Int      @id @default(autoincrement())
+  text       String   @db.Text
+  isCorrect  Boolean  @default(false)
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+model QuestionAttempt {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  optionId   Int
+  isCorrect  Boolean
+  xpAwarded  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  // Uma única tentativa por questão/usuário: impede farm de XP e mantém estatísticas íntegras
+  @@unique([userId, questionId])
+  @@index([userId, createdAt])
+}
+
+model Trail {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String @db.Text
+  icon        String @default("🛤️")
+  order       Int    @default(0)
+  subjectId   Int
+  subject     Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  steps       TrailStep[]
+  completions TrailCompletion[]
+}
+
+model TrailStep {
+  id      Int    @id @default(autoincrement())
+  trailId Int
+  trail   Trail  @relation(fields: [trailId], references: [id], onDelete: Cascade)
+  order   Int
+  title   String
+
+  questions  TrailStepQuestion[]
+  completions StepCompletion[]
+
+  @@unique([trailId, order])
+}
+
+model TrailStepQuestion {
+  stepId     Int
+  questionId Int
+  step       TrailStep @relation(fields: [stepId], references: [id], onDelete: Cascade)
+  question   Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([stepId, questionId])
+}
+
+model StepCompletion {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  stepId      Int
+  completedAt DateTime @default(now())
+
+  user User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  step TrailStep  @relation(fields: [stepId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, stepId])
+}
+
+model TrailCompletion {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  trailId     Int
+  xpAwarded   Int      @default(0)
+  completedAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trail Trail @relation(fields: [trailId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, trailId])
+}
+
+model Achievement {
+  id          Int     @id @default(autoincrement())
+  code        String  @unique
+  name        String
+  description String
+  icon        String  @default("🏆")
+  metric      String  // QUESTIONS_ANSWERED | CORRECT_ANSWERED | XP | STREAK | TRAILS_COMPLETED | DAILY_CHALLENGES | LEVEL
+  threshold   Int
+
+  userAchievements UserAchievement[]
+}
+
+model UserAchievement {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  achievementId Int
+  unlockedAt    DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+}
+
+model DailyChallenge {
+  id        Int    @id @default(autoincrement())
+  day       String @unique // YYYY-MM-DD
+  type      String // ANSWER_N | ANSWER_N_SUBJECT | XP_N | ACCURACY
+  title     String
+  target    Int
+  subjectId Int?
+  xpReward  Int    @default(50)
+
+  subject     Subject? @relation(fields: [subjectId], references: [id], onDelete: SetNull)
+  completions DailyChallengeCompletion[]
+}
+
+model DailyChallengeCompletion {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  challengeId Int
+  xpAwarded   Int      @default(0)
+  completedAt DateTime @default(now())
+
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge DailyChallenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, challengeId])
+}
+
+model XpTransaction {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  amount    Int
+  reason    String // question_correct | question_wrong | trail_complete | daily_challenge
+  detail    String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+model PasswordResetToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
