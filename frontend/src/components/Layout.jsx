@@ -82,7 +82,6 @@ function PublicNavbar() {
 
 function AppNavbar({ profile, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
 
   const linkClass = ({ isActive }) =>
     `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${

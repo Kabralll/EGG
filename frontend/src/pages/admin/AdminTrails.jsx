@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { getTrailsAdmin, createTrail, updateTrail, deleteTrail, getQuestions } from "../../services/adminService";
 import { getSubjects } from "../../services/contentService";
-import { Spinner, EmptyState, PageHeader } from "../../components/ui";
+import { Spinner, EmptyState } from "../../components/ui";
+import AdminLayout from "./AdminLayout";
 import { useToast } from "../../context/ToastContext";
 import { Modal } from "./AdminSubjects";
 
@@ -68,24 +69,22 @@ export default function AdminTrails() {
     } catch (e) { notify(e.message, "error"); }
   };
 
-  if (loading) return <Spinner size="lg" label="Carregando trilhas..." />;
-
   return (
-    <div className="space-y-6">
-      <PageHeader
-        title="Trilhas"
-        subtitle={`${trails.length} trilha(s) cadastrada(s)`}
-        action={<button className="btn-primary" onClick={() => setForm(emptyTrail())}>+ Nova trilha</button>}
-      />
-
-      {trails.length === 0 && (
+    <AdminLayout
+      title="Trilhas"
+      subtitle={`${trails.length} trilha(s) cadastrada(s)`}
+      action={<button className="btn-primary" onClick={() => setForm(emptyTrail())}>+ Nova trilha</button>}
+    >
+      <div className="space-y-6">
+      {loading ? (
+        <Spinner size="lg" label="Carregando trilhas..." />
+      ) : trails.length === 0 ? (
         <EmptyState
           title="Nenhuma trilha"
           message="Crie a primeira trilha de estudos com etapas e questões."
           action={<button className="btn-primary" onClick={() => setForm(emptyTrail())}>+ Nova trilha</button>}
         />
-      )}
-
+      ) : (
       <div className="space-y-4">
         {trails.map((t) => (
           <div key={t.id} className="card p-5">
@@ -135,6 +134,7 @@ export default function AdminTrails() {
           </div>
         ))}
       </div>
+      )}
 
       {form && (
         <Modal title={form.id ? "Editar trilha" : "Nova trilha"} onClose={() => setForm(null)}>
@@ -208,7 +208,8 @@ export default function AdminTrails() {
           </form>
         </Modal>
       )}
-    </div>
+      </div>
+    </AdminLayout>
   );
 }
 

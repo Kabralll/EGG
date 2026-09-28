@@ -16,7 +16,7 @@ function timeAgo(date) {
 }
 
 export default function Dashboard() {
-  const { profile, refreshProfile } = useAuth()
+  const { refreshProfile } = useAuth()
   const [data, setData] = useState(null)
   const [error, setError] = useState("")
 

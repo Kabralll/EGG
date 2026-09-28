@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { getQuestions, createQuestion, updateQuestion, deleteQuestion } from "../../services/adminService";
 import { getSubjects } from "../../services/contentService";
-import { Spinner, EmptyState, PageHeader, difficultyLabel, difficultyStyle } from "../../components/ui";
+import { Spinner, EmptyState, difficultyLabel, difficultyStyle } from "../../components/ui";
+import AdminLayout from "./AdminLayout";
 import { useToast } from "../../context/ToastContext";
 
 const GRADES = ["6º ano", "7º ano", "8º ano", "9º ano", "1º EM", "2º EM", "3º EM"];
@@ -114,13 +115,12 @@ export default function AdminQuestions() {
   const formTopics = subjects.find((s) => s.id === Number(form?.subjectId))?.topics || [];
 
   return (
-    <div className="space-y-5">
-      <PageHeader
-        title="Questões"
-        subtitle={`${items.length} questão(ões) exibida(s)`}
-        action={<button className="btn-primary" onClick={openNew}>+ Nova questão</button>}
-      />
-
+    <AdminLayout
+      title="Questões"
+      subtitle={`${items.length} questão(ões) exibida(s)`}
+      action={<button className="btn-primary" onClick={openNew}>+ Nova questão</button>}
+    >
+      <div className="space-y-5">
       <div className="card p-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <input
           className="input"
@@ -280,6 +280,7 @@ export default function AdminQuestions() {
           </form>
         </div>
       )}
-    </div>
+      </div>
+    </AdminLayout>
   );
 }

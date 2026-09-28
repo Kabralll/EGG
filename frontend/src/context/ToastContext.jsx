@@ -21,8 +21,19 @@ export function ToastProvider({ children }) {
     [dismiss]
   )
 
+  // Atalho estável: notify("mensagem", "error" | "success" | "info")
+  const notify = useCallback(
+    (message, type = "info") =>
+      push({
+        type,
+        icon: type === "error" ? "⚠️" : type === "success" ? "✅" : "ℹ️",
+        title: message,
+      }),
+    [push]
+  )
+
   return (
-    <ToastContext.Provider value={{ push, dismiss }}>
+    <ToastContext.Provider value={{ push, dismiss, notify }}>
       {children}
       <ToastStack toasts={toasts} onDismiss={dismiss} />
     </ToastContext.Provider>

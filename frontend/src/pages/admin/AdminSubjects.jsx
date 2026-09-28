@@ -4,7 +4,8 @@ import {
   createTopic, updateTopic, deleteTopic,
 } from "../../services/adminService";
 import { getSubjects } from "../../services/contentService";
-import { Spinner, EmptyState, PageHeader } from "../../components/ui";
+import { Spinner, EmptyState } from "../../components/ui";
+import AdminLayout from "./AdminLayout";
 import { useToast } from "../../context/ToastContext";
 
 const ICONS = ["📘", "🧮", "🔬", "🌍", "📖", "🧠", "⏱️", "🎵", "🎨", "💻", "📐", "⚗️"];
@@ -73,29 +74,27 @@ export default function AdminSubjects() {
     } catch (e) { notify(e.message, "error"); }
   };
 
-  if (loading) return <Spinner size="lg" label="Carregando disciplinas..." />;
-
   return (
-    <div className="space-y-6">
-      <PageHeader
-        title="Disciplinas & Assuntos"
-        subtitle={`${subjects.length} disciplina(s) cadastrada(s)`}
-        action={
-          <button className="btn-primary"
-            onClick={() => setSubjectForm({ name: "", icon: ICONS[0], color: COLORS[0] })}>
-            + Nova disciplina
-          </button>
-        }
-      />
-
-      {subjects.length === 0 && (
+    <AdminLayout
+      title="Disciplinas & Assuntos"
+      subtitle={`${subjects.length} disciplina(s) cadastrada(s)`}
+      action={
+        <button className="btn-primary"
+          onClick={() => setSubjectForm({ name: "", icon: ICONS[0], color: COLORS[0] })}>
+          + Nova disciplina
+        </button>
+      }
+    >
+      <div className="space-y-6">
+      {loading ? (
+        <Spinner size="lg" label="Carregando disciplinas..." />
+      ) : subjects.length === 0 ? (
         <EmptyState
           title="Nenhuma disciplina"
           message="Execute o seed do banco ou crie a primeira disciplina."
           action={<button className="btn-primary" onClick={() => setSubjectForm({ name: "", icon: ICONS[0], color: COLORS[0] })}>+ Nova disciplina</button>}
         />
-      )}
-
+      ) : (
       <div className="space-y-4">
         {subjects.map((s) => (
           <div key={s.id} className="card p-5">
@@ -139,6 +138,7 @@ export default function AdminSubjects() {
           </div>
         ))}
       </div>
+      )}
 
       {subjectForm && (
         <Modal title={subjectForm.id ? "Editar disciplina" : "Nova disciplina"} onClose={() => setSubjectForm(null)}>
@@ -195,7 +195,8 @@ export default function AdminSubjects() {
           </form>
         </Modal>
       )}
-    </div>
+      </div>
+    </AdminLayout>
   );
 }
 
