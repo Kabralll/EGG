@@ -1,14 +1,61 @@
-const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+import { localApi } from "../offline/localApi"
 
 /*
-  Camada única de acesso à API.
-  - injeta o token automaticamente
-  - normaliza erros (message + fields de validação)
-  - desloga em caso de 401 fora do fluxo de login
+  Camada única de acesso aos dados.
+
+  ── Modo "local" (PADRÃO) — 100% offline ────────────────────────────────
+  Nada de servidor: `localApi` resolve os MESMOS caminhos que o backend
+  Express expunha ("/dashboard", "/questions/practice", "/admin/questions"...)
+  contra o IndexedDB do próprio aparelho (frontend/src/offline/*).
+  Consequência: nenhum componente/página precisou mudar.
+
+  ── Modo "http" (legado) ────────────────────────────────────────────────
+  REACT_APP_DATA_MODE=http volta ao `fetch` de antes: no dev pelo proxy do
+  CRA, no build pela produção com IP fixo.
+
+  Configure em .env / .env.production.
 */
+export const MODE = process.env.REACT_APP_DATA_MODE || "local"
+export const BASE_URL = process.env.REACT_APP_API_URL || ""
+
+/* Erros com o mesmo formato que o backend devolvia: message + fields. */
+function toError(data, status) {
+  const error = new Error((data && data.error) || "Erro inesperado. Tente novamente.")
+  error.status = status
+  error.fields = data && data.fields
+  return error
+}
+
+/* Sessão expirada em área logada → limpa e manda para o login. */
+function clearExpiredSession(path, auth) {
+  if (auth && !path.startsWith("/auth")) {
+    localStorage.removeItem("token")
+    if (window.location.pathname !== "/login") {
+      window.location.assign("/login")
+    }
+  }
+}
+
 export async function api(path, { method = "GET", body, auth = true } = {}) {
+  const options = { method, body, auth }
+
+  if (MODE !== "http") {
+    try {
+      return await localApi(path, options)
+    } catch (error) {
+      if (error && error.status === 401) clearExpiredSession(path, auth)
+      throw error
+    }
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+    // O proxy do CRA (dev) só repassa para o backend requisições GET cujo
+    // `Accept` NÃO contenha "text/html" — sem isto, um GET da API poderia
+    // receber o index.html do SPA em vez da resposta da API.
+    Accept: "application/json",
+  }
   const token = localStorage.getItem("token")
-  const headers = { "Content-Type": "application/json" }
   if (auth && token) headers.Authorization = `Bearer ${token}`
 
   let res
@@ -30,21 +77,9 @@ export async function api(path, { method = "GET", body, auth = true } = {}) {
   }
 
   if (!res.ok) {
-    // Sessão expirada em área logada → limpa e manda para o login
-    if (res.status === 401 && auth && !path.startsWith("/auth")) {
-      localStorage.removeItem("token")
-      if (window.location.pathname !== "/login") {
-        window.location.assign("/login")
-      }
-    }
-
-    const error = new Error(data?.error || "Erro inesperado. Tente novamente.")
-    error.status = res.status
-    error.fields = data?.fields
-    throw error
+    clearExpiredSession(path, auth)
+    throw toError(data, res.status)
   }
 
   return data
 }
-
-export { BASE_URL }

@@ -70,7 +70,7 @@ export default function Subjects() {
                   )}
                 </div>
 
-                <h2 className="mt-3 font-bold text-slate-900 group-hover:text-brand-600">
+                <h2 className="mt-3 font-bold text-slate-900 group-hover:text-[#f5d24c]">
                   {subject.name}
                 </h2>
                 <p className="mt-0.5 text-xs text-slate-500">

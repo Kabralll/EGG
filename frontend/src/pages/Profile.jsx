@@ -51,7 +51,7 @@ export default function Profile() {
     <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:py-8">
       {/* Cabeçalho do perfil */}
       <div className="card overflow-hidden">
-        <div className="h-20 bg-gradient-to-r from-brand-400 via-amber-400 to-brand-500" />
+        <div className="h-20 bg-gradient-to-r from-brand-300 via-amber-400 to-[#f5d24c]" />
         <div className="px-5 pb-5">
           <div className="-mt-10 flex flex-wrap items-end justify-between gap-4">
             <div className="flex items-end gap-4">
@@ -69,7 +69,7 @@ export default function Profile() {
               </div>
             </div>
             <button onClick={() => setEditing(!editing)} className="btn-secondary !py-2 text-xs">
-              {editing ? "Cancelar" : "✏️ Editar perfil"}
+              {editing ? "Cancelar" : "Editar perfil"}
             </button>
           </div>
 
@@ -113,7 +113,7 @@ export default function Profile() {
       <div className="card mt-5 p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 text-xl font-extrabold text-white">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5d24c] text-xl font-extrabold text-white">
               {profile.progress.level}
             </span>
             <div>

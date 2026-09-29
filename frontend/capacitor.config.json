@@ -1,0 +1,30 @@
+{
+  "appId": "br.com.egg.app",
+  "appName": "EGG",
+  "webDir": "build",
+  "backgroundColor": "#ffffff",
+  "zoomEnabled": false,
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "css",
+      "initialViewportFitValueHint": "cover",
+      "style": "LIGHT"
+    },
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "backgroundColor": "#ffffff",
+      "showSpinner": false
+    },
+    "Keyboard": {
+      "resize": "native",
+      "autoBackdropColor": "auto"
+    }
+  }
+}

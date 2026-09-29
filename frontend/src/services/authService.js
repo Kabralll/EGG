@@ -33,7 +33,17 @@ export async function updateProfile(form) {
 }
 
 export async function forgotPassword(email) {
-  return api("/auth/forgot-password", { method: "POST", body: { email }, auth: false })
+  const data = await api("/auth/forgot-password", {
+    method: "POST",
+    body: { email },
+    auth: false,
+  })
+  // Modo offline: não há caixa de entrada para receber o link, então o token é
+  // gerado localmente e o app leva o usuário direto para a tela de redefinição.
+  if (data && data.localToken && data.localToken !== "") {
+    window.location.assign(`/reset-password/${data.localToken}`)
+  }
+  return data
 }
 
 export async function resetPassword(token, password) {

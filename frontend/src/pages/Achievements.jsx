@@ -50,7 +50,7 @@ export default function Achievements() {
         </div>
       </div>
 
-      <div className="mt-5 flex gap-2">
+      <div className="mt-5 flex flex-wrap gap-2">
         {[
           { key: "all", label: "Todas" },
           { key: "unlocked", label: "Desbloqueadas" },

@@ -52,7 +52,7 @@ export default function Dashboard() {
       {/* Saudação + progresso */}
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="page-title">Olá, {firstName} 👋</h1>
+          <h1 className="page-title">Olá, {firstName}</h1>
           <p className="mt-1 text-sm capitalize text-slate-500">{today}</p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -65,15 +65,20 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      {/*
+        `grid-cols-1` NÃO é decoração: sem ele a coluna é implícita e recebe
+        `grid-auto-columns: auto` = minmax(auto, max-content), cujo mínimo é o
+        min-content do card — a página ficava mais larga que a tela e rolava
+        para a direita. `minmax(0, 1fr)` trava a trilha na largura disponível.
+      */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Coluna principal */}
         <div className="space-y-6 lg:col-span-2">
           {/* Nível / XP */}
           <div className="card relative overflow-hidden p-5">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-50/80 via-transparent to-transparent" />
             <div className="relative flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 text-2xl font-extrabold text-white shadow-md">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#f5d24c] text-2xl font-extrabold text-white shadow-md">
                   {user.progress.level}
                 </div>
                 <div>
@@ -98,13 +103,13 @@ export default function Dashboard() {
             </div>
             <div className="relative mt-4 flex flex-wrap gap-2">
               <Link to="/subjects" className="btn-primary">
-                ⚡ Praticar agora
+                Praticar agora
               </Link>
               <Link to="/trails" className="btn-secondary">
-                🛤️ Continuar trilha
+                Continuar trilha
               </Link>
               <Link to="/stats" className="btn-ghost">
-                📊 Meu desempenho
+                Meu desempenho
               </Link>
             </div>
           </div>
@@ -118,13 +123,13 @@ export default function Dashboard() {
                 </p>
                 <h3 className="mt-1 font-bold text-slate-900">{dailyChallenge.title}</h3>
                 <p className="text-sm text-slate-500">
-                  Recompensa: <strong className="text-brand-600">+{dailyChallenge.xpReward} XP</strong>
+                  Recompensa: <strong className="text-[#f5d24c]">+{dailyChallenge.xpReward} XP</strong>
                 </p>
               </div>
               {dailyChallenge.completed ? (
                 <span className="chip bg-emerald-100 text-emerald-700">✓ Concluído</span>
               ) : (
-                <span className="chip bg-amber-100 text-amber-700">
+                <span className="chip bg-amber-100 text-amber-600">
                   {dailyChallenge.progress}/{dailyChallenge.target}
                 </span>
               )}
@@ -162,7 +167,7 @@ export default function Dashboard() {
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    🛤️ Continue de onde parou
+                    Continue de onde parou
                   </p>
                   <h3 className="mt-1 font-bold text-slate-900">
                     {continueTrail.icon} {continueTrail.title}
@@ -191,14 +196,14 @@ export default function Dashboard() {
           <div className="card p-5">
             <div className="flex items-center justify-between">
               <h3 className="section-title">Últimas atividades</h3>
-              <Link to="/stats" className="text-sm font-semibold text-brand-600 hover:underline">
+              <Link to="/stats" className="text-sm font-semibold text-[#f5d24c] hover:underline">
                 Ver todas
               </Link>
             </div>
             {recentAttempts.length === 0 ? (
               <p className="mt-3 text-sm text-slate-500">
                 Nenhuma questão respondida ainda.{" "}
-                <Link to="/subjects" className="font-semibold text-brand-600 hover:underline">
+                <Link to="/subjects" className="font-semibold text-[#f5d24c] hover:underline">
                   Responda a primeira →
                 </Link>
               </p>
@@ -214,7 +219,7 @@ export default function Dashboard() {
                       {attempt.isCorrect ? "✓" : "✕"}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-medium text-slate-800">
+                      <p className="line-clamp-1 text-sm font-medium text-slate-800">
                         {attempt.statement}
                       </p>
                       <p className="text-xs text-slate-400">
@@ -222,7 +227,7 @@ export default function Dashboard() {
                         {timeAgo(attempt.createdAt)}
                       </p>
                     </div>
-                    <span className="shrink-0 text-xs font-bold text-brand-600">
+                    <span className="shrink-0 text-xs font-bold text-[#f5d24c]">
                       +{attempt.xpAwarded} XP
                     </span>
                   </li>
@@ -255,7 +260,7 @@ export default function Dashboard() {
               <h3 className="section-title">Conquistas recentes</h3>
               <Link
                 to="/achievements"
-                className="text-sm font-semibold text-brand-600 hover:underline"
+                className="text-sm font-semibold text-[#f5d24c] hover:underline"
               >
                 Ver todas
               </Link>
@@ -273,8 +278,8 @@ export default function Dashboard() {
                   >
                     <span className="text-xl">{a.icon}</span>
                     <div className="min-w-0">
-                      <p className="truncate text-sm font-bold text-slate-800">{a.name}</p>
-                      <p className="truncate text-xs text-slate-500">{a.description}</p>
+                      <p className="line-clamp-1 text-sm font-bold text-slate-800">{a.name}</p>
+                      <p className="line-clamp-1 text-xs text-slate-500">{a.description}</p>
                     </div>
                   </li>
                 ))}
@@ -286,7 +291,7 @@ export default function Dashboard() {
           <div className="card p-5">
             <div className="flex items-center justify-between">
               <h3 className="section-title">Trilhas</h3>
-              <Link to="/trails" className="text-sm font-semibold text-brand-600 hover:underline">
+              <Link to="/trails" className="text-sm font-semibold text-[#f5d24c] hover:underline">
                 Ver todas
               </Link>
             </div>
@@ -295,7 +300,7 @@ export default function Dashboard() {
                 <li key={trail.id}>
                   <Link to={`/trails/${trail.id}`} className="block group">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="truncate text-sm font-semibold text-slate-800 group-hover:text-brand-600">
+                      <p className="line-clamp-1 text-sm font-semibold text-slate-800 group-hover:text-[#f5d24c]">
                         {trail.icon} {trail.title}
                       </p>
                       <span className="shrink-0 text-xs text-slate-400">
@@ -337,7 +342,7 @@ function RecommendationCard({ recommendation }) {
   return (
     <div className="card border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-5">
       <p className="text-xs font-bold uppercase tracking-wider text-indigo-400">
-        💡 Recomendado para você
+        Recomendado para você
       </p>
       <h3 className="mt-1 font-bold text-slate-900">{recommendation.title}</h3>
       <p className="mt-1 text-sm text-slate-600">{recommendation.message}</p>

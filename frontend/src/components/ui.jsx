@@ -49,7 +49,7 @@ export function ErrorState({ message, onRetry }) {
 export function ProgressBar({ percent = 0, color = "brand", size = "md", label }) {
   const barColor =
     {
-      brand: "from-brand-400 to-brand-600",
+      brand: "from-[#f5d24c] to-[#f5d24c]",
       emerald: "from-emerald-400 to-emerald-600",
       indigo: "from-indigo-400 to-indigo-600",
       rose: "from-rose-400 to-rose-600",
@@ -77,7 +77,7 @@ export function ProgressBar({ percent = 0, color = "brand", size = "md", label }
 
 export function StatCard({ icon, label, value, hint, accent = "brand" }) {
   const accents = {
-    brand: "bg-brand-50 text-brand-600",
+    brand: "bg-[#f5d24c] text-brand-600",
     emerald: "bg-emerald-50 text-emerald-600",
     indigo: "bg-indigo-50 text-indigo-600",
     rose: "bg-rose-50 text-rose-600",

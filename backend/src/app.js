@@ -15,7 +15,37 @@ import adminRoutes from "./routes/adminRoutes.js"
 
 const app = express()
 
-app.use(cors())
+/*
+  CORS
+  -----
+  - Sem lista de origens liberadas (CORS_ORIGINS vazio ou "*") → libera tudo,
+    que é o comportamento padrão do `cors()` e já aceita o app mobile.
+  - Para travar, defina no backend/.env:
+      CORS_ORIGINS=capacitor://localhost,https://localhost,http://localhost:8000,http://192.168.15.9:8000
+    Origens com "*" no final também são aceitas (ex.: http://192.168.*).
+*/
+const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean)
+
+const corsOptions = {
+  origin(origin, callback) {
+    // Requisições sem Origin (curl, apps nativos, <img>) → sempre liberar
+    if (!origin) return callback(null, true)
+    // Lista vazia ou "*" → libera qualquer origem (dev/mobile)
+    if (CORS_ORIGINS.length === 0 || CORS_ORIGINS.includes("*")) return callback(null, true)
+
+    const allowed = CORS_ORIGINS.some((o) =>
+      o.endsWith("*") ? origin.startsWith(o.slice(0, -1)) : origin === o
+    )
+    callback(null, allowed)
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}
+
+app.use(cors(corsOptions))
 app.use(express.json({ limit: "1mb" }))
 
 app.get("/health", (req, res) => res.json({ status: "ok" }))

@@ -39,8 +39,8 @@ export default function Login() {
     <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md flex-col justify-center px-4 py-10">
       <div className="card p-6 sm:p-8">
         <div className="text-center">
-          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 text-2xl">
-            🥚
+          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl text-2xl">
+            <img src="/img/EggoLogo.png" alt="EggoLogo" />
           </span>
           <h1 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-900">
             Bem-vindo de volta
@@ -95,12 +95,12 @@ export default function Login() {
         </form>
 
         <div className="mt-4 flex flex-col items-center gap-2 text-sm">
-          <Link to="/forgot-password" className="text-brand-600 hover:underline">
+          <Link to="/forgot-password" className="text-[#f5d24c] hover:underline">
             Esqueci minha senha
           </Link>
           <p className="text-slate-500">
             Ainda não tem conta?{" "}
-            <Link to="/register" className="font-semibold text-brand-600 hover:underline">
+            <Link to="/register" className="font-semibold text-[#f5d24c] hover:underline">
               Cadastre-se grátis
             </Link>
           </p>

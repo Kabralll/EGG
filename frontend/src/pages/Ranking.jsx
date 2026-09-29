@@ -80,14 +80,14 @@ export default function Ranking() {
                   key={entry.id}
                   className={`card p-3 text-center sm:p-4 ${
                     isFirst ? "border-amber-300 ring-2 ring-amber-200" : ""
-                  } ${mine ? "outline outline-2 outline-brand-400" : ""}`}
+                  } ${mine ? "outline outline-2 outline-[#f5d24c]" : ""}`}
                 >
                   <div className="text-2xl sm:text-3xl">{medals[entry.position - 1]}</div>
                   <p className="mt-1 truncate text-sm font-bold text-slate-900">
                     {entry.nickname}
                   </p>
                   <p className="text-xs text-slate-500">Nível {entry.level}</p>
-                  <p className="mt-1 text-sm font-extrabold text-brand-600">
+                  <p className="mt-1 text-sm font-extrabold text-[#f5d24c]">
                     {scope === "weekly" ? entry.weeklyXp : entry.xp} XP
                   </p>
                   {isSecond && <span className="sr-only">2º lugar</span>}
@@ -97,7 +97,10 @@ export default function Ranking() {
           </div>
 
           {/* Lista */}
-          <div className="card mt-6 overflow-hidden">
+          {/* `overflow-x-auto` (não hidden): a tabela tem largura mínima de ~370px
+              e em celulares estreitos o conteúdo era simplesmente CORTADO sem
+              possibilidade de rolagem. Agora a tabela rola dentro do card. */}
+          <div className="card mt-6 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-slate-100 bg-slate-50 text-left text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -131,7 +134,7 @@ export default function Ranking() {
                         <span className="truncate font-medium text-slate-800">
                           {entry.nickname}
                           {entry.id === profile?.id && (
-                            <span className="ml-1.5 text-xs text-brand-600">(você)</span>
+                            <span className="ml-1.5 text-xs text-brand-400">(você)</span>
                           )}
                         </span>
                       </span>

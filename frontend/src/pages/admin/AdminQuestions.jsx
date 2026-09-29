@@ -191,7 +191,7 @@ export default function AdminQuestions() {
       </div>
 
       {form && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/60 p-4">
+        <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/60 p-4 pt-safe">
           <form onSubmit={save} className="card my-8 w-full max-w-2xl p-6">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-bold">{form.id ? "Editar questão" : "Nova questão"}</h2>

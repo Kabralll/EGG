@@ -51,7 +51,7 @@ const STYLES = {
 
 function ToastStack({ toasts, onDismiss }) {
   return (
-    <div className="fixed inset-x-0 top-4 z-[60] flex flex-col items-center gap-2 px-4 sm:inset-x-auto sm:right-4 sm:items-end">
+    <div className="fixed inset-x-0 top-4 z-[60] mt-safe flex flex-col items-center gap-2 px-4 sm:inset-x-auto sm:right-4 sm:items-end">
       {toasts.map((toast) => (
         <button
           key={toast.id}

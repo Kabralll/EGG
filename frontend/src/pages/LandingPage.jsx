@@ -66,9 +66,6 @@ export default function LandingPage() {
     <div className="bg-white">
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(251,146,60,0.18),transparent_55%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(99,102,241,0.12),transparent_55%)]" />
-
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
           <div>
             <span className="chip bg-brand-50 text-brand-700 ring-1 ring-brand-200">
@@ -76,7 +73,7 @@ export default function LandingPage() {
             </span>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
               Estudar pode ser como{" "}
-              <span className="bg-gradient-to-r from-brand-500 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#f5d24c] to-amber-500 bg-clip-text text-transparent">
                 subir de nível
               </span>
             </h1>
@@ -159,7 +156,7 @@ export default function LandingPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {STEPS.map((step) => (
               <div key={step.n} className="card relative p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 font-extrabold text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5d24c] font-extrabold text-white">
                   {step.n}
                 </span>
                 <h3 className="mt-4 font-bold text-slate-900">{step.title}</h3>

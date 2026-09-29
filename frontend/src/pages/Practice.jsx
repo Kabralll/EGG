@@ -198,7 +198,7 @@ export default function Practice() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-8">
         <div className="card animate-pop overflow-hidden text-center">
-          <div className="bg-gradient-to-br from-brand-500 to-amber-500 px-6 py-8 text-white">
+          <div className="bg-[#fadf71] px-6 py-8 text-white">
             <p className="text-5xl">{acc >= 70 ? "🏆" : acc >= 40 ? "💪" : "📚"}</p>
             <h1 className="mt-3 text-2xl font-extrabold">
               {acc >= 70 ? "Sessão concluída!" : "Boa tentativa!"}

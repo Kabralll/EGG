@@ -202,9 +202,9 @@ export default function AdminSubjects() {
 
 export function Modal({ title, children, onClose }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/60 p-4"
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/60 p-4 pt-safe"
       role="dialog" aria-modal="true">
-      <div className="card my-8 w-full max-w-lg p-6">
+      <div className="card my-8 w-full max-w-lg p-6 pb-safe">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold">{title}</h2>
           <button type="button" className="text-slate-400 hover:text-slate-600" onClick={onClose} aria-label="Fechar">✕</button>

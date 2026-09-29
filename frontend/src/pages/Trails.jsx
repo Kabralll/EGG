@@ -60,7 +60,7 @@ export default function Trails() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h2 className="font-bold text-slate-900 group-hover:text-brand-600">
+                      <h2 className="font-bold text-slate-900 group-hover:text-[#f5d24c]">
                         {trail.icon} {trail.title}
                       </h2>
                       <span
@@ -97,7 +97,7 @@ export default function Trails() {
                   />
                 </div>
 
-                <span className="mt-3 text-sm font-semibold text-brand-600">
+                <span className="mt-3 text-sm font-semibold text-[#f5d24c]">
                   {trail.finished
                     ? "Revisar trilha →"
                     : trail.completedSteps > 0
