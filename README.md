@@ -175,6 +175,25 @@ Set-ExecutionPolicy RemoteSigned
 
 ---
 
+## Deploy (Firebase Hosting)
+
+O site publicado roda em **modo local** (`REACT_APP_DATA_MODE` não definido): não precisa de backend nem MySQL no ar, os dados ficam no IndexedDB de cada navegador.
+
+- URL: https://egg-estudos-gamificados.web.app
+- Console: https://console.firebase.google.com/project/egg-estudos-gamificados/overview
+- Config: `firebase.json` (publica `frontend/build`, rewrite SPA e cache dos assets) e `.firebaserc` (projeto padrão)
+
+Para republicar depois de qualquer alteração:
+
+```bash
+cd frontend
+npm run build
+cd ..
+npx firebase-tools deploy --only hosting
+```
+
+---
+
 ## Autores
 
 Projeto desenvolvido por Enzo Giuliano, Gustavo Cabral e Gustavo Nicácio.

@@ -23,6 +23,10 @@ function toError(data, status) {
   const error = new Error((data && data.error) || "Erro inesperado. Tente novamente.")
   error.status = status
   error.fields = data && data.fields
+  // Paywall: o backend/localApi sinaliza o recurso bloqueado e o estado de uso
+  error.code = data && data.code
+  error.feature = data && data.feature
+  error.payload = data && data.payload
   return error
 }
 

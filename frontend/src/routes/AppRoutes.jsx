@@ -17,8 +17,10 @@ import Trails from "../pages/Trails"
 import TrailDetail from "../pages/TrailDetail"
 import Achievements from "../pages/Achievements"
 import Ranking from "../pages/Ranking"
+import Social from "../pages/Social"
 import Performance from "../pages/Performance"
 import Profile from "../pages/Profile"
+import Upgrade from "../pages/Upgrade"
 
 // Área administrativa
 import AdminOverview from "../pages/admin/AdminOverview"
@@ -49,8 +51,10 @@ function AppRoutes() {
         <Route path="/trails/:id" element={<TrailDetail />} />
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/social" element={<Social />} />
         <Route path="/stats" element={<Performance />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/upgrade" element={<Upgrade />} />
       </Route>
 
       {/* Área administrativa */}

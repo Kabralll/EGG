@@ -4,6 +4,7 @@ build
 dist
 coverage
 .DS_Store
+.firebase/
 
 # Referência visual (VERSÃO 2) — mantida apenas localmente
 EGG-estilizado/

@@ -7,7 +7,7 @@ import Dexie from "dexie";
   - é JavaScript puro → funciona igual no navegador de teste e no WebView do
     app, sem plugin nativo, sem `cap sync` de plugin e sem Android Studio para
     validar;
-  - o volume de dados é pequeno (58 questões, ~26 KB de seed) — nada justifica
+  - o volume de dados é pequeno (centenas de questões no seed) — nada justifica
     a complexidade de SQLite nativo;
   - sobrevive a reload/fechamento do app, que é o que importa num app offline.
 
@@ -17,6 +17,14 @@ import Dexie from "dexie";
   `trailId` (trailCompletions) e `threshold` (achievements) — todos usados por
   `.where()`/`.orderBy()` e que, sem índice, derrubavam a página com
   "KeyPath ... is not indexed".
+
+  v3: monetização. `subscriptions` (plano/validade), `entitlements`
+  (desbloqueios avulsos), `usageDays` (corações por dia), `weeklyClaims`
+  (desafio semanal PRO), `streakFreezes` (congelamentos usados no mês) e
+  `paywallEvents` (funil do paywall).
+
+  v4: comunidade. `friendships` (pedidos/amizades), `studyGroups` (grupos),
+  `groupMembers` (integrantes) e `groupInvites` (convites para grupos).
 */
 
 export const db = new Dexie("egg_offline");
@@ -43,6 +51,78 @@ db.version(2).stores({
   challengeCompletions: "++id, userId, [userId+challengeId]",
 
   // controle interno (flag de seed, versão, etc.)
+  meta: "key",
+});
+
+db.version(3).stores({
+  // conteúdo
+  subjects: "++id, &name",
+  topics: "++id, subjectId, [subjectId+name]",
+  questions: "++id, topicId, difficulty, createdAt",
+  options: "++id, questionId",
+  achievements: "++id, &code, metric, threshold",
+  trails: "++id, subjectId, order",
+  trailSteps: "++id, trailId, [trailId+order]",
+  stepQuestions: "[stepId+questionId], stepId, questionId",
+
+  // contas e progresso
+  users: "++id, &email, &nickname, role, xp",
+  attempts: "++id, userId, questionId, [userId+questionId], createdAt",
+  xpTransactions: "++id, userId, createdAt",
+  stepCompletions: "++id, userId, stepId, [userId+stepId]",
+  trailCompletions: "++id, userId, trailId, [userId+trailId]",
+  userAchievements: "++id, userId, [userId+achievementId]",
+  dailyChallenges: "++id, &day",
+  challengeCompletions: "++id, userId, [userId+challengeId]",
+
+  // monetização
+  subscriptions: "++id, &userId, status, planId, currentPeriodEnd",
+  entitlements: "++id, userId, [userId+feature]",
+  usageDays: "++id, userId, &[userId+day]",
+  weeklyClaims: "++id, userId, &[userId+weekKey]",
+  streakFreezes: "++id, userId, [userId+monthKey]",
+  paywallEvents: "++id, userId, event, createdAt",
+
+  // controle interno
+  meta: "key",
+});
+
+db.version(4).stores({
+  // conteúdo
+  subjects: "++id, &name",
+  topics: "++id, subjectId, [subjectId+name]",
+  questions: "++id, topicId, difficulty, createdAt",
+  options: "++id, questionId",
+  achievements: "++id, &code, metric, threshold",
+  trails: "++id, subjectId, order",
+  trailSteps: "++id, trailId, [trailId+order]",
+  stepQuestions: "[stepId+questionId], stepId, questionId",
+
+  // contas e progresso
+  users: "++id, &email, &nickname, role, xp",
+  attempts: "++id, userId, questionId, [userId+questionId], createdAt",
+  xpTransactions: "++id, userId, createdAt",
+  stepCompletions: "++id, userId, stepId, [userId+stepId]",
+  trailCompletions: "++id, userId, trailId, [userId+trailId]",
+  userAchievements: "++id, userId, [userId+achievementId]",
+  dailyChallenges: "++id, &day",
+  challengeCompletions: "++id, userId, [userId+challengeId]",
+
+  // monetização
+  subscriptions: "++id, &userId, status, planId, currentPeriodEnd",
+  entitlements: "++id, userId, [userId+feature]",
+  usageDays: "++id, userId, &[userId+day]",
+  weeklyClaims: "++id, userId, &[userId+weekKey]",
+  streakFreezes: "++id, userId, [userId+monthKey]",
+  paywallEvents: "++id, userId, event, createdAt",
+
+  // comunidade
+  friendships: "++id, userAId, userBId, requesterId, addresseeId, status, &[userAId+userBId]",
+  studyGroups: "++id, ownerId, createdAt",
+  groupMembers: "++id, groupId, userId, &[groupId+userId]",
+  groupInvites: "++id, groupId, userId, fromUserId, &[groupId+userId]",
+
+  // controle interno
   meta: "key",
 });
 

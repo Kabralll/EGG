@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
+import { useSubscription } from "../context/SubscriptionContext"
+import { HeartsChip, ProBadge } from "./premium"
 import AppRoutes from "../routes/AppRoutes"
 import useBackButton from "../hooks/useBackButton"
 
@@ -17,6 +19,7 @@ const APP_LINKS = [
   { to: "/dashboard", label: "Dashboard", icon: "🏠" },
   { to: "/subjects", label: "Disciplinas", icon: "📚" },
   { to: "/trails", label: "Trilhas", icon: "🛤️" },
+  { to: "/social", label: "Comunidade", icon: "👥" },
   { to: "/achievements", label: "Conquistas", icon: "🏆" },
   { to: "/ranking", label: "Ranking", icon: "🥇" },
   { to: "/stats", label: "Desempenho", icon: "📊" },
@@ -83,6 +86,7 @@ function PublicNavbar() {
 
 function AppNavbar({ profile, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { hearts, isPremium } = useSubscription()
 
   // Botão "voltar" do Android fecha o menu antes de navegar/sair
   useEffect(() => {
@@ -92,7 +96,7 @@ function AppNavbar({ profile, onLogout }) {
   }, [])
 
   const linkClass = ({ isActive }) =>
-    `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+    `rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors ${
       isActive ? "bg-[#f5d24c] text-white" : "text-slate-600 hover:bg-slate-100"
     }`
 
@@ -104,7 +108,7 @@ function AppNavbar({ profile, onLogout }) {
         <Logo />
 
         {/* Desktop */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 xl:flex">
           {APP_LINKS.map((link) => (
             <NavLink key={link.to} to={link.to} className={linkClass}>
               {link.label}
@@ -118,7 +122,22 @@ function AppNavbar({ profile, onLogout }) {
         </nav>
 
         <div className="flex items-center gap-2">
+          {profile && <HeartsChip hearts={hearts} />}
           {profile && <XPChip profile={profile} />}
+          {profile && !isPremium && (
+            <Link
+              to="/upgrade"
+              className="hidden rounded-full bg-gradient-to-r from-amber-300 to-[#f5d24c] px-3 py-1.5 text-xs font-extrabold text-amber-950 shadow-sm ring-1 ring-amber-300 transition hover:brightness-105 sm:flex"
+              title="Desbloqueie corações infinitos, skins e relatórios avançados"
+            >
+              ✦ Seja PRO
+            </Link>
+          )}
+          {profile && isPremium && (
+            <Link to="/upgrade" className="hidden sm:inline-flex" title="Gerenciar assinatura PRO">
+              <ProBadge />
+            </Link>
+          )}
           {profile && (
             <Link
               to="/profile"
@@ -139,7 +158,7 @@ function AppNavbar({ profile, onLogout }) {
           {/* Mobile: menu */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="btn-ghost !px-2.5 lg:hidden"
+            className="btn-ghost !px-2.5 xl:hidden"
             aria-label="Abrir menu"
           >
             {menuOpen ? "✕" : "☰"}
@@ -156,16 +175,48 @@ function AppNavbar({ profile, onLogout }) {
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 p-4">
             <div className="mb-2 flex items-center justify-between rounded-xl bg-slate-50 p-3">
               <div>
-                <p className="text-sm font-bold text-slate-900">{profile?.name}</p>
+                <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                  {profile?.name}
+                  {isPremium && <ProBadge />}
+                </p>
                 <p className="text-xs text-slate-500">
                   Nível {profile?.progress.level} · ⚡ {profile?.xp} XP · 🔥 {profile?.streak}{" "}
                   {profile?.streak === 1 ? "dia" : "dias"}
                 </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <HeartsChip hearts={hearts} />
+                  {hearts && !hearts.unlimited && (
+                    <span className="text-[11px] text-slate-400">
+                      {hearts.hearts === 0
+                        ? "Sem corações — assine para continuar"
+                        : "Cada erro consome 1 coração"}
+                    </span>
+                  )}
+                </div>
               </div>
               <Link to="/profile" onClick={closeMenu} className="btn-secondary !py-1.5 text-xs">
                 Perfil
               </Link>
             </div>
+            <NavLink
+              to="/upgrade"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `flex items-center justify-between gap-3 rounded-xl px-3 py-3 text-sm font-semibold ${
+                  isActive
+                    ? "bg-amber-100 text-amber-900"
+                    : "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-900 hover:from-amber-100"
+                }`
+              }
+            >
+              <span className="flex items-center gap-3">
+                <span>✦</span>
+                {isPremium ? "Meu plano PRO" : "Seja PRO — Fora da Casca"}
+              </span>
+              <span className="text-xs font-bold text-amber-700">
+                {isPremium ? "gerenciar" : "ver planos"}
+              </span>
+            </NavLink>
             {APP_LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -225,7 +276,9 @@ function Footer() {
             <li><Link to="/dashboard" className="hover:text-[#f5d24c]">Dashboard</Link></li>
             <li><Link to="/subjects" className="hover:text-[#f5d24c]">Disciplinas</Link></li>
             <li><Link to="/trails" className="hover:text-[#f5d24c]">Trilhas</Link></li>
+            <li><Link to="/social" className="hover:text-[#f5d24c]">Comunidade</Link></li>
             <li><Link to="/ranking" className="hover:text-[#f5d24c]">Ranking</Link></li>
+            <li><Link to="/upgrade" className="hover:text-[#f5d24c]">Planos</Link></li>
           </ul>
         </div>
 

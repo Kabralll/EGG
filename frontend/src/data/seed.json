@@ -1,1 +1,3887 @@
-{"subjects":[{"name":"Matemática","icon":"📐","color":"#6366f1","topics":[{"name":"Porcentagem","questions":[{"key":"porc1","statement":"Em uma loja, uma roupa que custava R$ 200,00 recebeu desconto de 15%. Qual é o valor final da peça?","options":["R$ 170,00","R$ 185,00","R$ 160,00","R$ 150,00"],"correct":0,"explanation":"15% de 200 = 0,15 × 200 = 30. Logo, 200 − 30 = R$ 170,00. Em descontos, calcule a porcentagem e subtraia do valor original.","difficulty":"facil","grade":"9º ano"},{"key":"porc2","statement":"Um produto custava R$ 250,00, teve aumento de 20% e, depois, desconto de 20% sobre o novo valor. Qual é o preço final?","options":["R$ 240,00","R$ 250,00","R$ 230,00","R$ 200,00"],"correct":0,"explanation":"Aumento: 250 × 1,20 = 300. Desconto: 300 × 0,80 = 240. Os percentuais NÃO se anulam porque são aplicados sobre bases diferentes.","difficulty":"media","grade":"9º ano"},{"key":"porc3","statement":"Em uma turma de 40 alunos, 60% são meninas. Quantos meninos há na turma?","options":["16","24","15","10"],"correct":0,"explanation":"Se 60% são meninas, 40% são meninos. 40% de 40 = 0,40 × 40 = 16 alunos.","difficulty":"media","grade":"8º ano"}]},{"name":"Equações","questions":[{"key":"eq1","statement":"Resolva a equação: x + 7 = 15","options":["x = 8","x = 22","x = 7","x = 15"],"correct":0,"explanation":"Isolando x: x = 15 − 7 = 8.","difficulty":"facil","grade":"7º ano"},{"key":"eq2","statement":"Resolva a equação: 3x − 5 = 16","options":["x = 7","x = 5","x = 21","x = 11"],"correct":0,"explanation":"3x = 16 + 5 → 3x = 21 → x = 21 ÷ 3 = 7. Confira: 3(7) − 5 = 16. ✓","difficulty":"media","grade":"8º ano"},{"key":"eq3","statement":"Resolva a equação: 2(x − 3) = 4x + 2","options":["x = −4","x = 4","x = −8","x = 8"],"correct":0,"explanation":"2x − 6 = 4x + 2 → −6 − 2 = 4x − 2x → −8 = 2x → x = −4. Confira: 2(−4 − 3) = −14 e 4(−4) + 2 = −14. ✓","difficulty":"dificil","grade":"9º ano"}]},{"name":"Funções","questions":[{"key":"fun1","statement":"Qual é o valor de f(3) na função f(x) = 2x + 5?","options":["11","8","10","13"],"correct":0,"explanation":"Substitua x por 3: f(3) = 2(3) + 5 = 6 + 5 = 11.","difficulty":"facil","grade":"1º EM"},{"key":"fun2","statement":"Na função afim f(x) = 3x − 4, qual é o coeficiente angular (taxa de variação)?","options":["3","−4","4","7"],"correct":0,"explanation":"Na forma f(x) = ax + b, o coeficiente angular é a. Aqui a = 3: para cada unidade que x aumenta, f(x) aumenta em 3.","difficulty":"media","grade":"1º EM"},{"key":"fun3","statement":"Qual é o zero da função f(x) = 4x − 12?","options":["x = 3","x = −3","x = 4","x = 12"],"correct":0,"explanation":"O zero é onde f(x) = 0: 4x − 12 = 0 → 4x = 12 → x = 3. É o ponto em que a reta corta o eixo x.","difficulty":"media","grade":"1º EM"},{"key":"fun4","statement":"A função f(x) = −2x + 7 é:","options":["decrescente, pois o coeficiente angular é negativo","crescente, pois o coeficiente angular é positivo","constante, pois o coeficiente linear é positivo","não definida"],"correct":0,"explanation":"Com a = −2 < 0, a reta desce da esquerda para a direita: a função é decrescente.","difficulty":"media","grade":"1º EM"},{"key":"fun5","statement":"Qual é o coeficiente angular da reta que passa pelos pontos (0, 2) e (2, 6)?","options":["2","4","0,5","−2"],"correct":0,"explanation":"Taxa de variação: (6 − 2) / (2 − 0) = 4 / 2 = 2. Para cada 1 em x, y aumenta em 2.","difficulty":"dificil","grade":"1º EM"},{"key":"fun6","statement":"Para qual valor de x as funções f(x) = 2x + 3 e g(x) = 5x − 6 se interceptam?","options":["x = 3","x = 1","x = −3","x = 9"],"correct":0,"explanation":"Na interseção f(x) = g(x): 2x + 3 = 5x − 6 → 9 = 3x → x = 3. Nesse ponto ambas valem y = 9.","difficulty":"dificil","grade":"2º EM"}]},{"name":"Geometria","questions":[{"key":"geo1","statement":"Qual é a área de um retângulo com base de 8 cm e altura de 5 cm?","options":["40 cm²","26 cm²","13 cm²","45 cm²"],"correct":0,"explanation":"Área do retângulo = base × altura = 8 × 5 = 40 cm².","difficulty":"facil","grade":"6º ano"},{"key":"geo2","statement":"Qual é o perímetro de um triângulo equilátero com lado de 10 cm?","options":["30 cm","100 cm","20 cm","40 cm"],"correct":0,"explanation":"No triângulo equilátero os três lados são iguais: perímetro = 10 + 10 + 10 = 30 cm.","difficulty":"facil","grade":"7º ano"},{"key":"geo3","statement":"Qual é o volume de um cilindro de raio 2 cm e altura 5 cm? (use π ≈ 3,14)","options":["62,8 cm³","31,4 cm³","62,8 cm²","125,6 cm³"],"correct":0,"explanation":"V = π × r² × h = 3,14 × 2² × 5 = 3,14 × 4 × 5 = 62,8 cm³ (a unidade de volume é cúbica).","difficulty":"dificil","grade":"9º ano"}]}]},{"name":"Língua Portuguesa","icon":"✍️","color":"#ec4899","topics":[{"name":"Interpretação","questions":[{"key":"int1","statement":"Na frase «O vento sussurrava suavemente entre as árvores», a palavra «sussurrava» sugere que o vento:","options":["produzia um som suave","estava completamente parado","derrubava as árvores","trazia tempestade"],"correct":0,"explanation":"«Sussurrar» significa murmurar em voz baixa. A expressão indica um vento leve e silencioso — é uma pessoaificação.","difficulty":"facil","grade":"6º ano"},{"key":"int2","statement":"Um texto afirma: «Apesar do grande esforço da equipe, o resultado não foi alcançado». Esse trecho indica que:","options":["houve contraste entre o esforço e o resultado negativo","a equipe não se esforçou","o resultado foi positivo","o esforço era desnecessário"],"correct":0,"explanation":"O conectivo «apesar de» introduz uma ideia de oposição: esforço (positivo) × resultado (negativo).","difficulty":"media","grade":"7º ano"}]},{"name":"Gramática","questions":[{"key":"gra1","statement":"Qual é a classificação da oração «Choveu muito ontem»?","options":["Oração sem sujeito (verbo impessoal)","Sujeito simples: «ontem»","Sujeito simples: «muito»","Sujeito oculto: «ele»"],"correct":0,"explanation":"O verbo «chover» é impessoal: não admite sujeito, pois a chuva não é um agente que realiza a ação. «Muito» é complemento verbal (advérbio).","difficulty":"media","grade":"7º ano"},{"key":"gra2","statement":"Em «Os alunos terminaram a prova cedo», o verbo «terminaram» está no:","options":["pretérito perfeito do indicativo","pretérito imperfeito do indicativo","futuro do presente do indicativo","presente do indicativo"],"correct":0,"explanation":"«Terminaram» indica ação concluída no passado (terminar → terminei, terminaste, terminou...). É pretérito perfeito.","difficulty":"facil","grade":"6º ano"},{"key":"gra3","statement":"Em «Ele correu rapidamente», a palavra «rapidamente» é:","options":["advérbio","adjetivo","substantivo","conjunção"],"correct":0,"explanation":"«Rapidamente» modifica o verbo «correu» indicando modo — é um advérbio (termina em -mente).","difficulty":"facil","grade":"6º ano"}]},{"name":"Literatura","questions":[{"key":"lit1","statement":"Qual é uma característica principal do Romanticismo brasileiro?","options":["Valorização dos sentimentos, do eu e do nacionalismo","Objetividade científica e crítica social","Linguagem coloquial e cotidiana","Ruptura total com a métrica e a rima"],"correct":0,"explanation":"O Romantismo (séc. XIX) exalta sentimentos, individualidade, nacionalismo e a figura do herói — em contraste ao Arcadismo clássico.","difficulty":"media","grade":"9º ano"},{"key":"lit2","statement":"Quem escreveu o romance «Vidas Secas»?","options":["Graciliano Ramos","Machado de Assis","Clarice Lispector","Jorge Amado"],"correct":0,"explanation":"«Vidas Secas» (1938), de Graciliano Ramos, retrata a seca e a vida de uma família de retirantes no Nordeste.","difficulty":"facil","grade":"9º ano"},{"key":"lit3","statement":"Orações coordenadas sindéticas são unidas por meio de:","options":["conjunções (e, mas, ou, porque...)","vírgulas apenas","pronomes relativos (que, qual...)","preposições (em, de, com...)"],"correct":0,"explanation":"«Sindética» = unidas por conjunção. Quando unidas sem conjunção (apenas vírgula), são assindéticas.","difficulty":"media","grade":"8º ano"}]}]},{"name":"História","icon":"🏛️","color":"#f59e0b","topics":[{"name":"Brasil Colônia","questions":[{"key":"hco1","statement":"Qual foi o principal produto da economia açucareira no Brasil Colônia?","options":["Açúcar","Café","Ouro","Algodão"],"correct":0,"explanation":"Nos séculos XVI e XVII, o engenho de açúcar (Nordeste) foi a base da economia, com trabalho escravizado e comércio com a Europa.","difficulty":"facil","grade":"8º ano"},{"key":"hco2","statement":"O sistema de trabalho escravista no Brasil Colônia baseava-se principalmente em:","options":["mão de obra africana escravizada","trabalho assalariado de europeus","mão de obra indígena livre e assalariada","mecanização das plantações"],"correct":0,"explanation":"Cerca de 4 milhões de africanos foram trazidos forçadamente ao Brasil. O tráfico se intensificou com o açúcar e depois com o ouro e o café.","difficulty":"media","grade":"8º ano"},{"key":"hco3","statement":"As Bandeiras, no século XVII, tinham como principal objetivo:","options":["explorar o interior em busca de riquezas e pessoas escravizadas","colonizar o litoral nordestino","comercializar açúcar com a Holanda","defender as fronteiras contra os espanhóis"],"correct":0,"explanation":"Os bandeirantes adentravam o sertão atrás de metais, pedras preciosas e capturas de indígenas, expandindo as fronteiras do Brasil.","difficulty":"media","grade":"9º ano"}]},{"name":"Brasil Império","questions":[{"key":"him1","statement":"Em que ano a Independência do Brasil foi proclamada?","options":["1822","1500","1889","1888"],"correct":0,"explanation":"Dom Pedro I proclamou a Independência em 7 de setembro de 1822, às margens do rio Ipiranga, em São Paulo.","difficulty":"facil","grade":"7º ano"},{"key":"him2","statement":"Quem proclamou a República no Brasil em 15 de novembro de 1889?","options":["Marechal Deodoro da Fonseca","Getúlio Vargas","Dom Pedro II","Floriano Peixoto"],"correct":0,"explanation":"O marechal Deodoro da Fonseca liderou o golpe militar que depôs Dom Pedro II e instaurou a República.","difficulty":"facil","grade":"8º ano"},{"key":"him3","statement":"A Lei Áurea, que encerrou a escravidão no Brasil, foi assinada em:","options":["1888","1889","1822","1850"],"correct":0,"explanation":"A princesa Isabel assinou a Lei Áurea em 13 de maio de 1888. Em 1889 veio a República.","difficulty":"media","grade":"8º ano"}]},{"name":"República","questions":[{"key":"hre1","statement":"A Primeira República no Brasil também é conhecida como:","options":["República Velha","República Nova","Estado Novo","Era Vargas"],"correct":0,"explanation":"A República Velha (1889–1930) foi marcada pela política do café com leite, pelo voto de cabresto e pela oligarquia paulista e mineira.","difficulty":"media","grade":"9º ano"},{"key":"hre2","statement":"A Revolução de 1930 tirou do poder o presidente:","options":["Washington Luís","Getúlio Vargas","Júlio Prestes","Hermes da Fonseca"],"correct":0,"explanation":"Washington Luís, último presidente da República Velha, foi depôs pela Revolução de 1930, que levou Getúlio Vargas ao poder.","difficulty":"media","grade":"9º ano"},{"key":"hre3","statement":"O Estado Novo, regime autoritário de Getúlio Vargas, foi instaurado em:","options":["1937","1930","1942","1945"],"correct":0,"explanation":"Em 1937 Vargas deu golpe de Estado, criou a Constituição de 1937 e fechou o Congresso — durou até 1945.","difficulty":"dificil","grade":"9º ano"}]}]},{"name":"Geografia","icon":"🌍","color":"#10b981","topics":[{"name":"População","questions":[{"key":"gpo1","statement":"O Brasil é o país mais populoso de qual continente?","options":["América do Sul","América do Norte","África","Ásia"],"correct":0,"explanation":"Com cerca de 215 milhões de habitantes, o Brasil é o 7º país mais populoso do mundo e o maior da América do Sul.","difficulty":"facil","grade":"6º ano"},{"key":"gpo2","statement":"A urbanização acelerada e desordenada nas grandes cidades brasileiras gerou principalmente:","options":["crescimento de favelas e déficit de infraestrutura","aumento da produção agrícola","redução da população urbana","eliminação da poluição urbana"],"correct":0,"explanation":"O êxito rural e a falta de planejamento produziram periferias sem saneamento, transporte e serviços — a chamada urbanização precária.","difficulty":"media","grade":"7º ano"}]},{"name":"Globalização","questions":[{"key":"glo1","statement":"A globalização econômica caracteriza-se por:","options":["intensificação dos fluxos de capital, bens e informações entre países","isolamento comercial das nações","fim das empresas multinacionais","autossuficiência de cada país"],"correct":0,"explanation":"Globalização = interdependência econômica mundial: comércio internacional, corporações multinacionais e circulação financeira instantânea.","difficulty":"media","grade":"9º ano"},{"key":"glo2","statement":"Quais países integram o Mercosul?","options":["Argentina, Brasil, Paraguai e Uruguai","Brasil, Chile, Peru e Bolívia","Argentina, Brasil, Chile e Venezuela","Brasil, Uruguai, Equador e Peru"],"correct":0,"explanation":"O Mercosul (1991) tem como membros plenos Argentina, Brasil, Paraguai e Uruguai (a Venezuela está suspensa).","difficulty":"media","grade":"8º ano"}]},{"name":"Geopolítica","questions":[{"key":"gge1","statement":"A Guerra Fria (1947–1991) foi o confronto ideológico entre:","options":["Estados Unidos e União Soviética","França e Inglaterra","Alemanha e Itália","Japão e China"],"correct":0,"explanation":"EUA (capitalismo) × URSS (socialismo): disputa nuclear, corrida espacial e guerras por procuração, sem confronto direto.","difficulty":"media","grade":"9º ano"}]}]},{"name":"Física","icon":"⚛️","color":"#0ea5e9","topics":[{"name":"Mecânica","questions":[{"key":"fme1","statement":"Qual é a unidade de força no Sistema Internacional de Unidades?","options":["Newton","Joule","Watt","Pascal"],"correct":0,"explanation":"A força é medida em newtons (N): 1 N acelera 1 kg com 1 m/s².","difficulty":"facil","grade":"8º ano"},{"key":"fme2","statement":"Um carro percorre 150 km em 3 horas. Qual é sua velocidade média?","options":["50 km/h","450 km/h","30 km/h","75 km/h"],"correct":0,"explanation":"v = Δs / Δt = 150 km ÷ 3 h = 50 km/h.","difficulty":"facil","grade":"8º ano"},{"key":"fme3","statement":"Segundo a 2ª lei de Newton, se a força resultante sobre um corpo dobrar, mantendo a massa constante, a aceleração:","options":["dobra","permanece igual","cai pela metade","quadruplica"],"correct":0,"explanation":"F = m · a → a = F / m. Com m constante, dobrar F dobra a proporcionalidade.","difficulty":"media","grade":"9º ano"}]},{"name":"Energia","questions":[{"key":"fen1","statement":"A energia potencial de um objeto elevado está relacionada a:","options":["sua altura e sua massa","seu volume apenas","sua temperatura","sua cor"],"correct":0,"explanation":"Ep = m · g · h — depende da massa e da altura em relação ao nível de referência.","difficulty":"facil","grade":"9º ano"},{"key":"fen2","statement":"Qual instrumento mede a potência elétrica?","options":["Wattímetro","Amperímetro","Voltímetro","Ohmímetro"],"correct":0,"explanation":"O wattímetro mede potência (W). Amperímetro mede corrente, voltímetro tensão, ohmímetro resistência.","difficulty":"media","grade":"9º ano"},{"key":"fen3","statement":"Uma lâmpada de 60 W fica ligada por 2 horas. Quanta energia ela consome?","options":["0,12 kWh","1,2 kWh","120 kWh","0,06 kWh"],"correct":0,"explanation":"E = P × t = 0,060 kW × 2 h = 0,12 kWh.","difficulty":"dificil","grade":"1º EM"}]},{"name":"Eletricidade","questions":[{"key":"fel1","statement":"Em um circuito elétrico série, a corrente elétrica é:","options":["o mesmo em todos os pontos","maior junto às lâmpadas","zero no interruptor fechado","diferente em cada componente"],"correct":0,"explanation":"Em série não há caminhos alternativos: a mesma corrente percorre todos os componentes.","difficulty":"media","grade":"9º ano"},{"key":"fel2","statement":"A resistência elétrica é medida em:","options":["Ohm","Ampere","Volt","Tesla"],"correct":0,"explanation":"Unidade: ohm (Ω), em homenagem a Georg Ohm. Lei de Ohm: V = R · I.","difficulty":"facil","grade":"9º ano"}]}]},{"name":"Química","icon":"🧪","color":"#8b5cf6","topics":[{"name":"Estequiometria","questions":[{"key":"qes1","statement":"Quantos gramas há em 2 mol de água (H₂O)?  (H = 1, O = 16)","options":["36 g","18 g","20 g","34 g"],"correct":0,"explanation":"Massa molar da água = 2(1) + 16 = 18 g/mol. Para 2 mol: 2 × 18 = 36 g.","difficulty":"media","grade":"1º EM"},{"key":"qes2","statement":"Qual é a fórmula do cloreto de sódio?","options":["NaCl","NaCl₂","Na₂Cl","NaO"],"correct":0,"explanation":"O sódio (Na⁺) e o cloro (Cl⁻) formam NaCl — cloreto de sódio, o sal de cozinha.","difficulty":"facil","grade":"8º ano"}]},{"name":"Soluções","questions":[{"key":"qsol1","statement":"Uma solução com pH igual a 3 é:","options":["ácida","neutra","alcalina (básica)","saturada"],"correct":0,"explanation":"pH < 7 é ácido, pH = 7 neutro, pH > 7 básico. O pH 3 é fortemente ácido.","difficulty":"facil","grade":"9º ano"},{"key":"qsol2","statement":"A molaridade de uma solução é expressa em:","options":["mol/L","g/L apenas","mL/mol","kg/s"],"correct":0,"explanation":"Molaridade (M) = mol do soluto / volume da solução em litros (mol/L).","difficulty":"media","grade":"2º EM"}]},{"name":"Química Orgânica","questions":[{"key":"qor1","statement":"Os hidrocarbonetos são compostos formados apenas por:","options":["carbono e hidrogênio","carbono e oxigênio","hidrogênio e nitrogênio","carbono, hidrogênio e oxigênio"],"correct":0,"explanation":"Hidrocarbonetos = só C e H (metano CH₄, etano C₂H₆...). Se há O, são compostos orgânico-oxigenados.","difficulty":"media","grade":"3º EM"}]}]},{"name":"Biologia","icon":"🧬","color":"#ef4444","topics":[{"name":"Genética","questions":[{"key":"bge1","statement":"Em um cruzamento entre indivíduos heterozigotos (Aa × Aa), qual a probabilidade de o descendente ser homozigoto recessivo?","options":["25%","50%","75%","100%"],"correct":0,"explanation":"Quadro de Punnett: AA, Aa, Aa, aa → 1 de 4 (25%) é aa, homozigoto recessivo.","difficulty":"media","grade":"9º ano"},{"key":"bge2","statement":"O material genético humano está armazenado em:","options":["DNA","RNA","proteínas","lipídios"],"correct":0,"explanation":"O DNA (ácido desoxirribonucleico) guarda as informações hereditárias nos cromossomos do núcleo celular.","difficulty":"facil","grade":"8º ano"},{"key":"bge3","statement":"As características transmitidas de pais para filhos são chamadas de:","options":["hereditárias (genéticas)","adquiridas","metabólicas","ecológicas"],"correct":0,"explanation":"Heredidade é a passagem de genes (DNA) via gametas — por isso filhos se assemelham aos pais.","difficulty":"facil","grade":"8º ano"}]},{"name":"Ecologia","questions":[{"key":"bec1","statement":"Os produtores em um ecossistema são:","options":["seres autótrofos, como as plantas","seres decompositores","carnívoros de topo","herbívoros"],"correct":0,"explanation":"Produtores fazem fotossíntese e geram matéria orgânica — base das cadeias alimentares.","difficulty":"facil","grade":"7º ano"},{"key":"bec2","statement":"A decomposição da matéria orgânica morta por fungos e bactérias é realizada por:","options":["decompositores","produtores","consumidores primários","predadores"],"correct":0,"explanation":"Decompositores recyclam nutrientes devolvendo-os ao solo — essenciais para o ciclo dos elementos.","difficulty":"facil","grade":"7º ano"},{"key":"bec3","statement":"O aumento dos níveis de CO₂ na atmosfera está principalmente relacionado a:","options":["a queima de combustíveis fósseis","a fotossíntese das florestas","a reciclagem do lixo por bactérias","o crescimento da população de herbívoros"],"correct":0,"explanation":"Queima de petróleo, carvão e gás libera CO₂ estocado há milhões de anos — principal causa do efeito estufa antrópico.","difficulty":"dificil","grade":"9º ano"}]},{"name":"Citologia","questions":[{"key":"bci1","statement":"A estrutura responsável pela produção de energia celular (ATP) é:","options":["mitocôndria","ribossomo","lisossomo","centríolo"],"correct":0,"explanation":"A mitocôndria realiza a respiração celular, convertendo glicose em ATP — a «usina de energia» da célula.","difficulty":"facil","grade":"8º ano"},{"key":"bci2","statement":"O núcleo celular contém:","options":["DNA organizado em cromossomos","apenas enzimas digestivas","a membrana plasmática","o citoplasma"],"correct":0,"explanation":"O núcleo guarda o material genético (DNA + histonas = cromossomos) e controla as atividades celulares.","difficulty":"media","grade":"8º ano"}]}]}],"achievements":[{"code":"first_question","name":"Primeiro Passo","description":"Responda sua primeira questão","icon":"🥚","metric":"QUESTIONS_ANSWERED","threshold":1},{"code":"questions_10","name":"Em ritmo de estudo","description":"Responda 10 questões","icon":"📚","metric":"QUESTIONS_ANSWERED","threshold":10},{"code":"questions_50","name":"Colecionador","description":"Responda 50 questões","icon":"📖","metric":"QUESTIONS_ANSWERED","threshold":50},{"code":"questions_100","name":"Centenário","description":"Responda 100 questões","icon":"🎓","metric":"QUESTIONS_ANSWERED","threshold":100},{"code":"correct_10","name":"Cem por cento de... dez","description":"Acerte 10 questões","icon":"✅","metric":"CORRECT_ANSWERED","threshold":10},{"code":"correct_50","name":"Estudante dedicado","description":"Acerte 50 questões","icon":"⭐","metric":"CORRECT_ANSWERED","threshold":50},{"code":"correct_100","name":"Mestre dos acertos","description":"Acerte 100 questões","icon":"🌟","metric":"CORRECT_ANSWERED","threshold":100},{"code":"xp_500","name":"Meio milhar","description":"Acumule 500 XP","icon":"💰","metric":"XP","threshold":500},{"code":"xp_1000","name":"Mil de XP","description":"Acumule 1.000 XP","icon":"💎","metric":"XP","threshold":1000},{"code":"xp_5000","name":"Império de XP","description":"Acumule 5.000 XP","icon":"👑","metric":"XP","threshold":5000},{"code":"streak_3","name":"Três dias seguidos","description":"Estude por 3 dias consecutivos","icon":"🔥","metric":"STREAK","threshold":3},{"code":"streak_7","name":"Semana de estudos","description":"Estude por 7 dias consecutivos","icon":"🔥","metric":"STREAK","threshold":7},{"code":"trail_1","name":"Primeira trilha","description":"Conclua uma trilha completa","icon":"🛤️","metric":"TRAILS_COMPLETED","threshold":1},{"code":"trail_3","name":"Explorador","description":"Conclua 3 trilhas","icon":"🗺️","metric":"TRAILS_COMPLETED","threshold":3},{"code":"challenge_5","name":"Constância","description":"Conclua 5 desafios diários","icon":"📅","metric":"DAILY_CHALLENGES","threshold":5},{"code":"level_5","name":"Nível 5","description":"Alcance o nível 5","icon":"🏅","metric":"LEVEL","threshold":5}],"trails":[{"title":"Função Afim","description":"Domine a reta: conceito, coeficientes, comportamento e interseções. Da base do Ensino Médio até questões de prova.","icon":"📈","subject":"Matemática","steps":[{"title":"Etapa 1 — Conceitos básicos","questions":["fun1","fun2"]},{"title":"Etapa 2 — Comportamento das retas","questions":["fun4","fun5"]},{"title":"Etapa 3 — Zeros e interceptações","questions":["fun3","fun6"]}]},{"title":"Porcentagem e Equações","description":"Do desconto do dia a dia às equações de grau superior: a base para provas e o ENEM.","icon":"🧮","subject":"Matemática","steps":[{"title":"Etapa 1 — Porcentagem no dia a dia","questions":["porc1","porc3"]},{"title":"Etapa 2 — Aumentos e descontos sucessivos","questions":["porc2"]},{"title":"Etapa 3 — Equações lineares","questions":["eq1","eq2"]},{"title":"Etapa 4 — Desafio final","questions":["eq3"]}]},{"title":"Do Brasil Colônia à República","description":"Uma jornada pela formação do Brasil: economia colonial, Império e a chegada da República.","icon":"👑","subject":"História","steps":[{"title":"Etapa 1 — Brasil Colônia","questions":["hco1","hco2","hco3"]},{"title":"Etapa 2 — Brasil Império","questions":["him1","him2","him3"]},{"title":"Etapa 3 — A República","questions":["hre1","hre2","hre3"]}]},{"title":"Mecânica e Energia","description":"Força, movimento e energia: os fundamentos da Física com questões de nível ENEM.","icon":"🚀","subject":"Física","steps":[{"title":"Etapa 1 — Força e movimento","questions":["fme1","fme2","fme3"]},{"title":"Etapa 2 — Energia","questions":["fen1","fen2","fen3"]},{"title":"Etapa 3 — Eletricidade","questions":["fel1","fel2"]}]},{"title":"Vida: Célula, Ecologia e Genética","description":"Dos processos vitais à herança genética: complete os três pilares da Biologia escolar.","icon":"🌱","subject":"Biologia","steps":[{"title":"Etapa 1 — Citologia","questions":["bci1","bci2"]},{"title":"Etapa 2 — Ecologia","questions":["bec1","bec2","bec3"]},{"title":"Etapa 3 — Genética","questions":["bge1","bge2","bge3"]}]}]}
+{
+  "subjects": [
+    {
+      "name": "Matemática",
+      "icon": "📐",
+      "color": "#6366f1",
+      "topics": [
+        {
+          "name": "Porcentagem",
+          "questions": [
+            {
+              "key": "porc1",
+              "statement": "Em uma loja, uma roupa que custava R$ 200,00 recebeu desconto de 15%. Qual é o valor final da peça?",
+              "options": [
+                "R$ 170,00",
+                "R$ 185,00",
+                "R$ 160,00",
+                "R$ 150,00"
+              ],
+              "correct": 0,
+              "explanation": "15% de 200 = 0,15 × 200 = 30. Logo, 200 − 30 = R$ 170,00. Em descontos, calcule a porcentagem e subtraia do valor original.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "porc2",
+              "statement": "Um produto custava R$ 250,00, teve aumento de 20% e, depois, desconto de 20% sobre o novo valor. Qual é o preço final?",
+              "options": [
+                "R$ 240,00",
+                "R$ 250,00",
+                "R$ 230,00",
+                "R$ 200,00"
+              ],
+              "correct": 0,
+              "explanation": "Aumento: 250 × 1,20 = 300. Desconto: 300 × 0,80 = 240. Os percentuais NÃO se anulam porque são aplicados sobre bases diferentes.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "porc3",
+              "statement": "Em uma turma de 40 alunos, 60% são meninas. Quantos meninos há na turma?",
+              "options": [
+                "16",
+                "24",
+                "15",
+                "10"
+              ],
+              "correct": 0,
+              "explanation": "Se 60% são meninas, 40% são meninos. 40% de 40 = 0,40 × 40 = 16 alunos.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Equações",
+          "questions": [
+            {
+              "key": "eq1",
+              "statement": "Resolva a equação: x + 7 = 15",
+              "options": [
+                "x = 8",
+                "x = 22",
+                "x = 7",
+                "x = 15"
+              ],
+              "correct": 0,
+              "explanation": "Isolando x: x = 15 − 7 = 8.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "eq2",
+              "statement": "Resolva a equação: 3x − 5 = 16",
+              "options": [
+                "x = 7",
+                "x = 5",
+                "x = 21",
+                "x = 11"
+              ],
+              "correct": 0,
+              "explanation": "3x = 16 + 5 → 3x = 21 → x = 21 ÷ 3 = 7. Confira: 3(7) − 5 = 16. ✓",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "eq3",
+              "statement": "Resolva a equação: 2(x − 3) = 4x + 2",
+              "options": [
+                "x = −4",
+                "x = 4",
+                "x = −8",
+                "x = 8"
+              ],
+              "correct": 0,
+              "explanation": "2x − 6 = 4x + 2 → −6 − 2 = 4x − 2x → −8 = 2x → x = −4. Confira: 2(−4 − 3) = −14 e 4(−4) + 2 = −14. ✓",
+              "difficulty": "dificil",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Funções",
+          "questions": [
+            {
+              "key": "fun1",
+              "statement": "Qual é o valor de f(3) na função f(x) = 2x + 5?",
+              "options": [
+                "11",
+                "8",
+                "10",
+                "13"
+              ],
+              "correct": 0,
+              "explanation": "Substitua x por 3: f(3) = 2(3) + 5 = 6 + 5 = 11.",
+              "difficulty": "facil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fun2",
+              "statement": "Na função afim f(x) = 3x − 4, qual é o coeficiente angular (taxa de variação)?",
+              "options": [
+                "3",
+                "−4",
+                "4",
+                "7"
+              ],
+              "correct": 0,
+              "explanation": "Na forma f(x) = ax + b, o coeficiente angular é a. Aqui a = 3: para cada unidade que x aumenta, f(x) aumenta em 3.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fun3",
+              "statement": "Qual é o zero da função f(x) = 4x − 12?",
+              "options": [
+                "x = 3",
+                "x = −3",
+                "x = 4",
+                "x = 12"
+              ],
+              "correct": 0,
+              "explanation": "O zero é onde f(x) = 0: 4x − 12 = 0 → 4x = 12 → x = 3. É o ponto em que a reta corta o eixo x.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fun4",
+              "statement": "A função f(x) = −2x + 7 é:",
+              "options": [
+                "decrescente, pois o coeficiente angular é negativo",
+                "crescente, pois o coeficiente angular é positivo",
+                "constante, pois o coeficiente linear é positivo",
+                "não definida"
+              ],
+              "correct": 0,
+              "explanation": "Com a = −2 < 0, a reta desce da esquerda para a direita: a função é decrescente.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fun5",
+              "statement": "Qual é o coeficiente angular da reta que passa pelos pontos (0, 2) e (2, 6)?",
+              "options": [
+                "2",
+                "4",
+                "0,5",
+                "−2"
+              ],
+              "correct": 0,
+              "explanation": "Taxa de variação: (6 − 2) / (2 − 0) = 4 / 2 = 2. Para cada 1 em x, y aumenta em 2.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fun6",
+              "statement": "Para qual valor de x as funções f(x) = 2x + 3 e g(x) = 5x − 6 se interceptam?",
+              "options": [
+                "x = 3",
+                "x = 1",
+                "x = −3",
+                "x = 9"
+              ],
+              "correct": 0,
+              "explanation": "Na interseção f(x) = g(x): 2x + 3 = 5x − 6 → 9 = 3x → x = 3. Nesse ponto ambas valem y = 9.",
+              "difficulty": "dificil",
+              "grade": "2º EM"
+            }
+          ]
+        },
+        {
+          "name": "Geometria",
+          "questions": [
+            {
+              "key": "geo1",
+              "statement": "Qual é a área de um retângulo com base de 8 cm e altura de 5 cm?",
+              "options": [
+                "40 cm²",
+                "26 cm²",
+                "13 cm²",
+                "45 cm²"
+              ],
+              "correct": 0,
+              "explanation": "Área do retângulo = base × altura = 8 × 5 = 40 cm².",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "geo2",
+              "statement": "Qual é o perímetro de um triângulo equilátero com lado de 10 cm?",
+              "options": [
+                "30 cm",
+                "100 cm",
+                "20 cm",
+                "40 cm"
+              ],
+              "correct": 0,
+              "explanation": "No triângulo equilátero os três lados são iguais: perímetro = 10 + 10 + 10 = 30 cm.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo3",
+              "statement": "Qual é o volume de um cilindro de raio 2 cm e altura 5 cm? (use π ≈ 3,14)",
+              "options": [
+                "62,8 cm³",
+                "31,4 cm³",
+                "62,8 cm²",
+                "125,6 cm³"
+              ],
+              "correct": 0,
+              "explanation": "V = π × r² × h = 3,14 × 2² × 5 = 3,14 × 4 × 5 = 62,8 cm³ (a unidade de volume é cúbica).",
+              "difficulty": "dificil",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Progressões",
+          "questions": [
+            {
+              "key": "mat_prog1",
+              "statement": "Em uma progressão aritmética, o primeiro termo é 3 e a razão é 5. Qual é o décimo termo?",
+              "options": [
+                "48",
+                "53",
+                "45",
+                "50"
+              ],
+              "correct": 0,
+              "explanation": "a10 = a1 + 9r = 3 + 9 × 5 = 3 + 45 = 48.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_prog2",
+              "statement": "Qual é a soma dos 10 primeiros termos da PA (2, 5, 8, 11, ...)?",
+              "options": [
+                "155",
+                "145",
+                "150",
+                "160"
+              ],
+              "correct": 0,
+              "explanation": "a10 = 2 + 9 × 3 = 29. S10 = (a1 + a10) × 10 / 2 = (2 + 29) × 5 = 155.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_prog3",
+              "statement": "Na progressão geométrica de primeiro termo 2 e razão 3, qual é o quinto termo?",
+              "options": [
+                "162",
+                "54",
+                "486",
+                "81"
+              ],
+              "correct": 0,
+              "explanation": "a5 = a1 × q^4 = 2 × 3^4 = 2 × 81 = 162.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_prog4",
+              "statement": "Qual é a soma da PG infinita (8, 4, 2, 1, ...)?",
+              "options": [
+                "16",
+                "12",
+                "20",
+                "8"
+              ],
+              "correct": 0,
+              "explanation": "S = a1 / (1 − q) = 8 / (1 − 0,5) = 8 / 0,5 = 16.",
+              "difficulty": "dificil",
+              "grade": "2º EM"
+            },
+            {
+              "key": "mat_prog5",
+              "statement": "Uma bolsa de estudos paga R$ 100 no primeiro mês, R$ 150 no segundo, R$ 200 no terceiro e assim por diante. Quanto ela paga no sexto mês?",
+              "options": [
+                "R$ 350",
+                "R$ 300",
+                "R$ 400",
+                "R$ 250"
+              ],
+              "correct": 0,
+              "explanation": "Os pagamentos formam uma PA com a1 = 100 e r = 50. a6 = 100 + 5 × 50 = R$ 350.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "mat_prog6",
+              "statement": "Inserindo três meios aritméticos entre 2 e 18, qual é a razão da PA formada?",
+              "options": [
+                "4",
+                "3",
+                "5",
+                "2"
+              ],
+              "correct": 0,
+              "explanation": "Com 3 meios, a PA tem 5 termos: a5 = a1 + 4r → 18 = 2 + 4r → r = 4.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_prog7",
+              "statement": "Qual é a soma dos 6 primeiros termos da PG (1, 2, 4, 8, ...)?",
+              "options": [
+                "63",
+                "64",
+                "31",
+                "127"
+              ],
+              "correct": 0,
+              "explanation": "S6 = a1 × (q^6 − 1) / (q − 1) = 1 × (64 − 1) / (2 − 1) = 63.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Probabilidade e Estatística",
+          "questions": [
+            {
+              "key": "mat_prob1",
+              "statement": "Ao lançar um dado comum de seis faces, qual é a probabilidade de sair um número par?",
+              "options": [
+                "1/2",
+                "1/3",
+                "2/3",
+                "1/6"
+              ],
+              "correct": 0,
+              "explanation": "Os números pares são 2, 4 e 6: 3 casos favoráveis em 6 possíveis. 3/6 = 1/2.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "mat_prob2",
+              "statement": "Ao lançar duas moedas honestas, qual é a probabilidade de sair cara nas duas?",
+              "options": [
+                "1/4",
+                "1/2",
+                "3/4",
+                "1/8"
+              ],
+              "correct": 0,
+              "explanation": "Os lançamentos são independentes: 1/2 × 1/2 = 1/4.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "mat_prob3",
+              "statement": "Uma urna tem 3 bolas vermelhas e 2 bolas azuis. Qual é a probabilidade de retirar uma bola vermelha?",
+              "options": [
+                "3/5",
+                "2/5",
+                "1/2",
+                "3/2"
+              ],
+              "correct": 0,
+              "explanation": "São 3 bolas favoráveis em 5 no total: 3/5.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "mat_prob4",
+              "statement": "Qual é a média aritmética dos números 4, 6, 8 e 10?",
+              "options": [
+                "7",
+                "6",
+                "8",
+                "9"
+              ],
+              "correct": 0,
+              "explanation": "Média = (4 + 6 + 8 + 10) / 4 = 28 / 4 = 7.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "mat_prob5",
+              "statement": "Qual é a mediana do conjunto 3, 7, 2, 9, 5?",
+              "options": [
+                "5",
+                "7",
+                "3",
+                "6"
+              ],
+              "correct": 0,
+              "explanation": "Ordenando: 2, 3, 5, 7, 9. O valor central é 5.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "mat_prob6",
+              "statement": "Qual é a moda do conjunto 2, 3, 3, 4, 5, 3?",
+              "options": [
+                "3",
+                "2",
+                "4",
+                "5"
+              ],
+              "correct": 0,
+              "explanation": "A moda é o valor que mais aparece. O número 3 aparece três vezes.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "mat_prob7",
+              "statement": "Se a probabilidade de chover em um dia é de 30%, qual é a probabilidade de NÃO chover?",
+              "options": [
+                "70%",
+                "30%",
+                "50%",
+                "60%"
+              ],
+              "correct": 0,
+              "explanation": "Os eventos são complementares: 100% − 30% = 70%.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Trigonometria",
+          "questions": [
+            {
+              "key": "mat_trig1",
+              "statement": "Qual é o valor de sen 30°?",
+              "options": [
+                "1/2",
+                "√3/2",
+                "√2/2",
+                "1"
+              ],
+              "correct": 0,
+              "explanation": "Ângulos notáveis: sen 30° = 1/2.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_trig2",
+              "statement": "Qual é o valor de cos 60°?",
+              "options": [
+                "1/2",
+                "√3/2",
+                "√2/2",
+                "0"
+              ],
+              "correct": 0,
+              "explanation": "Ângulos notáveis: cos 60° = 1/2.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_trig3",
+              "statement": "Qual é o valor de tg 45°?",
+              "options": [
+                "1",
+                "0",
+                "√3",
+                "√3/3"
+              ],
+              "correct": 0,
+              "explanation": "Ângulos notáveis: tg 45° = sen 45° / cos 45° = 1.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_trig4",
+              "statement": "Em um triângulo retângulo, o cateto oposto a um ângulo mede 3 e a hipotenusa mede 6. Qual é esse ângulo?",
+              "options": [
+                "30°",
+                "45°",
+                "60°",
+                "90°"
+              ],
+              "correct": 0,
+              "explanation": "sen θ = cateto oposto / hipotenusa = 3/6 = 1/2 → θ = 30°.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "mat_trig5",
+              "statement": "Um triângulo retângulo tem catetos de 3 cm e 4 cm. Qual é a medida da hipotenusa?",
+              "options": [
+                "5 cm",
+                "6 cm",
+                "7 cm",
+                "12 cm"
+              ],
+              "correct": 0,
+              "explanation": "Pelo teorema de Pitágoras: h² = 3² + 4² = 9 + 16 = 25 → h = 5 cm.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "mat_trig6",
+              "statement": "Em um triângulo retângulo, o cateto adjacente a um ângulo mede 5 e a hipotenusa mede 10. Qual é esse ângulo?",
+              "options": [
+                "60°",
+                "30°",
+                "45°",
+                "90°"
+              ],
+              "correct": 0,
+              "explanation": "cos θ = cateto adjacente / hipotenusa = 5/10 = 1/2 → θ = 60°.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Língua Portuguesa",
+      "icon": "✍️",
+      "color": "#ec4899",
+      "topics": [
+        {
+          "name": "Interpretação",
+          "questions": [
+            {
+              "key": "int1",
+              "statement": "Na frase «O vento sussurrava suavemente entre as árvores», a palavra «sussurrava» sugere que o vento:",
+              "options": [
+                "produzia um som suave",
+                "estava completamente parado",
+                "derrubava as árvores",
+                "trazia tempestade"
+              ],
+              "correct": 0,
+              "explanation": "«Sussurrar» significa murmurar em voz baixa. A expressão indica um vento leve e silencioso — é uma pessoaificação.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "int2",
+              "statement": "Um texto afirma: «Apesar do grande esforço da equipe, o resultado não foi alcançado». Esse trecho indica que:",
+              "options": [
+                "houve contraste entre o esforço e o resultado negativo",
+                "a equipe não se esforçou",
+                "o resultado foi positivo",
+                "o esforço era desnecessário"
+              ],
+              "correct": 0,
+              "explanation": "O conectivo «apesar de» introduz uma ideia de oposição: esforço (positivo) × resultado (negativo).",
+              "difficulty": "media",
+              "grade": "7º ano"
+            }
+          ]
+        },
+        {
+          "name": "Gramática",
+          "questions": [
+            {
+              "key": "gra1",
+              "statement": "Qual é a classificação da oração «Choveu muito ontem»?",
+              "options": [
+                "Oração sem sujeito (verbo impessoal)",
+                "Sujeito simples: «ontem»",
+                "Sujeito simples: «muito»",
+                "Sujeito oculto: «ele»"
+              ],
+              "correct": 0,
+              "explanation": "O verbo «chover» é impessoal: não admite sujeito, pois a chuva não é um agente que realiza a ação. «Muito» é complemento verbal (advérbio).",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "gra2",
+              "statement": "Em «Os alunos terminaram a prova cedo», o verbo «terminaram» está no:",
+              "options": [
+                "pretérito perfeito do indicativo",
+                "pretérito imperfeito do indicativo",
+                "futuro do presente do indicativo",
+                "presente do indicativo"
+              ],
+              "correct": 0,
+              "explanation": "«Terminaram» indica ação concluída no passado (terminar → terminei, terminaste, terminou...). É pretérito perfeito.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "gra3",
+              "statement": "Em «Ele correu rapidamente», a palavra «rapidamente» é:",
+              "options": [
+                "advérbio",
+                "adjetivo",
+                "substantivo",
+                "conjunção"
+              ],
+              "correct": 0,
+              "explanation": "«Rapidamente» modifica o verbo «correu» indicando modo — é um advérbio (termina em -mente).",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            }
+          ]
+        },
+        {
+          "name": "Literatura",
+          "questions": [
+            {
+              "key": "lit1",
+              "statement": "Qual é uma característica principal do Romanticismo brasileiro?",
+              "options": [
+                "Valorização dos sentimentos, do eu e do nacionalismo",
+                "Objetividade científica e crítica social",
+                "Linguagem coloquial e cotidiana",
+                "Ruptura total com a métrica e a rima"
+              ],
+              "correct": 0,
+              "explanation": "O Romantismo (séc. XIX) exalta sentimentos, individualidade, nacionalismo e a figura do herói — em contraste ao Arcadismo clássico.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "lit2",
+              "statement": "Quem escreveu o romance «Vidas Secas»?",
+              "options": [
+                "Graciliano Ramos",
+                "Machado de Assis",
+                "Clarice Lispector",
+                "Jorge Amado"
+              ],
+              "correct": 0,
+              "explanation": "«Vidas Secas» (1938), de Graciliano Ramos, retrata a seca e a vida de uma família de retirantes no Nordeste.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "lit3",
+              "statement": "Orações coordenadas sindéticas são unidas por meio de:",
+              "options": [
+                "conjunções (e, mas, ou, porque...)",
+                "vírgulas apenas",
+                "pronomes relativos (que, qual...)",
+                "preposições (em, de, com...)"
+              ],
+              "correct": 0,
+              "explanation": "«Sindética» = unidas por conjunção. Quando unidas sem conjunção (apenas vírgula), são assindéticas.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Figuras de Linguagem",
+          "questions": [
+            {
+              "key": "pt_fig1",
+              "statement": "Na frase “Seus olhos são duas estrelas”, qual figura de linguagem foi usada?",
+              "options": [
+                "Metáfora",
+                "Comparação",
+                "Metonímia",
+                "Ironia"
+              ],
+              "correct": 0,
+              "explanation": "Há uma comparação implícita, sem conectivo comparativo: os olhos são identificados com estrelas. Isso é metáfora.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_fig2",
+              "statement": "Em “O vento sussurrava segredos”, há qual figura de linguagem?",
+              "options": [
+                "Personificação",
+                "Hipérbole",
+                "Metonímia",
+                "Antítese"
+              ],
+              "correct": 0,
+              "explanation": "Uma ação humana (sussurrar) é atribuída ao vento, ser inanimado. Trata-se de personificação ou prosopopeia.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_fig3",
+              "statement": "Na expressão “Chorei rios de lágrimas”, ocorre:",
+              "options": [
+                "Hipérbole",
+                "Eufemismo",
+                "Comparação",
+                "Metonímia"
+              ],
+              "correct": 0,
+              "explanation": "Há um exagero intencional para dar intensidade à ideia. Isso é hipérbole.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_fig4",
+              "statement": "Em “Ele é forte como um touro”, a figura de linguagem é:",
+              "options": [
+                "Comparação",
+                "Metáfora",
+                "Ironia",
+                "Hipérbole"
+              ],
+              "correct": 0,
+              "explanation": "O conectivo “como” evidencia uma comparação explícita entre ele e um touro.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "pt_fig5",
+              "statement": "Na frase “Que belo dia para perder o ônibus!”, há:",
+              "options": [
+                "Ironia",
+                "Hipérbole",
+                "Personificação",
+                "Metonímia"
+              ],
+              "correct": 0,
+              "explanation": "A frase diz o contrário do que se quer comunicar, criando efeito irônico.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "pt_fig6",
+              "statement": "Em “Tomou um copo inteiro”, a figura de linguagem é:",
+              "options": [
+                "Metonímia",
+                "Metáfora",
+                "Antítese",
+                "Hipérbole"
+              ],
+              "correct": 0,
+              "explanation": "O continente (copo) é usado no lugar do conteúdo (bebida). É uma metonímia.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Coesão e Coerência",
+          "questions": [
+            {
+              "key": "pt_coes1",
+              "statement": "Em “Ana chegou cedo. Ela queria revisar o conteúdo”, o pronome “ela” tem a função de:",
+              "options": [
+                "Retomar Ana, garantindo coesão referencial",
+                "Criar uma antítese",
+                "Indicar uma causa",
+                "Introduzir uma conclusão"
+              ],
+              "correct": 0,
+              "explanation": "O pronome retoma o termo anterior (Ana), evitando repetição. É uma retomada anafórica.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_coes2",
+              "statement": "O conectivo “porém” estabelece, entre as ideias, uma relação de:",
+              "options": [
+                "Oposição",
+                "Adição",
+                "Conclusão",
+                "Explicação"
+              ],
+              "correct": 0,
+              "explanation": "“Porém” é um conectivo adversativo, pois marca contraste ou oposição.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_coes3",
+              "statement": "Em “Estudou muito, portanto foi aprovado”, o conectivo “portanto” indica:",
+              "options": [
+                "Conclusão",
+                "Oposição",
+                "Alternância",
+                "Finalidade"
+              ],
+              "correct": 0,
+              "explanation": "“Portanto” introduz a consequência lógica do que foi dito antes: uma conclusão.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_coes4",
+              "statement": "O conectivo “além disso” é usado para:",
+              "options": [
+                "Acrescentar uma informação",
+                "Contrapor ideias",
+                "Marcar tempo",
+                "Indicar condição"
+              ],
+              "correct": 0,
+              "explanation": "“Além disso” é aditivo: soma uma nova informação à anterior.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "pt_coes5",
+              "statement": "Qual frase apresenta incoerência lógica?",
+              "options": [
+                "Estudou muito, portanto foi reprovado.",
+                "Estudou muito, por isso foi aprovado.",
+                "Não estudou, portanto foi reprovado.",
+                "Estudou pouco, mas conseguiu passar."
+              ],
+              "correct": 0,
+              "explanation": "O “portanto” indica conclusão. Ser reprovado não decorre logicamente de ter estudado muito; haveria uma quebra de sentido.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "pt_coes6",
+              "statement": "Em “Faltou à aula porque estava doente”, o conectivo “porque” introduz uma:",
+              "options": [
+                "Causa",
+                "Conclusão",
+                "Oposição",
+                "Comparação"
+              ],
+              "correct": 0,
+              "explanation": "“Porque” apresenta o motivo da falta: uma relação de causa.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            }
+          ]
+        },
+        {
+          "name": "Gêneros Textuais",
+          "questions": [
+            {
+              "key": "pt_gen1",
+              "statement": "Qual é o propósito principal de uma notícia?",
+              "options": [
+                "Informar sobre um fato recente",
+                "Instruir uma tarefa",
+                "Narrar uma história fictícia",
+                "Defender uma opinião"
+              ],
+              "correct": 0,
+              "explanation": "A notícia tem função predominantemente informativa: relata um fato de interesse público.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "pt_gen2",
+              "statement": "Uma receita culinária pertence ao gênero:",
+              "options": [
+                "Instrucional",
+                "Narrativo",
+                "Argumentativo",
+                "Descritivo"
+              ],
+              "correct": 0,
+              "explanation": "A receita orienta passo a passo como preparar algo, por isso é um texto instrucional.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "pt_gen3",
+              "statement": "Um conto tem como característica principal:",
+              "options": [
+                "Narrar uma história, geralmente curta",
+                "Listar dados estatísticos",
+                "Defender um ponto de vista",
+                "Explicar um procedimento"
+              ],
+              "correct": 0,
+              "explanation": "O conto é um gênero narrativo curto, com personagens, tempo, espaço e conflito.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "pt_gen4",
+              "statement": "O artigo de opinião tem como objetivo:",
+              "options": [
+                "Defender um ponto de vista com argumentos",
+                "Relatar um fato sem opinião",
+                "Ensinar uma receita",
+                "Narrar uma aventura"
+              ],
+              "correct": 0,
+              "explanation": "O artigo de opinião é argumentativo: apresenta uma tese e a sustenta com argumentos.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "pt_gen5",
+              "statement": "Um bilhete é um gênero caracterizado por:",
+              "options": [
+                "Comunicação breve e direta",
+                "Longa argumentação",
+                "Narrativa com vários personagens",
+                "Descrição científica"
+              ],
+              "correct": 0,
+              "explanation": "O bilhete serve para uma comunicação rápida entre pessoas, com linguagem simples e direta.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "pt_gen6",
+              "statement": "A reportagem se diferencia da notícia por:",
+              "options": [
+                "Aprofundar o tema com contexto e entrevistas",
+                "Ser sempre ficcional",
+                "Ter apenas imagens",
+                "Não ter autor"
+              ],
+              "correct": 0,
+              "explanation": "A reportagem amplia a notícia: investiga, contextualiza e ouve diferentes fontes.",
+              "difficulty": "dificil",
+              "grade": "9º ano"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "História",
+      "icon": "🏛️",
+      "color": "#f59e0b",
+      "topics": [
+        {
+          "name": "Brasil Colônia",
+          "questions": [
+            {
+              "key": "hco1",
+              "statement": "Qual foi o principal produto da economia açucareira no Brasil Colônia?",
+              "options": [
+                "Açúcar",
+                "Café",
+                "Ouro",
+                "Algodão"
+              ],
+              "correct": 0,
+              "explanation": "Nos séculos XVI e XVII, o engenho de açúcar (Nordeste) foi a base da economia, com trabalho escravizado e comércio com a Europa.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "hco2",
+              "statement": "O sistema de trabalho escravista no Brasil Colônia baseava-se principalmente em:",
+              "options": [
+                "mão de obra africana escravizada",
+                "trabalho assalariado de europeus",
+                "mão de obra indígena livre e assalariada",
+                "mecanização das plantações"
+              ],
+              "correct": 0,
+              "explanation": "Cerca de 4 milhões de africanos foram trazidos forçadamente ao Brasil. O tráfico se intensificou com o açúcar e depois com o ouro e o café.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "hco3",
+              "statement": "As Bandeiras, no século XVII, tinham como principal objetivo:",
+              "options": [
+                "explorar o interior em busca de riquezas e pessoas escravizadas",
+                "colonizar o litoral nordestino",
+                "comercializar açúcar com a Holanda",
+                "defender as fronteiras contra os espanhóis"
+              ],
+              "correct": 0,
+              "explanation": "Os bandeirantes adentravam o sertão atrás de metais, pedras preciosas e capturas de indígenas, expandindo as fronteiras do Brasil.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Brasil Império",
+          "questions": [
+            {
+              "key": "him1",
+              "statement": "Em que ano a Independência do Brasil foi proclamada?",
+              "options": [
+                "1822",
+                "1500",
+                "1889",
+                "1888"
+              ],
+              "correct": 0,
+              "explanation": "Dom Pedro I proclamou a Independência em 7 de setembro de 1822, às margens do rio Ipiranga, em São Paulo.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "him2",
+              "statement": "Quem proclamou a República no Brasil em 15 de novembro de 1889?",
+              "options": [
+                "Marechal Deodoro da Fonseca",
+                "Getúlio Vargas",
+                "Dom Pedro II",
+                "Floriano Peixoto"
+              ],
+              "correct": 0,
+              "explanation": "O marechal Deodoro da Fonseca liderou o golpe militar que depôs Dom Pedro II e instaurou a República.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "him3",
+              "statement": "A Lei Áurea, que encerrou a escravidão no Brasil, foi assinada em:",
+              "options": [
+                "1888",
+                "1889",
+                "1822",
+                "1850"
+              ],
+              "correct": 0,
+              "explanation": "A princesa Isabel assinou a Lei Áurea em 13 de maio de 1888. Em 1889 veio a República.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "República",
+          "questions": [
+            {
+              "key": "hre1",
+              "statement": "A Primeira República no Brasil também é conhecida como:",
+              "options": [
+                "República Velha",
+                "República Nova",
+                "Estado Novo",
+                "Era Vargas"
+              ],
+              "correct": 0,
+              "explanation": "A República Velha (1889–1930) foi marcada pela política do café com leite, pelo voto de cabresto e pela oligarquia paulista e mineira.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "hre2",
+              "statement": "A Revolução de 1930 tirou do poder o presidente:",
+              "options": [
+                "Washington Luís",
+                "Getúlio Vargas",
+                "Júlio Prestes",
+                "Hermes da Fonseca"
+              ],
+              "correct": 0,
+              "explanation": "Washington Luís, último presidente da República Velha, foi depôs pela Revolução de 1930, que levou Getúlio Vargas ao poder.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "hre3",
+              "statement": "O Estado Novo, regime autoritário de Getúlio Vargas, foi instaurado em:",
+              "options": [
+                "1937",
+                "1930",
+                "1942",
+                "1945"
+              ],
+              "correct": 0,
+              "explanation": "Em 1937 Vargas deu golpe de Estado, criou a Constituição de 1937 e fechou o Congresso — durou até 1945.",
+              "difficulty": "dificil",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Antiguidade",
+          "questions": [
+            {
+              "key": "hist_ant1",
+              "statement": "A democracia ateniense era limitada porque:",
+              "options": [
+                "Excluía mulheres, escravizados e estrangeiros",
+                "Permitia votar apenas aos reis",
+                "Era controlada por outros países",
+                "Não tinha assembleia"
+              ],
+              "correct": 0,
+              "explanation": "Só os cidadãos livres e nascidos em Atenas participavam da vida política. Mulheres, escravizados e estrangeiros ficavam de fora.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_ant2",
+              "statement": "O Código de Hamurabi foi criado na:",
+              "options": [
+                "Mesopotâmia",
+                "Grécia",
+                "Roma",
+                "Egito"
+              ],
+              "correct": 0,
+              "explanation": "Hamurabi foi rei da Babilônia, na Mesopotâmia, e organizou um dos primeiros conjuntos de leis escritas.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "hist_ant3",
+              "statement": "Na República Romana, os plebeus lutavam principalmente por:",
+              "options": [
+                "Direitos políticos e acesso à terra",
+                "Poder religioso",
+                "Domínio sobre os gregos",
+                "Fim do comércio"
+              ],
+              "correct": 0,
+              "explanation": "Plebeus eram a camada popular e conquistaram direitos como tribunos da plebe e acesso a terras.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_ant4",
+              "statement": "A civilização egípcia se desenvolveu às margens do rio:",
+              "options": [
+                "Nilo",
+                "Tigre",
+                "Eufrates",
+                "Amazonas"
+              ],
+              "correct": 0,
+              "explanation": "As cheias do Nilo fertilizavam o solo e possibilitaram a agricultura no Egito.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "hist_ant5",
+              "statement": "As cidades-estado gregas eram chamadas de:",
+              "options": [
+                "Pólis",
+                "Feudos",
+                "Vilas",
+                "Províncias"
+              ],
+              "correct": 0,
+              "explanation": "Cada pólis tinha governo, leis e cultos próprios, como Atenas e Esparta.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "hist_ant6",
+              "statement": "Na Antiguidade, a escravidão era:",
+              "options": [
+                "Uma prática econômica comum em várias sociedades",
+                "Proibida em Roma e na Grécia",
+                "Inexistente no Egito",
+                "Restrita apenas à Mesopotâmia"
+              ],
+              "correct": 0,
+              "explanation": "O trabalho escravo sustentava parte da economia de Roma, Grécia e outras civilizações antigas.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Idade Média e Moderna",
+          "questions": [
+            {
+              "key": "hist_med1",
+              "statement": "No feudalismo, a relação entre senhor e servo baseava-se em:",
+              "options": [
+                "Trabalho e proteção dentro do feudo",
+                "Salário e contrato de trabalho",
+                "Voto e representação política",
+                "Comércio marítimo internacional"
+              ],
+              "correct": 0,
+              "explanation": "O servo trabalhava na terra e entregava parte da produção ao senhor, recebendo proteção e o direito de morar no feudo.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "hist_med2",
+              "statement": "A Igreja Católica teve grande poder na Idade Média porque:",
+              "options": [
+                "Influenciava a política, a cultura e a vida cotidiana",
+                "Controlava apenas o exército",
+                "Era proibida nos feudos",
+                "Não participava da educação"
+              ],
+              "correct": 0,
+              "explanation": "A Igreja era grande proprietária de terras, controlava escolas e influenciava reis e a vida social.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "hist_med3",
+              "statement": "O Renascimento valorizou principalmente:",
+              "options": [
+                "O ser humano e a herança da Antiguidade clássica",
+                "A vida rural e o isolamento",
+                "A autoridade absoluta da Igreja",
+                "A guerra como única forma de conhecimento"
+              ],
+              "correct": 0,
+              "explanation": "O movimento renascentista retomou artistas e pensadores greco-romanos e colocou o ser humano no centro (antropocentrismo).",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_med4",
+              "statement": "A Reforma Protestante teve início com:",
+              "options": [
+                "Martinho Lutero, em 1517",
+                "Napoleão Bonaparte, em 1804",
+                "Carlos Magno, em 800",
+                "Dom Pedro II, em 1840"
+              ],
+              "correct": 0,
+              "explanation": "Lutero publicou as 95 teses em 1517, criticando práticas da Igreja Católica e dando início à Reforma.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_med5",
+              "statement": "As Grandes Navegações foram impulsionadas, entre outros fatores, pela:",
+              "options": [
+                "Busca por novas rotas de comércio e especiarias",
+                "Invenção da internet",
+                "Proibição do comércio europeu",
+                "Descoberta da energia elétrica"
+              ],
+              "correct": 0,
+              "explanation": "Os europeus buscavam chegar às Índias por mar para ampliar o comércio de especiarias e reduzir custos.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "hist_med6",
+              "statement": "No absolutismo, o poder político estava:",
+              "options": [
+                "Concentrado nas mãos do rei",
+                "Dividido entre todos os cidadãos",
+                "Subordinado ao Parlamento",
+                "Nas mãos dos servos"
+              ],
+              "correct": 0,
+              "explanation": "No absolutismo, o monarca centralizava o poder, apoiado na ideia de direito divino.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Guerras Mundiais e Guerra Fria",
+          "questions": [
+            {
+              "key": "hist_guerra1",
+              "statement": "O estopim da Primeira Guerra Mundial foi:",
+              "options": [
+                "O assassinato do arquiduque Francisco Ferdinando",
+                "A invasão da Polônia",
+                "A queda do Muro de Berlim",
+                "A Revolução Russa de 1917"
+              ],
+              "correct": 0,
+              "explanation": "Em 1914, o herdeiro do trono austro-húngaro foi assassinado em Sarajevo, desencadeando a crise que levou à guerra.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_guerra2",
+              "statement": "O Tratado de Versalhes, que encerrou a Primeira Guerra, impôs à Alemanha:",
+              "options": [
+                "Penalidades e restrições que geraram ressentimento",
+                "Benefícios econômicos e territoriais",
+                "O domínio sobre a França",
+                "A liderança da Liga das Nações"
+              ],
+              "correct": 0,
+              "explanation": "A Alemanha foi responsabilizada pela guerra, perdeu territórios e teve de pagar indenizações, o que alimentou revanchismo.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_guerra3",
+              "statement": "A Segunda Guerra Mundial começou na Europa com:",
+              "options": [
+                "A invasão da Polônia pela Alemanha, em 1939",
+                "O ataque a Pearl Harbor, em 1941",
+                "A queda do Muro de Berlim, em 1989",
+                "A Revolução Francesa, em 1789"
+              ],
+              "correct": 0,
+              "explanation": "Em 1º de setembro de 1939, a Alemanha invadiu a Polônia; dois dias depois, França e Reino Unido declararam guerra.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_guerra4",
+              "statement": "O Holocausto foi:",
+              "options": [
+                "O genocídio de judeus e outros grupos pelo regime nazista",
+                "Uma batalha naval da Primeira Guerra",
+                "Um acordo de paz da Guerra Fria",
+                "Uma política de ajuda humanitária"
+              ],
+              "correct": 0,
+              "explanation": "O regime nazista perseguiu e matou milhões de judeus, ciganos, pessoas com deficiência e outros grupos.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "hist_guerra5",
+              "statement": "A Guerra Fria foi um período de tensão entre:",
+              "options": [
+                "Estados Unidos e União Soviética",
+                "Alemanha e França",
+                "Brasil e Argentina",
+                "Japão e China"
+              ],
+              "correct": 0,
+              "explanation": "Após 1945, EUA (capitalismo) e URSS (socialismo) disputaram influência mundial sem confronto militar direto entre si.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "hist_guerra6",
+              "statement": "A queda do Muro de Berlim, em 1989, simbolizou:",
+              "options": [
+                "O fim da divisão da Alemanha e o avanço do fim da Guerra Fria",
+                "O início da Primeira Guerra Mundial",
+                "A independência do Brasil",
+                "A criação da ONU"
+              ],
+              "correct": 0,
+              "explanation": "O muro separava Berlim Ocidental e Oriental desde 1961. Sua queda marcou a reunificação alemã e a crise do bloco soviético.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "hist_guerra7",
+              "statement": "A ONU foi criada em 1945 com o objetivo de:",
+              "options": [
+                "Manter a paz e a segurança internacionais",
+                "Comandar os exércitos europeus",
+                "Criar a bomba atômica",
+                "Substituir todos os governos"
+              ],
+              "correct": 0,
+              "explanation": "A Organização das Nações Unidas foi fundada após a Segunda Guerra para evitar novos conflitos e promover cooperação.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geografia",
+      "icon": "🌍",
+      "color": "#10b981",
+      "topics": [
+        {
+          "name": "População",
+          "questions": [
+            {
+              "key": "gpo1",
+              "statement": "O Brasil é o país mais populoso de qual continente?",
+              "options": [
+                "América do Sul",
+                "América do Norte",
+                "África",
+                "Ásia"
+              ],
+              "correct": 0,
+              "explanation": "Com cerca de 215 milhões de habitantes, o Brasil é o 7º país mais populoso do mundo e o maior da América do Sul.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "gpo2",
+              "statement": "A urbanização acelerada e desordenada nas grandes cidades brasileiras gerou principalmente:",
+              "options": [
+                "crescimento de favelas e déficit de infraestrutura",
+                "aumento da produção agrícola",
+                "redução da população urbana",
+                "eliminação da poluição urbana"
+              ],
+              "correct": 0,
+              "explanation": "O êxito rural e a falta de planejamento produziram periferias sem saneamento, transporte e serviços — a chamada urbanização precária.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            }
+          ]
+        },
+        {
+          "name": "Globalização",
+          "questions": [
+            {
+              "key": "glo1",
+              "statement": "A globalização econômica caracteriza-se por:",
+              "options": [
+                "intensificação dos fluxos de capital, bens e informações entre países",
+                "isolamento comercial das nações",
+                "fim das empresas multinacionais",
+                "autossuficiência de cada país"
+              ],
+              "correct": 0,
+              "explanation": "Globalização = interdependência econômica mundial: comércio internacional, corporações multinacionais e circulação financeira instantânea.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "glo2",
+              "statement": "Quais países integram o Mercosul?",
+              "options": [
+                "Argentina, Brasil, Paraguai e Uruguai",
+                "Brasil, Chile, Peru e Bolívia",
+                "Argentina, Brasil, Chile e Venezuela",
+                "Brasil, Uruguai, Equador e Peru"
+              ],
+              "correct": 0,
+              "explanation": "O Mercosul (1991) tem como membros plenos Argentina, Brasil, Paraguai e Uruguai (a Venezuela está suspensa).",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Geopolítica",
+          "questions": [
+            {
+              "key": "gge1",
+              "statement": "A Guerra Fria (1947–1991) foi o confronto ideológico entre:",
+              "options": [
+                "Estados Unidos e União Soviética",
+                "França e Inglaterra",
+                "Alemanha e Itália",
+                "Japão e China"
+              ],
+              "correct": 0,
+              "explanation": "EUA (capitalismo) × URSS (socialismo): disputa nuclear, corrida espacial e guerras por procuração, sem confronto direto.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Climatologia e Biomas",
+          "questions": [
+            {
+              "key": "geo_clima1",
+              "statement": "O clima predominante na Amazônia é:",
+              "options": [
+                "Equatorial, quente e úmido",
+                "Tropical de altitude, frio e seco",
+                "Semiárido, com chuvas escassas",
+                "Polar, com neve o ano todo"
+              ],
+              "correct": 0,
+              "explanation": "A Amazônia tem altas temperaturas e chuvas abundantes durante todo o ano, típicas do clima equatorial.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo_clima2",
+              "statement": "O Cerrado é um bioma caracterizado por:",
+              "options": [
+                "Savanas com estação seca e chuvosa",
+                "Florestas densas e alagadas",
+                "Vegetação de cactus e pouca chuva",
+                "Campos gelados"
+              ],
+              "correct": 0,
+              "explanation": "O Cerrado é uma savana tropical com árvores retorcidas, arbustos e duas estações bem marcadas.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo_clima3",
+              "statement": "A Caatinga ocorre principalmente em regiões de clima:",
+              "options": [
+                "Semiárido",
+                "Equatorial",
+                "Temperado oceânico",
+                "Polar"
+              ],
+              "correct": 0,
+              "explanation": "A Caatinga é o bioma do sertão nordestino, adaptado à escassez de chuvas e altas temperaturas.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "geo_clima4",
+              "statement": "O efeito estufa é um fenômeno natural que:",
+              "options": [
+                "Retém parte do calor na atmosfera",
+                "Impede a entrada de luz solar",
+                "Esfria a superfície terrestre",
+                "Elimina os gases da atmosfera"
+              ],
+              "correct": 0,
+              "explanation": "Gases como CO2 e metano retêm parte da radiação infravermelha, mantendo a Terra aquecida. O problema é sua intensificação.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "geo_clima5",
+              "statement": "O El Niño está associado ao:",
+              "options": [
+                "Aquecimento anormal das águas do Pacífico",
+                "Resfriamento do Atlântico Norte",
+                "Aumento da camada de ozônio",
+                "Fim das chuvas no mundo"
+              ],
+              "correct": 0,
+              "explanation": "O aquecimento das águas do Pacífico altera ventos e chuvas, afetando o clima em várias regiões.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "geo_clima6",
+              "statement": "A Mata Atlântica é um bioma:",
+              "options": [
+                "Costeiro e muito desmatado desde a colonização",
+                "Exclusivo da região Norte",
+                "Formado por campos secos",
+                "Localizado apenas no Pantanal"
+              ],
+              "correct": 0,
+              "explanation": "A Mata Atlântica acompanha o litoral brasileiro e foi intensamente devastada pela ocupação humana.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "geo_clima7",
+              "statement": "O Pampa é um bioma típico da região:",
+              "options": [
+                "Sul do Brasil",
+                "Nordeste",
+                "Centro-Oeste",
+                "Amazônia"
+              ],
+              "correct": 0,
+              "explanation": "O Pampa ocupa campos do Rio Grande do Sul, com vegetação rasteira e clima subtropical.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            }
+          ]
+        },
+        {
+          "name": "Urbanização",
+          "questions": [
+            {
+              "key": "geo_urb1",
+              "statement": "O êxodo rural é o movimento de:",
+              "options": [
+                "Pessoas do campo para as cidades",
+                "Pessoas da cidade para o campo",
+                "Países ricos para países pobres",
+                "Turistas entre continentes"
+              ],
+              "correct": 0,
+              "explanation": "O êxodo rural ocorre quando a população deixa o campo em busca de emprego, estudo e serviços na cidade.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "geo_urb2",
+              "statement": "Uma metrópole é uma cidade que:",
+              "options": [
+                "Exerce influência sobre uma região e oferece serviços diversificados",
+                "Tem menos de 10 mil habitantes",
+                "Depende apenas da agricultura",
+                "Não possui indústrias"
+              ],
+              "correct": 0,
+              "explanation": "Metrópoles polarizam a economia e os serviços de uma região metropolitana.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "geo_urb3",
+              "statement": "A conurbação acontece quando:",
+              "options": [
+                "Áreas urbanas de cidades vizinhas se encontram",
+                "Um rio seca",
+                "Uma cidade perde habitantes",
+                "O campo invade a cidade"
+              ],
+              "correct": 0,
+              "explanation": "O crescimento urbano faz os limites de cidades vizinhas se unirem, formando uma mancha urbana contínua.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "geo_urb4",
+              "statement": "A periferização é o processo de:",
+              "options": [
+                "Crescimento das áreas periféricas das cidades",
+                "Redução das favelas",
+                "Volta da população ao campo",
+                "Criação de áreas rurais no centro"
+              ],
+              "correct": 0,
+              "explanation": "A população de menor renda ocupa áreas distantes do centro, gerando expansão periférica.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "geo_urb5",
+              "statement": "Um dos principais desafios da mobilidade urbana é:",
+              "options": [
+                "Garantir transporte eficiente e acessível",
+                "Aumentar o número de carros por família",
+                "Eliminar o transporte público",
+                "Construir mais estacionamentos no centro"
+              ],
+              "correct": 0,
+              "explanation": "Grandes cidades precisam conciliar transporte público de qualidade, acessibilidade e redução de congestionamentos.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "geo_urb6",
+              "statement": "Cidades globais se caracterizam por:",
+              "options": [
+                "Concentrar centros de comando da economia mundial",
+                "Ter apenas atividades agrícolas",
+                "Serem sempre as mais populosas",
+                "Não possuir conexões internacionais"
+              ],
+              "correct": 0,
+              "explanation": "Cidades globais como Nova York, Londres e Tóquio concentram finanças, serviços e decisões econômicas.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Hidrografia e Relevo",
+          "questions": [
+            {
+              "key": "geo_hidro1",
+              "statement": "Uma bacia hidrográfica é:",
+              "options": [
+                "A área drenada por um rio principal e seus afluentes",
+                "Um lago artificial",
+                "Uma montanha isolada",
+                "Uma região sem rios"
+              ],
+              "correct": 0,
+              "explanation": "A bacia é o conjunto de terras cujas águas escoam para um rio principal e seus tributários.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo_hidro2",
+              "statement": "Rios de planície costumam ser:",
+              "options": [
+                "Mais largos e navegáveis",
+                "Mais rápidos e encachoeirados",
+                "Sempre subterrâneos",
+                "Inexistentes no Brasil"
+              ],
+              "correct": 0,
+              "explanation": "Em terrenos planos, a água corre mais devagar, o rio se alarga e favorece a navegação.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo_hidro3",
+              "statement": "Um planalto é uma forma de relevo:",
+              "options": [
+                "Elevada e geralmente desgastada pela erosão",
+                "Mais baixa que uma planície",
+                "Formada apenas por vulcões",
+                "Submersa no oceano"
+              ],
+              "correct": 0,
+              "explanation": "Planalto é uma área elevada com superfície relativamente plana, marcada por processos erosivos.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "geo_hidro4",
+              "statement": "O Aquífero Guarani é:",
+              "options": [
+                "Uma grande reserva de água subterrânea",
+                "Um rio que corta o Nordeste",
+                "Uma montanha da Argentina",
+                "Um tipo de solo vulcânico"
+              ],
+              "correct": 0,
+              "explanation": "É um dos maiores aquíferos do mundo, localizado sob partes do Brasil, Argentina, Paraguai e Uruguai.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "geo_hidro5",
+              "statement": "A erosão é o processo de:",
+              "options": [
+                "Desgaste e transporte de rochas e solos",
+                "Formação de chuvas ácidas",
+                "Aumento da temperatura global",
+                "Crescimento das cidades"
+              ],
+              "correct": 0,
+              "explanation": "Água, vento e outros agentes desgastam e transportam materiais do relevo.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "geo_hidro6",
+              "statement": "O rio São Francisco é importante porque:",
+              "options": [
+                "Integra regiões do Brasil e é usado para navegação e irrigação",
+                "Nasce no litoral do Nordeste",
+                "Não atravessa áreas secas",
+                "É o maior rio do mundo"
+              ],
+              "correct": 0,
+              "explanation": "O São Francisco nasce em Minas Gerais, atravessa o Nordeste e é fundamental para navegação, irrigação e geração de energia.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Física",
+      "icon": "⚛️",
+      "color": "#0ea5e9",
+      "topics": [
+        {
+          "name": "Mecânica",
+          "questions": [
+            {
+              "key": "fme1",
+              "statement": "Qual é a unidade de força no Sistema Internacional de Unidades?",
+              "options": [
+                "Newton",
+                "Joule",
+                "Watt",
+                "Pascal"
+              ],
+              "correct": 0,
+              "explanation": "A força é medida em newtons (N): 1 N acelera 1 kg com 1 m/s².",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fme2",
+              "statement": "Um carro percorre 150 km em 3 horas. Qual é sua velocidade média?",
+              "options": [
+                "50 km/h",
+                "450 km/h",
+                "30 km/h",
+                "75 km/h"
+              ],
+              "correct": 0,
+              "explanation": "v = Δs / Δt = 150 km ÷ 3 h = 50 km/h.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fme3",
+              "statement": "Segundo a 2ª lei de Newton, se a força resultante sobre um corpo dobrar, mantendo a massa constante, a aceleração:",
+              "options": [
+                "dobra",
+                "permanece igual",
+                "cai pela metade",
+                "quadruplica"
+              ],
+              "correct": 0,
+              "explanation": "F = m · a → a = F / m. Com m constante, dobrar F dobra a proporcionalidade.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Energia",
+          "questions": [
+            {
+              "key": "fen1",
+              "statement": "A energia potencial de um objeto elevado está relacionada a:",
+              "options": [
+                "sua altura e sua massa",
+                "seu volume apenas",
+                "sua temperatura",
+                "sua cor"
+              ],
+              "correct": 0,
+              "explanation": "Ep = m · g · h — depende da massa e da altura em relação ao nível de referência.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fen2",
+              "statement": "Qual instrumento mede a potência elétrica?",
+              "options": [
+                "Wattímetro",
+                "Amperímetro",
+                "Voltímetro",
+                "Ohmímetro"
+              ],
+              "correct": 0,
+              "explanation": "O wattímetro mede potência (W). Amperímetro mede corrente, voltímetro tensão, ohmímetro resistência.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fen3",
+              "statement": "Uma lâmpada de 60 W fica ligada por 2 horas. Quanta energia ela consome?",
+              "options": [
+                "0,12 kWh",
+                "1,2 kWh",
+                "120 kWh",
+                "0,06 kWh"
+              ],
+              "correct": 0,
+              "explanation": "E = P × t = 0,060 kW × 2 h = 0,12 kWh.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Eletricidade",
+          "questions": [
+            {
+              "key": "fel1",
+              "statement": "Em um circuito elétrico série, a corrente elétrica é:",
+              "options": [
+                "o mesmo em todos os pontos",
+                "maior junto às lâmpadas",
+                "zero no interruptor fechado",
+                "diferente em cada componente"
+              ],
+              "correct": 0,
+              "explanation": "Em série não há caminhos alternativos: a mesma corrente percorre todos os componentes.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fel2",
+              "statement": "A resistência elétrica é medida em:",
+              "options": [
+                "Ohm",
+                "Ampere",
+                "Volt",
+                "Tesla"
+              ],
+              "correct": 0,
+              "explanation": "Unidade: ohm (Ω), em homenagem a Georg Ohm. Lei de Ohm: V = R · I.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Termologia",
+          "questions": [
+            {
+              "key": "fis_term1",
+              "statement": "Calor é:",
+              "options": [
+                "Energia em trânsito devido a uma diferença de temperatura",
+                "Uma medida de temperatura",
+                "Um tipo de massa",
+                "Uma forma de luz"
+              ],
+              "correct": 0,
+              "explanation": "Calor é energia térmica transferida espontaneamente do corpo mais quente para o mais frio.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_term2",
+              "statement": "A temperatura de 0 °C corresponde, em Fahrenheit, a:",
+              "options": [
+                "32 °F",
+                "0 °F",
+                "100 °F",
+                "212 °F"
+              ],
+              "correct": 0,
+              "explanation": "F = (9/5)C + 32 = (9/5) × 0 + 32 = 32 °F.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_term3",
+              "statement": "A dilatação térmica é o:",
+              "options": [
+                "Aumento das dimensões de um corpo com a elevação da temperatura",
+                "Resfriamento espontâneo de um corpo",
+                "Movimento de partículas sem calor",
+                "Congelamento da água em qualquer temperatura"
+              ],
+              "correct": 0,
+              "explanation": "Ao aquecer, as partículas vibram mais e se afastam, aumentando as dimensões do corpo.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_term4",
+              "statement": "A condução térmica ocorre principalmente:",
+              "options": [
+                "Por contato entre corpos, sem transporte de matéria",
+                "Por correntes de ar e água",
+                "Apenas no vácuo",
+                "Pela radiação de ondas sonoras"
+              ],
+              "correct": 0,
+              "explanation": "Na condução, a energia passa de partícula a partícula, sem que haja movimento macroscópico de matéria.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_term5",
+              "statement": "A convecção térmica é típica de:",
+              "options": [
+                "Fluidos, como ar e água",
+                "Sólidos metálicos apenas",
+                "Vácuo absoluto",
+                "Espelhos planos"
+              ],
+              "correct": 0,
+              "explanation": "Na convecção, porções quentes do fluido sobem e as frias descem, formando correntes de convecção.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_term6",
+              "statement": "O calor específico indica:",
+              "options": [
+                "A energia necessária para variar 1 °C de 1 g de uma substância",
+                "A temperatura máxima de um corpo",
+                "A quantidade de massa de um corpo",
+                "A velocidade do som no material"
+              ],
+              "correct": 0,
+              "explanation": "Calor específico mede a resistência de uma substância a mudar de temperatura.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "fis_term7",
+              "statement": "A passagem do estado sólido para o líquido é chamada de:",
+              "options": [
+                "Fusão",
+                "Solidificação",
+                "Evaporação",
+                "Condensação"
+              ],
+              "correct": 0,
+              "explanation": "Fusão é a mudança do estado sólido para o líquido, como o gelo derretendo.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            }
+          ]
+        },
+        {
+          "name": "Óptica e Ondas",
+          "questions": [
+            {
+              "key": "fis_otica1",
+              "statement": "A reflexão da luz ocorre quando:",
+              "options": [
+                "A luz retorna ao meio de origem após atingir uma superfície",
+                "A luz atravessa um meio transparente",
+                "A luz é absorvida por um espelho",
+                "O som é amplificado"
+              ],
+              "correct": 0,
+              "explanation": "Na reflexão, a luz incide em uma superfície e volta ao meio de onde veio.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_otica2",
+              "statement": "A refração é a mudança:",
+              "options": [
+                "De velocidade e direção da luz ao passar de um meio para outro",
+                "De estado físico da água",
+                "De cor de um objeto",
+                "De temperatura de um espelho"
+              ],
+              "correct": 0,
+              "explanation": "Ao mudar de meio, a velocidade da luz se altera e sua trajetória pode desviar.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_otica3",
+              "statement": "A imagem formada por um espelho plano é:",
+              "options": [
+                "Virtual, do mesmo tamanho e simétrica",
+                "Real e invertida",
+                "Sempre maior que o objeto",
+                "Projetada em uma tela"
+              ],
+              "correct": 0,
+              "explanation": "O espelho plano forma imagem virtual, direita, do mesmo tamanho e à mesma distância do objeto.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_otica4",
+              "statement": "O som é uma onda:",
+              "options": [
+                "Mecânica, que precisa de um meio material",
+                "Eletromagnética, que se propaga no vácuo",
+                "Luminosa, que não precisa de meio",
+                "Que só existe em sólidos"
+              ],
+              "correct": 0,
+              "explanation": "O som é vibração mecânica e precisa de um meio (ar, água, sólido) para se propagar.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_otica5",
+              "statement": "A luz é uma onda:",
+              "options": [
+                "Eletromagnética, que se propaga no vácuo",
+                "Mecânica, que precisa de ar",
+                "Sonora, produzida por vibrações",
+                "Que não sofre reflexão"
+              ],
+              "correct": 0,
+              "explanation": "A luz é uma onda eletromagnética e pode se propagar no vácuo, ao contrário do som.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_otica6",
+              "statement": "Se uma onda tem período de 0,5 s, sua frequência é:",
+              "options": [
+                "2 Hz",
+                "0,5 Hz",
+                "5 Hz",
+                "1 Hz"
+              ],
+              "correct": 0,
+              "explanation": "f = 1/T = 1/0,5 = 2 Hz.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_otica7",
+              "statement": "O arco-íris é resultado principalmente da:",
+              "options": [
+                "Dispersão da luz branca nas gotas de água",
+                "Reflexão do som na atmosfera",
+                "Absorção total da luz pelo ar",
+                "Condução de calor no ar"
+              ],
+              "correct": 0,
+              "explanation": "As gotas de água separam a luz branca em suas cores por refração e dispersão.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Cinemática",
+          "questions": [
+            {
+              "key": "fis_cin1",
+              "statement": "A velocidade média é calculada por:",
+              "options": [
+                "ΔS/Δt",
+                "ΔS × Δt",
+                "Δt/ΔS",
+                "ΔS + Δt"
+              ],
+              "correct": 0,
+              "explanation": "Velocidade média é a variação de espaço dividida pela variação de tempo: vm = ΔS/Δt.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_cin2",
+              "statement": "Um carro percorre 100 km em 2 horas. Sua velocidade média é:",
+              "options": [
+                "50 km/h",
+                "100 km/h",
+                "200 km/h",
+                "25 km/h"
+              ],
+              "correct": 0,
+              "explanation": "vm = 100 km / 2 h = 50 km/h.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_cin3",
+              "statement": "No movimento retilíneo uniforme (MRU), a velocidade é:",
+              "options": [
+                "Constante",
+                "Sempre crescente",
+                "Sempre nula",
+                "Igual à aceleração"
+              ],
+              "correct": 0,
+              "explanation": "No MRU, o móvel percorre distâncias iguais em tempos iguais, mantendo velocidade constante.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_cin4",
+              "statement": "A aceleração mede a:",
+              "options": [
+                "Variação da velocidade em relação ao tempo",
+                "Distância percorrida",
+                "Massa do corpo",
+                "Força gravitacional apenas"
+              ],
+              "correct": 0,
+              "explanation": "Aceleração é a taxa de variação da velocidade: a = Δv/Δt.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_cin5",
+              "statement": "Na queda livre, desconsiderando o ar, todos os corpos caem com:",
+              "options": [
+                "A mesma aceleração da gravidade",
+                "Velocidades diferentes conforme a massa",
+                "Aceleração nula",
+                "Velocidade constante"
+              ],
+              "correct": 0,
+              "explanation": "Sem resistência do ar, a aceleração é a mesma (g ≈ 9,8 m/s²), independentemente da massa.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "fis_cin6",
+              "statement": "Uma velocidade de 20 m/s corresponde a:",
+              "options": [
+                "72 km/h",
+                "20 km/h",
+                "36 km/h",
+                "100 km/h"
+              ],
+              "correct": 0,
+              "explanation": "Para converter m/s em km/h, multiplica-se por 3,6: 20 × 3,6 = 72 km/h.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "fis_cin7",
+              "statement": "No movimento uniformemente acelerado, a velocidade em função do tempo é dada por:",
+              "options": [
+                "v = v0 + at",
+                "v = v0 × at",
+                "v = v0 − t",
+                "v = a/t"
+              ],
+              "correct": 0,
+              "explanation": "A velocidade varia linearmente com o tempo: v = v0 + a·t.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Química",
+      "icon": "🧪",
+      "color": "#8b5cf6",
+      "topics": [
+        {
+          "name": "Estequiometria",
+          "questions": [
+            {
+              "key": "qes1",
+              "statement": "Quantos gramas há em 2 mol de água (H₂O)?  (H = 1, O = 16)",
+              "options": [
+                "36 g",
+                "18 g",
+                "20 g",
+                "34 g"
+              ],
+              "correct": 0,
+              "explanation": "Massa molar da água = 2(1) + 16 = 18 g/mol. Para 2 mol: 2 × 18 = 36 g.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "qes2",
+              "statement": "Qual é a fórmula do cloreto de sódio?",
+              "options": [
+                "NaCl",
+                "NaCl₂",
+                "Na₂Cl",
+                "NaO"
+              ],
+              "correct": 0,
+              "explanation": "O sódio (Na⁺) e o cloro (Cl⁻) formam NaCl — cloreto de sódio, o sal de cozinha.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Soluções",
+          "questions": [
+            {
+              "key": "qsol1",
+              "statement": "Uma solução com pH igual a 3 é:",
+              "options": [
+                "ácida",
+                "neutra",
+                "alcalina (básica)",
+                "saturada"
+              ],
+              "correct": 0,
+              "explanation": "pH < 7 é ácido, pH = 7 neutro, pH > 7 básico. O pH 3 é fortemente ácido.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qsol2",
+              "statement": "A molaridade de uma solução é expressa em:",
+              "options": [
+                "mol/L",
+                "g/L apenas",
+                "mL/mol",
+                "kg/s"
+              ],
+              "correct": 0,
+              "explanation": "Molaridade (M) = mol do soluto / volume da solução em litros (mol/L).",
+              "difficulty": "media",
+              "grade": "2º EM"
+            }
+          ]
+        },
+        {
+          "name": "Química Orgânica",
+          "questions": [
+            {
+              "key": "qor1",
+              "statement": "Os hidrocarbonetos são compostos formados apenas por:",
+              "options": [
+                "carbono e hidrogênio",
+                "carbono e oxigênio",
+                "hidrogênio e nitrogênio",
+                "carbono, hidrogênio e oxigênio"
+              ],
+              "correct": 0,
+              "explanation": "Hidrocarbonetos = só C e H (metano CH₄, etano C₂H₆...). Se há O, são compostos orgânico-oxigenados.",
+              "difficulty": "media",
+              "grade": "3º EM"
+            }
+          ]
+        },
+        {
+          "name": "Atomística e Tabela Periódica",
+          "questions": [
+            {
+              "key": "qui_atom1",
+              "statement": "O átomo é formado por:",
+              "options": [
+                "Prótons e nêutrons no núcleo, elétrons na eletrosfera",
+                "Apenas prótons e elétrons no núcleo",
+                "Apenas nêutrons e elétrons no núcleo",
+                "Somente elétrons"
+              ],
+              "correct": 0,
+              "explanation": "O núcleo contém prótons e nêutrons; os elétrons ficam na eletrosfera.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom2",
+              "statement": "O número atômico (Z) de um elemento corresponde ao número de:",
+              "options": [
+                "Prótons",
+                "Nêutrons",
+                "Elétrons na camada mais externa",
+                "Massas"
+              ],
+              "correct": 0,
+              "explanation": "O número atômico é a quantidade de prótons no núcleo e define o elemento químico.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom3",
+              "statement": "Isótopos são átomos que possuem:",
+              "options": [
+                "Mesmo número de prótons e diferentes números de nêutrons",
+                "Mesmo número de nêutrons e diferentes prótons",
+                "Sempre a mesma massa",
+                "Nenhum elétron"
+              ],
+              "correct": 0,
+              "explanation": "Isótopos têm o mesmo Z (mesmo elemento), mas diferente número de massa por causa dos nêutrons.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom4",
+              "statement": "Na tabela periódica, as colunas verticais são chamadas de:",
+              "options": [
+                "Grupos ou famílias",
+                "Períodos",
+                "Séries",
+                "Camadas"
+              ],
+              "correct": 0,
+              "explanation": "As colunas verticais são grupos/famílias; as linhas horizontais são períodos.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom5",
+              "statement": "Uma característica típica dos metais é:",
+              "options": [
+                "Boa condutividade elétrica e térmica",
+                "Baixa condutividade e fragilidade",
+                "Serem sempre gasosos",
+                "Não formarem ligas"
+              ],
+              "correct": 0,
+              "explanation": "Metais conduzem bem calor e eletricidade, são maleáveis e dúcteis.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom6",
+              "statement": "Os gases nobres estão localizados:",
+              "options": [
+                "Na última coluna da tabela periódica",
+                "Na primeira coluna",
+                "No centro da tabela",
+                "Fora da tabela"
+              ],
+              "correct": 0,
+              "explanation": "Os gases nobres formam o grupo 18, com camada de valência completa e baixa reatividade.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_atom7",
+              "statement": "A massa atômica de um elemento é:",
+              "options": [
+                "A média ponderada das massas de seus isótopos",
+                "Sempre igual ao número atômico",
+                "A soma dos elétrons",
+                "O número de nêutrons apenas"
+              ],
+              "correct": 0,
+              "explanation": "A massa atômica considera a abundância de cada isótopo na natureza.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Ligações Químicas",
+          "questions": [
+            {
+              "key": "qui_lig1",
+              "statement": "A ligação iônica ocorre geralmente entre:",
+              "options": [
+                "Metal e ametal, com transferência de elétrons",
+                "Dois metais, com compartilhamento",
+                "Dois gases nobres",
+                "Moléculas de água"
+              ],
+              "correct": 0,
+              "explanation": "O metal cede elétrons e o ametal recebe, formando íons de cargas opostas que se atraem.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_lig2",
+              "statement": "A ligação covalente é caracterizada por:",
+              "options": [
+                "Compartilhamento de elétrons entre átomos",
+                "Transferência definitiva de elétrons",
+                "Atração entre íons",
+                "Mar de elétrons"
+              ],
+              "correct": 0,
+              "explanation": "Na covalência, átomos compartilham pares de elétrons para completar a camada de valência.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_lig3",
+              "statement": "Na ligação metálica, os elétrons:",
+              "options": [
+                "Formam um “mar” de elétrons livres",
+                "São transferidos para o oxigênio",
+                "Ficam presos ao núcleo",
+                "Não existem"
+              ],
+              "correct": 0,
+              "explanation": "Nos metais, os elétrons de valência circulam livremente entre os cátions, explicando a condutividade.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "qui_lig4",
+              "statement": "O cloreto de sódio (NaCl) é um exemplo de composto com ligação:",
+              "options": [
+                "Iônica",
+                "Covalente apolar",
+                "Metálica",
+                "Datativa"
+              ],
+              "correct": 0,
+              "explanation": "O sódio (metal) transfere elétron para o cloro (ametal), formando Na+ e Cl−.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_lig5",
+              "statement": "A água (H2O) é formada por ligações:",
+              "options": [
+                "Covalentes",
+                "Iônicas",
+                "Metálicas",
+                "Iônicas e metálicas"
+              ],
+              "correct": 0,
+              "explanation": "Hidrogênio e oxigênio compartilham elétrons, formando ligações covalentes.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_lig6",
+              "statement": "Soluções iônicas conduzem eletricidade porque possuem:",
+              "options": [
+                "Íons livres em movimento",
+                "Moléculas neutras",
+                "Elétrons no núcleo",
+                "Apenas cátions fixos"
+              ],
+              "correct": 0,
+              "explanation": "Quando dissociados em água, os íons ficam livres para transportar carga elétrica.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Ácidos, Bases e Reações",
+          "questions": [
+            {
+              "key": "qui_acid1",
+              "statement": "Uma solução com pH menor que 7 é:",
+              "options": [
+                "Ácida",
+                "Básica",
+                "Neutra",
+                "Sempre salina"
+              ],
+              "correct": 0,
+              "explanation": "Quanto menor o pH, mais ácida a solução (maior concentração de H+).",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_acid2",
+              "statement": "Uma solução com pH maior que 7 é:",
+              "options": [
+                "Básica",
+                "Ácida",
+                "Neutra",
+                "Sempre gasosa"
+              ],
+              "correct": 0,
+              "explanation": "pH acima de 7 indica meio básico (alcalino), com maior concentração de OH−.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_acid3",
+              "statement": "A reação entre um ácido e uma base produz geralmente:",
+              "options": [
+                "Sal e água",
+                "Apenas gás oxigênio",
+                "Somente ácido",
+                "Somente metal"
+              ],
+              "correct": 0,
+              "explanation": "É uma neutralização: ácido + base → sal + água.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_acid4",
+              "statement": "O HCl é classificado como:",
+              "options": [
+                "Ácido forte",
+                "Base forte",
+                "Sal neutro",
+                "Óxido básico"
+              ],
+              "correct": 0,
+              "explanation": "O ácido clorídrico ioniza praticamente por completo em água, sendo um ácido forte.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "qui_acid5",
+              "statement": "O NaOH é classificado como:",
+              "options": [
+                "Base forte",
+                "Ácido forte",
+                "Sal ácido",
+                "Gás nobre"
+              ],
+              "correct": 0,
+              "explanation": "O hidróxido de sódio se dissocia totalmente em água, liberando OH−.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            },
+            {
+              "key": "qui_acid6",
+              "statement": "A fenolftaleína fica rosa em meio:",
+              "options": [
+                "Básico",
+                "Ácido forte",
+                "Neutro",
+                "Gasoso"
+              ],
+              "correct": 0,
+              "explanation": "A fenolftaleína é incolor em meio ácido e rosa em meio básico.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "qui_acid7",
+              "statement": "Balancear uma equação química significa:",
+              "options": [
+                "Igualar a quantidade de átomos de cada elemento nos dois lados",
+                "Mudar os produtos da reação",
+                "Eliminar os reagentes",
+                "Aumentar a temperatura"
+              ],
+              "correct": 0,
+              "explanation": "O balanceamento respeita a conservação da massa: átomos não são criados nem destruídos.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Biologia",
+      "icon": "🧬",
+      "color": "#ef4444",
+      "topics": [
+        {
+          "name": "Genética",
+          "questions": [
+            {
+              "key": "bge1",
+              "statement": "Em um cruzamento entre indivíduos heterozigotos (Aa × Aa), qual a probabilidade de o descendente ser homozigoto recessivo?",
+              "options": [
+                "25%",
+                "50%",
+                "75%",
+                "100%"
+              ],
+              "correct": 0,
+              "explanation": "Quadro de Punnett: AA, Aa, Aa, aa → 1 de 4 (25%) é aa, homozigoto recessivo.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "bge2",
+              "statement": "O material genético humano está armazenado em:",
+              "options": [
+                "DNA",
+                "RNA",
+                "proteínas",
+                "lipídios"
+              ],
+              "correct": 0,
+              "explanation": "O DNA (ácido desoxirribonucleico) guarda as informações hereditárias nos cromossomos do núcleo celular.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bge3",
+              "statement": "As características transmitidas de pais para filhos são chamadas de:",
+              "options": [
+                "hereditárias (genéticas)",
+                "adquiridas",
+                "metabólicas",
+                "ecológicas"
+              ],
+              "correct": 0,
+              "explanation": "Heredidade é a passagem de genes (DNA) via gametas — por isso filhos se assemelham aos pais.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Ecologia",
+          "questions": [
+            {
+              "key": "bec1",
+              "statement": "Os produtores em um ecossistema são:",
+              "options": [
+                "seres autótrofos, como as plantas",
+                "seres decompositores",
+                "carnívoros de topo",
+                "herbívoros"
+              ],
+              "correct": 0,
+              "explanation": "Produtores fazem fotossíntese e geram matéria orgânica — base das cadeias alimentares.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "bec2",
+              "statement": "A decomposição da matéria orgânica morta por fungos e bactérias é realizada por:",
+              "options": [
+                "decompositores",
+                "produtores",
+                "consumidores primários",
+                "predadores"
+              ],
+              "correct": 0,
+              "explanation": "Decompositores recyclam nutrientes devolvendo-os ao solo — essenciais para o ciclo dos elementos.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "bec3",
+              "statement": "O aumento dos níveis de CO₂ na atmosfera está principalmente relacionado a:",
+              "options": [
+                "a queima de combustíveis fósseis",
+                "a fotossíntese das florestas",
+                "a reciclagem do lixo por bactérias",
+                "o crescimento da população de herbívoros"
+              ],
+              "correct": 0,
+              "explanation": "Queima de petróleo, carvão e gás libera CO₂ estocado há milhões de anos — principal causa do efeito estufa antrópico.",
+              "difficulty": "dificil",
+              "grade": "9º ano"
+            }
+          ]
+        },
+        {
+          "name": "Citologia",
+          "questions": [
+            {
+              "key": "bci1",
+              "statement": "A estrutura responsável pela produção de energia celular (ATP) é:",
+              "options": [
+                "mitocôndria",
+                "ribossomo",
+                "lisossomo",
+                "centríolo"
+              ],
+              "correct": 0,
+              "explanation": "A mitocôndria realiza a respiração celular, convertendo glicose em ATP — a «usina de energia» da célula.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bci2",
+              "statement": "O núcleo celular contém:",
+              "options": [
+                "DNA organizado em cromossomos",
+                "apenas enzimas digestivas",
+                "a membrana plasmática",
+                "o citoplasma"
+              ],
+              "correct": 0,
+              "explanation": "O núcleo guarda o material genético (DNA + histonas = cromossomos) e controla as atividades celulares.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Evolução",
+          "questions": [
+            {
+              "key": "bio_evo1",
+              "statement": "A seleção natural propõe que:",
+              "options": [
+                "Indivíduos mais adaptados ao ambiente têm mais chances de sobreviver e se reproduzir",
+                "Todos os indivíduos nascem iguais",
+                "A evolução ocorre por vontade própria",
+                "O ambiente não influencia a sobrevivência"
+              ],
+              "correct": 0,
+              "explanation": "A seleção natural atua sobre a variabilidade existente: os mais adaptados deixam mais descendentes.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "bio_evo2",
+              "statement": "Charles Darwin é conhecido por:",
+              "options": [
+                "Formular a teoria da evolução por seleção natural",
+                "Descobrir a penicilina",
+                "Criar a tabela periódica",
+                "Descrever a fotossíntese"
+              ],
+              "correct": 0,
+              "explanation": "Darwin apresentou a seleção natural em “A Origem das Espécies”, em 1859.",
+              "difficulty": "facil",
+              "grade": "9º ano"
+            },
+            {
+              "key": "bio_evo3",
+              "statement": "Fósseis são importantes para o estudo da evolução porque:",
+              "options": [
+                "Fornecem evidências de organismos do passado",
+                "Comprovam que nenhuma espécie mudou",
+                "São rochas sem valor científico",
+                "Só existem em laboratório"
+              ],
+              "correct": 0,
+              "explanation": "Fósseis mostram formas de vida antigas e ajudam a reconstruir a história evolutiva.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_evo4",
+              "statement": "Uma adaptação é:",
+              "options": [
+                "Uma característica que aumenta a chance de sobrevivência em um ambiente",
+                "Uma mudança intencional do organismo",
+                "Um órgão sem função",
+                "Uma doença hereditária"
+              ],
+              "correct": 0,
+              "explanation": "Adaptações são características herdáveis moldadas pela seleção natural ao longo de gerações.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "bio_evo5",
+              "statement": "A especiação é o processo de:",
+              "options": [
+                "Formação de novas espécies",
+                "Extinção de todas as espécies",
+                "Reprodução assexuada",
+                "Mudança de hábitat sem evolução"
+              ],
+              "correct": 0,
+              "explanation": "Ocorre quando populações se isolam e acumulam diferenças até não conseguirem mais se reproduzir entre si.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "bio_evo6",
+              "statement": "Estruturas homólogas são aquelas que:",
+              "options": [
+                "Têm a mesma origem embrionária, mesmo com funções diferentes",
+                "Têm a mesma função, mas origens diferentes",
+                "Não têm relação evolutiva",
+                "Existem apenas em plantas"
+              ],
+              "correct": 0,
+              "explanation": "Exemplo: a asa do morcego e o braço humano têm ossos com a mesma origem, indicando ancestral comum.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "bio_evo7",
+              "statement": "O uso indiscriminado de antibióticos favorece:",
+              "options": [
+                "A seleção de bactérias resistentes",
+                "O aumento da imunidade das bactérias",
+                "A extinção imediata das bactérias",
+                "A transformação de bactérias em vírus"
+              ],
+              "correct": 0,
+              "explanation": "As bactérias resistentes sobrevivem e se reproduzem, tornando a população mais resistente ao antibiótico.",
+              "difficulty": "media",
+              "grade": "1º EM"
+            }
+          ]
+        },
+        {
+          "name": "Fisiologia Humana",
+          "questions": [
+            {
+              "key": "bio_fisio1",
+              "statement": "A principal função do coração é:",
+              "options": [
+                "Bombear o sangue para todo o corpo",
+                "Produzir insulina",
+                "Filtrar a urina",
+                "Digerir alimentos"
+              ],
+              "correct": 0,
+              "explanation": "O coração impulsiona o sangue pelas artérias, levando oxigênio e nutrientes aos tecidos.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "bio_fisio2",
+              "statement": "Nos pulmões ocorre:",
+              "options": [
+                "A troca gasosa entre oxigênio e gás carbônico",
+                "A produção de bile",
+                "A filtração do sangue",
+                "A absorção de nutrientes"
+              ],
+              "correct": 0,
+              "explanation": "Nos alvéolos, o oxigênio passa para o sangue e o gás carbônico é eliminado.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_fisio3",
+              "statement": "Os rins são responsáveis por:",
+              "options": [
+                "Filtrar o sangue e produzir urina",
+                "Bombear o sangue",
+                "Produzir hormônios digestivos",
+                "Armazenar oxigênio"
+              ],
+              "correct": 0,
+              "explanation": "Os rins filtram resíduos do sangue e regulam água e sais, formando a urina.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_fisio4",
+              "statement": "O neurônio é a célula responsável por:",
+              "options": [
+                "Conduzir impulsos nervosos",
+                "Transportar oxigênio",
+                "Produzir insulina",
+                "Digerir gorduras"
+              ],
+              "correct": 0,
+              "explanation": "Neurônios recebem, processam e transmitem impulsos elétricos pelo sistema nervoso.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_fisio5",
+              "statement": "A absorção de nutrientes ocorre principalmente no:",
+              "options": [
+                "Intestino delgado",
+                "Estômago",
+                "Pulmão",
+                "Fígado"
+              ],
+              "correct": 0,
+              "explanation": "As vilosidades do intestino delgado aumentam a superfície de absorção de nutrientes.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_fisio6",
+              "statement": "A insulina é produzida pelo:",
+              "options": [
+                "Pâncreas",
+                "Fígado",
+                "Rim",
+                "Coração"
+              ],
+              "correct": 0,
+              "explanation": "A insulina, produzida pelo pâncreas, regula a entrada de glicose nas células.",
+              "difficulty": "media",
+              "grade": "9º ano"
+            },
+            {
+              "key": "bio_fisio7",
+              "statement": "As hemácias são responsáveis por:",
+              "options": [
+                "Transportar oxigênio pelo sangue",
+                "Produzir anticorpos",
+                "Coagular o sangue",
+                "Digerir proteínas"
+              ],
+              "correct": 0,
+              "explanation": "As hemácias contêm hemoglobina, que se liga ao oxigênio nos pulmões e o transporta aos tecidos.",
+              "difficulty": "facil",
+              "grade": "8º ano"
+            }
+          ]
+        },
+        {
+          "name": "Botânica",
+          "questions": [
+            {
+              "key": "bio_bot1",
+              "statement": "A fotossíntese produz:",
+              "options": [
+                "Glicose e oxigênio",
+                "Gás carbônico e água",
+                "Apenas água",
+                "Apenas proteínas"
+              ],
+              "correct": 0,
+              "explanation": "Na fotossíntese, a planta usa luz, água e CO2 para produzir glicose e liberar O2.",
+              "difficulty": "facil",
+              "grade": "7º ano"
+            },
+            {
+              "key": "bio_bot2",
+              "statement": "A clorofila é o pigmento que:",
+              "options": [
+                "Captura a energia da luz para a fotossíntese",
+                "Transporta água pelas raízes",
+                "Protege a planta do frio",
+                "Armazena amido"
+              ],
+              "correct": 0,
+              "explanation": "A clorofila absorve luz, principalmente nas faixas azul e vermelha, e permite a fotossíntese.",
+              "difficulty": "media",
+              "grade": "7º ano"
+            },
+            {
+              "key": "bio_bot3",
+              "statement": "A raiz tem como função principal:",
+              "options": [
+                "Absorver água e nutrientes do solo",
+                "Realizar fotossíntese",
+                "Produzir flores",
+                "Liberar sementes"
+              ],
+              "correct": 0,
+              "explanation": "Além de fixar a planta, a raiz absorve água e sais minerais.",
+              "difficulty": "facil",
+              "grade": "6º ano"
+            },
+            {
+              "key": "bio_bot4",
+              "statement": "Os estômatos são estruturas responsáveis por:",
+              "options": [
+                "Trocas gasosas na folha",
+                "Absorção de água pela raiz",
+                "Sustentação do caule",
+                "Produção de sementes"
+              ],
+              "correct": 0,
+              "explanation": "Os estômatos permitem a entrada de CO2 e a saída de O2 e vapor de água.",
+              "difficulty": "media",
+              "grade": "8º ano"
+            },
+            {
+              "key": "bio_bot5",
+              "statement": "O xilema transporta:",
+              "options": [
+                "Água e sais minerais das raízes para as folhas",
+                "Seiva orgânica das folhas para as raízes",
+                "Gás carbônico para as flores",
+                "Somente hormônios"
+              ],
+              "correct": 0,
+              "explanation": "O xilema conduz a seiva bruta (água e minerais) no sentido raiz → folhas.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            },
+            {
+              "key": "bio_bot6",
+              "statement": "O floema transporta:",
+              "options": [
+                "Seiva orgânica produzida na fotossíntese",
+                "Água e minerais do solo",
+                "Oxigênio para as raízes",
+                "Somente água"
+              ],
+              "correct": 0,
+              "explanation": "O floema distribui a seiva elaborada (açúcares) das folhas para o restante da planta.",
+              "difficulty": "dificil",
+              "grade": "1º EM"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "code": "first_question",
+      "name": "Primeiro Passo",
+      "description": "Responda sua primeira questão",
+      "icon": "🥚",
+      "metric": "QUESTIONS_ANSWERED",
+      "threshold": 1
+    },
+    {
+      "code": "questions_10",
+      "name": "Em ritmo de estudo",
+      "description": "Responda 10 questões",
+      "icon": "📚",
+      "metric": "QUESTIONS_ANSWERED",
+      "threshold": 10
+    },
+    {
+      "code": "questions_50",
+      "name": "Colecionador",
+      "description": "Responda 50 questões",
+      "icon": "📖",
+      "metric": "QUESTIONS_ANSWERED",
+      "threshold": 50
+    },
+    {
+      "code": "questions_100",
+      "name": "Centenário",
+      "description": "Responda 100 questões",
+      "icon": "🎓",
+      "metric": "QUESTIONS_ANSWERED",
+      "threshold": 100
+    },
+    {
+      "code": "correct_10",
+      "name": "Cem por cento de... dez",
+      "description": "Acerte 10 questões",
+      "icon": "✅",
+      "metric": "CORRECT_ANSWERED",
+      "threshold": 10
+    },
+    {
+      "code": "correct_50",
+      "name": "Estudante dedicado",
+      "description": "Acerte 50 questões",
+      "icon": "⭐",
+      "metric": "CORRECT_ANSWERED",
+      "threshold": 50
+    },
+    {
+      "code": "correct_100",
+      "name": "Mestre dos acertos",
+      "description": "Acerte 100 questões",
+      "icon": "🌟",
+      "metric": "CORRECT_ANSWERED",
+      "threshold": 100
+    },
+    {
+      "code": "xp_500",
+      "name": "Meio milhar",
+      "description": "Acumule 500 XP",
+      "icon": "💰",
+      "metric": "XP",
+      "threshold": 500
+    },
+    {
+      "code": "xp_1000",
+      "name": "Mil de XP",
+      "description": "Acumule 1.000 XP",
+      "icon": "💎",
+      "metric": "XP",
+      "threshold": 1000
+    },
+    {
+      "code": "xp_5000",
+      "name": "Império de XP",
+      "description": "Acumule 5.000 XP",
+      "icon": "👑",
+      "metric": "XP",
+      "threshold": 5000
+    },
+    {
+      "code": "streak_3",
+      "name": "Três dias seguidos",
+      "description": "Estude por 3 dias consecutivos",
+      "icon": "🔥",
+      "metric": "STREAK",
+      "threshold": 3
+    },
+    {
+      "code": "streak_7",
+      "name": "Semana de estudos",
+      "description": "Estude por 7 dias consecutivos",
+      "icon": "🔥",
+      "metric": "STREAK",
+      "threshold": 7
+    },
+    {
+      "code": "trail_1",
+      "name": "Primeira trilha",
+      "description": "Conclua uma trilha completa",
+      "icon": "🛤️",
+      "metric": "TRAILS_COMPLETED",
+      "threshold": 1
+    },
+    {
+      "code": "trail_3",
+      "name": "Explorador",
+      "description": "Conclua 3 trilhas",
+      "icon": "🗺️",
+      "metric": "TRAILS_COMPLETED",
+      "threshold": 3
+    },
+    {
+      "code": "challenge_5",
+      "name": "Constância",
+      "description": "Conclua 5 desafios diários",
+      "icon": "📅",
+      "metric": "DAILY_CHALLENGES",
+      "threshold": 5
+    },
+    {
+      "code": "level_5",
+      "name": "Nível 5",
+      "description": "Alcance o nível 5",
+      "icon": "🏅",
+      "metric": "LEVEL",
+      "threshold": 5
+    }
+  ],
+  "trails": [
+    {
+      "title": "Função Afim",
+      "description": "Domine a reta: conceito, coeficientes, comportamento e interseções. Da base do Ensino Médio até questões de prova.",
+      "icon": "📈",
+      "subject": "Matemática",
+      "steps": [
+        {
+          "title": "Etapa 1 — Conceitos básicos",
+          "questions": [
+            "fun1",
+            "fun2"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Comportamento das retas",
+          "questions": [
+            "fun4",
+            "fun5"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Zeros e interceptações",
+          "questions": [
+            "fun3",
+            "fun6"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Porcentagem e Equações",
+      "description": "Do desconto do dia a dia às equações de grau superior: a base para provas e o ENEM.",
+      "icon": "🧮",
+      "subject": "Matemática",
+      "steps": [
+        {
+          "title": "Etapa 1 — Porcentagem no dia a dia",
+          "questions": [
+            "porc1",
+            "porc3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Aumentos e descontos sucessivos",
+          "questions": [
+            "porc2"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Equações lineares",
+          "questions": [
+            "eq1",
+            "eq2"
+          ]
+        },
+        {
+          "title": "Etapa 4 — Desafio final",
+          "questions": [
+            "eq3"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Do Brasil Colônia à República",
+      "description": "Uma jornada pela formação do Brasil: economia colonial, Império e a chegada da República.",
+      "icon": "👑",
+      "subject": "História",
+      "steps": [
+        {
+          "title": "Etapa 1 — Brasil Colônia",
+          "questions": [
+            "hco1",
+            "hco2",
+            "hco3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Brasil Império",
+          "questions": [
+            "him1",
+            "him2",
+            "him3"
+          ]
+        },
+        {
+          "title": "Etapa 3 — A República",
+          "questions": [
+            "hre1",
+            "hre2",
+            "hre3"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Mecânica e Energia",
+      "description": "Força, movimento e energia: os fundamentos da Física com questões de nível ENEM.",
+      "icon": "🚀",
+      "subject": "Física",
+      "steps": [
+        {
+          "title": "Etapa 1 — Força e movimento",
+          "questions": [
+            "fme1",
+            "fme2",
+            "fme3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Energia",
+          "questions": [
+            "fen1",
+            "fen2",
+            "fen3"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Eletricidade",
+          "questions": [
+            "fel1",
+            "fel2"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vida: Célula, Ecologia e Genética",
+      "description": "Dos processos vitais à herança genética: complete os três pilares da Biologia escolar.",
+      "icon": "🌱",
+      "subject": "Biologia",
+      "steps": [
+        {
+          "title": "Etapa 1 — Citologia",
+          "questions": [
+            "bci1",
+            "bci2"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Ecologia",
+          "questions": [
+            "bec1",
+            "bec2",
+            "bec3"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Genética",
+          "questions": [
+            "bge1",
+            "bge2",
+            "bge3"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Matemática",
+      "title": "Progressões: sequências que crescem",
+      "description": "Domine PA e PG: reconheça padrões, calcule termos gerais e some sequências em problemas reais.",
+      "icon": "📈",
+      "steps": [
+        {
+          "title": "Etapa 1 — Reconhecendo padrões",
+          "questions": [
+            "mat_prog1",
+            "mat_prog6"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Termo geral e soma",
+          "questions": [
+            "mat_prog2",
+            "mat_prog3",
+            "mat_prog5"
+          ]
+        },
+        {
+          "title": "Etapa 3 — PG e aplicações",
+          "questions": [
+            "mat_prog4",
+            "mat_prog7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Matemática",
+      "title": "Probabilidade e estatística no dia a dia",
+      "description": "Calcule chances, interprete médias e tome decisões com dados do cotidiano.",
+      "icon": "🎲",
+      "steps": [
+        {
+          "title": "Etapa 1 — Chance de acontecer",
+          "questions": [
+            "mat_prob1",
+            "mat_prob2",
+            "mat_prob3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Resumindo dados",
+          "questions": [
+            "mat_prob4",
+            "mat_prob5",
+            "mat_prob6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Decidindo com dados",
+          "questions": [
+            "mat_prob7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Matemática",
+      "title": "Trigonometria básica",
+      "description": "Razões trigonométricas, ângulos notáveis e aplicações no triângulo retângulo.",
+      "icon": "📐",
+      "steps": [
+        {
+          "title": "Etapa 1 — Razões no triângulo",
+          "questions": [
+            "mat_trig1",
+            "mat_trig2",
+            "mat_trig3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Aplicando no triângulo retângulo",
+          "questions": [
+            "mat_trig4",
+            "mat_trig5",
+            "mat_trig6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Língua Portuguesa",
+      "title": "Figuras de linguagem: a arte do desvio",
+      "description": "Identifique metáfora, personificação, hipérbole, ironia e metonímia em textos reais.",
+      "icon": "🎭",
+      "steps": [
+        {
+          "title": "Etapa 1 — Comparações e metáforas",
+          "questions": [
+            "pt_fig1",
+            "pt_fig4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Exageros e personificações",
+          "questions": [
+            "pt_fig2",
+            "pt_fig3"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Ironia e metonímia",
+          "questions": [
+            "pt_fig5",
+            "pt_fig6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Língua Portuguesa",
+      "title": "Coesão e coerência: o texto amarrado",
+      "description": "Retomadas, conectivos e relações de sentido para escrever e interpretar melhor.",
+      "icon": "🧩",
+      "steps": [
+        {
+          "title": "Etapa 1 — Retomadas e referências",
+          "questions": [
+            "pt_coes1",
+            "pt_coes5"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Conectivos e sentido",
+          "questions": [
+            "pt_coes2",
+            "pt_coes3",
+            "pt_coes4"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Causa e consequência",
+          "questions": [
+            "pt_coes6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Língua Portuguesa",
+      "title": "Gêneros textuais e seus propósitos",
+      "description": "Reconheça a função social de notícias, receitas, contos, artigos e reportagens.",
+      "icon": "📰",
+      "steps": [
+        {
+          "title": "Etapa 1 — Informar e narrar",
+          "questions": [
+            "pt_gen1",
+            "pt_gen3",
+            "pt_gen6"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Instruir e persuadir",
+          "questions": [
+            "pt_gen2",
+            "pt_gen4",
+            "pt_gen5"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "História",
+      "title": "Antiguidade: poder, cidadania e trabalho",
+      "description": "Mesopotâmia, Egito, Grécia e Roma: política, sociedade e trabalho escravo na Antiguidade.",
+      "icon": "🏛️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Mesopotâmia e Egito",
+          "questions": [
+            "hist_ant2",
+            "hist_ant4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Grécia e Roma",
+          "questions": [
+            "hist_ant1",
+            "hist_ant3",
+            "hist_ant5"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Trabalho e sociedade",
+          "questions": [
+            "hist_ant6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "História",
+      "title": "Da Idade Média à Modernidade",
+      "description": "Feudalismo, Igreja, Renascimento, Reforma, navegações e absolutismo.",
+      "icon": "🏰",
+      "steps": [
+        {
+          "title": "Etapa 1 — Sociedade feudal",
+          "questions": [
+            "hist_med1",
+            "hist_med2"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Renascimento e Reforma",
+          "questions": [
+            "hist_med3",
+            "hist_med4"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Navegações e absolutismo",
+          "questions": [
+            "hist_med5",
+            "hist_med6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "História",
+      "title": "Guerras Mundiais e Guerra Fria",
+      "description": "Do estopim de 1914 à queda do Muro de Berlim: conflitos, consequências e ordem mundial.",
+      "icon": "🌍",
+      "steps": [
+        {
+          "title": "Etapa 1 — A Primeira Guerra",
+          "questions": [
+            "hist_guerra1",
+            "hist_guerra2"
+          ]
+        },
+        {
+          "title": "Etapa 2 — A Segunda Guerra",
+          "questions": [
+            "hist_guerra3",
+            "hist_guerra4",
+            "hist_guerra7"
+          ]
+        },
+        {
+          "title": "Etapa 3 — A Guerra Fria",
+          "questions": [
+            "hist_guerra5",
+            "hist_guerra6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Geografia",
+      "title": "Clima, biomas e sociedade",
+      "description": "Biomas brasileiros, efeito estufa e fenômenos climáticos que afetam o país.",
+      "icon": "🌦️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Biomas brasileiros",
+          "questions": [
+            "geo_clima1",
+            "geo_clima2",
+            "geo_clima3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Mata Atlântica, Pampa e Cerrado",
+          "questions": [
+            "geo_clima6",
+            "geo_clima7"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Clima e fenômenos",
+          "questions": [
+            "geo_clima4",
+            "geo_clima5"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Geografia",
+      "title": "Cidades e urbanização",
+      "description": "Êxodo rural, metrópoles, conurbação e os desafios da mobilidade urbana.",
+      "icon": "🏙️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Do campo à cidade",
+          "questions": [
+            "geo_urb1",
+            "geo_urb4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Metrópoles e conurbação",
+          "questions": [
+            "geo_urb2",
+            "geo_urb3",
+            "geo_urb6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Desafios urbanos",
+          "questions": [
+            "geo_urb5"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Geografia",
+      "title": "Relevo e hidrografia",
+      "description": "Bacias, rios, aquíferos, planaltos e erosão: a dinâmica do relevo brasileiro.",
+      "icon": "🏞️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Águas e bacias",
+          "questions": [
+            "geo_hidro1",
+            "geo_hidro2",
+            "geo_hidro4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Rios e integração",
+          "questions": [
+            "geo_hidro6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Formas do relevo",
+          "questions": [
+            "geo_hidro3",
+            "geo_hidro5"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Física",
+      "title": "Termologia: calor e temperatura",
+      "description": "Escalas, propagação de calor, dilatação e mudanças de fase.",
+      "icon": "🌡️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Conceitos e escalas",
+          "questions": [
+            "fis_term1",
+            "fis_term2"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Propagação e dilatação",
+          "questions": [
+            "fis_term3",
+            "fis_term4",
+            "fis_term5"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Mudanças de fase",
+          "questions": [
+            "fis_term6",
+            "fis_term7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Física",
+      "title": "Óptica e ondas no cotidiano",
+      "description": "Reflexão, refração, espelhos, som e luz explicados com exemplos do dia a dia.",
+      "icon": "🌈",
+      "steps": [
+        {
+          "title": "Etapa 1 — Luz e espelhos",
+          "questions": [
+            "fis_otica1",
+            "fis_otica2",
+            "fis_otica3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Ondas e som",
+          "questions": [
+            "fis_otica4",
+            "fis_otica5",
+            "fis_otica6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Fenômenos luminosos",
+          "questions": [
+            "fis_otica7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Física",
+      "title": "Cinemática: descrevendo o movimento",
+      "description": "Velocidade média, aceleração, queda livre e conversões de unidades.",
+      "icon": "🏃",
+      "steps": [
+        {
+          "title": "Etapa 1 — Velocidade média",
+          "questions": [
+            "fis_cin1",
+            "fis_cin2",
+            "fis_cin6"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Movimento e aceleração",
+          "questions": [
+            "fis_cin3",
+            "fis_cin4",
+            "fis_cin7"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Queda livre",
+          "questions": [
+            "fis_cin5"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Química",
+      "title": "Átomos e tabela periódica",
+      "description": "Estrutura atômica, isótopos, grupos, períodos e propriedades dos elementos.",
+      "icon": "⚛️",
+      "steps": [
+        {
+          "title": "Etapa 1 — Estrutura atômica",
+          "questions": [
+            "qui_atom1",
+            "qui_atom2",
+            "qui_atom3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Organização da tabela",
+          "questions": [
+            "qui_atom4",
+            "qui_atom6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Propriedades",
+          "questions": [
+            "qui_atom5",
+            "qui_atom7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Química",
+      "title": "Ligações químicas e materiais",
+      "description": "Ligações iônica, covalente e metálica explicam as propriedades dos materiais.",
+      "icon": "🔗",
+      "steps": [
+        {
+          "title": "Etapa 1 — Tipos de ligação",
+          "questions": [
+            "qui_lig1",
+            "qui_lig2",
+            "qui_lig3"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Substâncias do dia a dia",
+          "questions": [
+            "qui_lig4",
+            "qui_lig5",
+            "qui_lig6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Química",
+      "title": "Ácidos, bases e reações",
+      "description": "pH, indicadores, neutralização, ácidos e bases fortes e balanceamento.",
+      "icon": "🧪",
+      "steps": [
+        {
+          "title": "Etapa 1 — pH e indicadores",
+          "questions": [
+            "qui_acid1",
+            "qui_acid2",
+            "qui_acid6"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Neutralização",
+          "questions": [
+            "qui_acid3",
+            "qui_acid4",
+            "qui_acid5"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Balanceamento",
+          "questions": [
+            "qui_acid7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Biologia",
+      "title": "Evolução: a vida em transformação",
+      "description": "Seleção natural, evidências fósseis, homologias, especiação e resistência bacteriana.",
+      "icon": "🧬",
+      "steps": [
+        {
+          "title": "Etapa 1 — Seleção natural",
+          "questions": [
+            "bio_evo1",
+            "bio_evo2",
+            "bio_evo4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Evidências",
+          "questions": [
+            "bio_evo3",
+            "bio_evo6"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Especiação e resistência",
+          "questions": [
+            "bio_evo5",
+            "bio_evo7"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Biologia",
+      "title": "Fisiologia humana: sistemas em ação",
+      "description": "Circulação, respiração, digestão, excreção, nervos e hormônios.",
+      "icon": "🫀",
+      "steps": [
+        {
+          "title": "Etapa 1 — Circulação e respiração",
+          "questions": [
+            "bio_fisio1",
+            "bio_fisio2",
+            "bio_fisio7"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Digestão e excreção",
+          "questions": [
+            "bio_fisio5",
+            "bio_fisio3"
+          ]
+        },
+        {
+          "title": "Etapa 3 — Controle e coordenação",
+          "questions": [
+            "bio_fisio4",
+            "bio_fisio6"
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Biologia",
+      "title": "Botânica: plantas e ambiente",
+      "description": "Fotossíntese, estômatos, xilema e floema: como as plantas vivem e se adaptam.",
+      "icon": "🌱",
+      "steps": [
+        {
+          "title": "Etapa 1 — Fotossíntese",
+          "questions": [
+            "bio_bot1",
+            "bio_bot2",
+            "bio_bot4"
+          ]
+        },
+        {
+          "title": "Etapa 2 — Raízes e transporte",
+          "questions": [
+            "bio_bot3",
+            "bio_bot5",
+            "bio_bot6"
+          ]
+        }
+      ]
+    }
+  ]
+}

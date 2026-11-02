@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getStats } from "../services/statsService"
 import { ErrorState, LoadingScreen, PageHeader, ProgressBar, StatCard } from "../components/ui"
+import { PaywallCard } from "../components/premium"
 
 export default function Performance() {
   const [data, setData] = useState(null)
@@ -32,6 +33,22 @@ export default function Performance() {
         title="Meu desempenho"
         subtitle="Estatísticas reais calculadas a partir das suas respostas."
       />
+
+      {data.advanced && !data.advanced.allowed && (
+        <div className="card mb-6 flex flex-wrap items-center justify-between gap-3 border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-4">
+          <div>
+            <p className="text-sm font-semibold text-amber-900">
+              📈 Você está vendo os últimos {data.advanced.windowDays} dias
+            </p>
+            <p className="text-xs text-amber-700">
+              O Fora da Casca libera 90 dias de histórico e o desempenho detalhado por assunto.
+            </p>
+          </div>
+          <Link to="/upgrade" className="btn-primary shrink-0 !py-2 text-xs">
+            Liberar relatórios avançados →
+          </Link>
+        </div>
+      )}
 
       {!hasData ? (
         <div className="card p-8 text-center">
@@ -136,7 +153,9 @@ export default function Performance() {
 
             {/* Evolução */}
             <div className="card p-5">
-              <h3 className="section-title">Evolução — últimos 14 dias</h3>
+              <h3 className="section-title">
+                Evolução — últimos {data.advanced?.windowDays || 14} dias
+              </h3>
               <p className="text-xs text-slate-500">XP ganho por dia</p>
               <div className="mt-4 flex h-40 items-end gap-1.5">
                 {data.evolution.map((day) => {
@@ -174,7 +193,7 @@ export default function Performance() {
                   return (
                     <>
                       Você ganhou <strong className="text-slate-900">{totalWeekXp} XP</strong> nos
-                      últimos 14 dias, com atividade em{" "}
+                      últimos {data.advanced?.windowDays || 14} dias, com atividade em{" "}
                       <strong className="text-slate-900">{activeDays} dias</strong>.
                     </>
                   )
@@ -182,6 +201,73 @@ export default function Performance() {
               </div>
             </div>
           </div>
+
+          {/* Por assunto — relatório avançado */}
+          {data.topics ? (
+            <div className="card p-5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 className="section-title">Desempenho por assunto</h3>
+                  <p className="text-xs text-slate-500">
+                    Onde você acerta mais e onde vale reforçar o estudo
+                  </p>
+                </div>
+                <span className="chip bg-amber-100 text-amber-800 ring-1 ring-amber-200">
+                  ✦ Relatório PRO
+                </span>
+              </div>
+              {data.topics.length === 0 ? (
+                <p className="mt-4 text-sm text-slate-500">
+                  Responda questões de diferentes assuntos para ver este detalhamento.
+                </p>
+              ) : (
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {data.topics.map((topic) => (
+                    <li key={topic.id} className="rounded-xl border border-slate-100 bg-slate-50/60 p-3">
+                      <div className="mb-1 flex items-center justify-between gap-2 text-sm">
+                        <span className="min-w-0">
+                          <span className="font-semibold text-slate-700">
+                            {topic.icon} {topic.name}
+                          </span>
+                          <span className="ml-2 text-[11px] text-slate-400">{topic.subject}</span>
+                        </span>
+                        <span
+                          className={`shrink-0 font-bold ${
+                            topic.accuracy >= 70
+                              ? "text-emerald-600"
+                              : topic.accuracy >= 50
+                              ? "text-amber-600"
+                              : "text-rose-600"
+                          }`}
+                        >
+                          {topic.accuracy}%
+                        </span>
+                      </div>
+                      <ProgressBar
+                        percent={topic.accuracy}
+                        size="sm"
+                        color={topic.accuracy >= 70 ? "emerald" : topic.accuracy >= 50 ? "amber" : "rose"}
+                      />
+                      <p className="mt-1 text-[11px] text-slate-400">
+                        {topic.correct} de {topic.total} questões corretas
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <PaywallCard
+              icon="📈"
+              title="Desempenho por assunto é um recurso PRO"
+              description="Descubra exatamente quais assuntos estão puxando sua média para baixo — e ataque o ponto certo."
+              bullets={[
+                "Detalhamento por assunto, não só por disciplina",
+                "Histórico de 90 dias em vez de 14",
+                "Tudo liberado com o teste grátis de 7 dias",
+              ]}
+            />
+          )}
         </div>
       )}
     </div>

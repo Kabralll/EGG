@@ -1,6 +1,7 @@
 import { db, allAttemptsOf } from "./db";
 import { levelProgress, levelFromXp } from "./gamification";
 import { toDateKey, startOfWeek } from "./date";
+import { checkFeatureAccess } from "./billing";
 
 /*
   Estatísticas, evolução e recomendações — tudo calculado sobre dados locais.
@@ -22,11 +23,15 @@ async function contentIndex() {
 }
 
 export async function buildStats(userId) {
-  const [attempts, idx] = await Promise.all([
+  const [attempts, idx, advancedAccess] = await Promise.all([
     allAttemptsOf(userId),
     contentIndex(),
+    checkFeatureAccess(userId, "advanced_stats"),
   ]);
   const { questionById, topicById, subjects } = idx;
+  const windowDays = advancedAccess.allowed
+    ? advancedAccess.limit || 90
+    : advancedAccess.limit || 14;
 
   const total = attempts.length;
   const correct = attempts.filter((a) => a.isCorrect).length;
@@ -60,14 +65,14 @@ export async function buildStats(userId) {
     .map((s) => ({ ...s, accuracy: Math.round((s.correct / s.total) * 100) }))
     .sort((a, b) => b.total - a.total);
 
-  // Evolução: últimos 14 dias de XP
+  // Evolução: 14 dias no Free, 90 no PRO
   const transactions = await db.xpTransactions.where("userId").equals(userId).toArray();
-  const from = daysAgo(13);
+  const from = daysAgo(windowDays - 1);
   const recent = transactions.filter((t) => t.createdAt >= from);
 
   const days = [];
   const dayMap = new Map();
-  for (let i = 13; i >= 0; i--) {
+  for (let i = windowDays - 1; i >= 0; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     const key = toDateKey(d);
@@ -98,6 +103,35 @@ export async function buildStats(userId) {
 
   const xp = user ? user.xp : 0;
 
+  // Desempenho por assunto — relatório exclusivo do PRO
+  let topics = null;
+  if (advancedAccess.allowed) {
+    const byTopic = new Map();
+    for (const attempt of attempts) {
+      const question = questionById.get(attempt.questionId);
+      const topic = question ? topicById.get(question.topicId) : null;
+      if (!topic) continue;
+      if (!byTopic.has(topic.id)) {
+        const subject = subjects.find((s) => s.id === topic.subjectId);
+        byTopic.set(topic.id, {
+          id: topic.id,
+          name: topic.name,
+          subject: subject ? subject.name : "",
+          icon: subject ? subject.icon : "📘",
+          color: subject ? subject.color : "#6366f1",
+          total: 0,
+          correct: 0,
+        });
+      }
+      const entry = byTopic.get(topic.id);
+      entry.total += 1;
+      if (attempt.isCorrect) entry.correct += 1;
+    }
+    topics = [...byTopic.values()]
+      .map((t) => ({ ...t, accuracy: Math.round((t.correct / t.total) * 100) }))
+      .sort((a, b) => a.accuracy - b.accuracy || b.total - a.total);
+  }
+
   return {
     totalQuestions: total,
     correctAnswers: correct,
@@ -107,6 +141,14 @@ export async function buildStats(userId) {
     subjects: subjectList,
     allSubjects,
     evolution: days,
+    topics,
+    advanced: {
+      allowed: advancedAccess.allowed,
+      windowDays,
+      freeWindowDays: 14,
+      requiredPlan: advancedAccess.requiredPlan,
+      upgradeUrl: "/upgrade",
+    },
     trailsCompleted,
     achievements,
     challengesCompleted,

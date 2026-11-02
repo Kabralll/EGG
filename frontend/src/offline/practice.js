@@ -10,7 +10,14 @@ import {
   evaluateAchievements,
   getDailyChallengeState,
 } from "./gamification";
-import { toDateKey } from "./date";
+import { toDateKey, yesterdayKey } from "./date";
+import {
+  consumeHeart,
+  consumeStreakFreeze,
+  getHeartsState,
+  getStreakFreezeState,
+  STREAK_FREEZE_MIN_STREAK,
+} from "./billing";
 
 function shuffle(array) {
   const arr = [...array];
@@ -48,6 +55,12 @@ export async function getPracticeQuestions(userId, filters = {}) {
   const max = Math.min(Math.max(Number(limit) || 10, 1), 20);
   const attempts = await allAttemptsOf(userId);
   const answeredSet = new Set(attempts.map((a) => a.questionId));
+
+  // Paywall dos corações: sem coração não começa nova sessão (PRO é ilimitado)
+  const hearts = await getHeartsState(userId);
+  if (!hearts.unlimited && hearts.hearts <= 0) {
+    return { blocked: true, hearts };
+  }
 
   if (stepId) {
     const step = await db.trailSteps.get(Number(stepId));
@@ -87,6 +100,7 @@ export async function getPracticeQuestions(userId, filters = {}) {
 
     return {
       locked: false,
+      hearts,
       context: {
         type: "step",
         stepId: step.id,
@@ -114,7 +128,7 @@ export async function getPracticeQuestions(userId, filters = {}) {
     all = all.filter((q) => topicIds.has(q.topicId));
   }
 
-  if (all.length === 0) return { context: null, questions: [] };
+  if (all.length === 0) return { context: null, questions: [], hearts };
 
   const unanswered = shuffle(
     all.filter((q) => !answeredSet.has(q.id)).map((q) => q.id)
@@ -127,7 +141,7 @@ export async function getPracticeQuestions(userId, filters = {}) {
     selected = selected.concat(answeredMatches);
   }
 
-  if (selected.length === 0) return { context: null, questions: [] };
+  if (selected.length === 0) return { context: null, questions: [], hearts };
 
   const byId = new Map(all.map((q) => [q.id, q]));
   const payload = [];
@@ -136,7 +150,7 @@ export async function getPracticeQuestions(userId, filters = {}) {
     if (q) payload.push(await questionPayload(q, answeredSet));
   }
 
-  return { context: null, questions: payload };
+  return { context: null, questions: payload, hearts };
 }
 
 /*
@@ -170,6 +184,7 @@ export async function answerQuestion(userId, questionId, optionId) {
     stepCompleted: null,
     trailCompleted: null,
     challengeCompleted: false,
+    streakFrozen: false,
   };
 
   let repeat = false;
@@ -181,6 +196,20 @@ export async function answerQuestion(userId, questionId, optionId) {
     const baseXp = isCorrect
       ? XP_CORRECT[question.difficulty] ?? 20
       : XP_WRONG;
+
+    // Congelamento de sequência (benefício PRO): decidido ANTES da transação
+    const freezeState = await getStreakFreezeState(userId);
+    const gapBroken = Boolean(
+      user.lastActiveDay &&
+        user.lastActiveDay !== dayKey &&
+        user.lastActiveDay !== yesterdayKey()
+    );
+    const willFreeze = Boolean(
+      gapBroken &&
+        freezeState.allowed &&
+        freezeState.remaining > 0 &&
+        user.streak >= STREAK_FREEZE_MIN_STREAK
+    );
 
     const TX_TABLES = [
       db.attempts,
@@ -217,7 +246,10 @@ export async function answerQuestion(userId, questionId, optionId) {
         createdAt: new Date(),
       });
 
-      const nextStreak = computeStreak(user.streak, user.lastActiveDay, dayKey);
+      const nextStreak = computeStreak(user.streak, user.lastActiveDay, dayKey, {
+        freeze: willFreeze,
+      });
+      events.streakFrozen = nextStreak.froze;
 
       await db.users.update(userId, {
         xp: user.xp + baseXp,
@@ -367,10 +399,16 @@ export async function answerQuestion(userId, questionId, optionId) {
       events.newAchievements = await evaluateAchievements(userId, fresh);
     });
 
+    if (events.streakFrozen) await consumeStreakFreeze(userId);
+
     const after = await db.users.get(userId);
     user.xp = after.xp;
     user.streak = after.streak;
   }
+
+  // Coração: só no plano gratuito, só em resposta inédita e só quando erra.
+  const hearts =
+    repeat || isCorrect ? await getHeartsState(userId) : await consumeHeart(userId);
 
   const freshUser = repeat ? await db.users.get(userId) : user;
   const progress = levelProgress(freshUser.xp);
@@ -390,6 +428,9 @@ export async function answerQuestion(userId, questionId, optionId) {
     levelUp: progress.level > levelBefore,
     progress,
     streak: freshUser.streak,
+    streakFrozen: events.streakFrozen,
+    hearts,
+    outOfHearts: !hearts.unlimited && hearts.hearts === 0,
     newAchievements: events.newAchievements,
     stepCompleted: events.stepCompleted,
     trailCompleted: events.trailCompleted,

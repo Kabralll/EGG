@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
+import { useSubscription } from "../context/SubscriptionContext"
+import { useToast } from "../context/ToastContext"
 import { getDashboard } from "../services/statsService"
+import { claimWeeklyChallenge } from "../services/billingService"
 import { ErrorState, LoadingScreen, ProgressBar } from "../components/ui"
+import { EggAvatar, HeartsChip, PaywallCard, ProBadge } from "../components/premium"
 
 function timeAgo(date) {
   const diff = Date.now() - new Date(date).getTime()
@@ -17,8 +21,11 @@ function timeAgo(date) {
 
 export default function Dashboard() {
   const { refreshProfile } = useAuth()
+  const { refresh: refreshBilling } = useSubscription()
+  const toast = useToast()
   const [data, setData] = useState(null)
   const [error, setError] = useState("")
+  const [claiming, setClaiming] = useState(false)
 
   async function load() {
     try {
@@ -30,6 +37,24 @@ export default function Dashboard() {
     }
   }
 
+  async function handleClaimWeekly() {
+    setClaiming(true)
+    try {
+      const result = await claimWeeklyChallenge()
+      toast.push({
+        type: "success",
+        icon: "🗓️",
+        title: `+${result.xpAwarded} XP resgatados!`,
+        message: "Bônus do desafio semanal PRO creditado.",
+      })
+      await Promise.all([load(), refreshBilling()])
+    } catch (err) {
+      toast.push({ type: "error", icon: "⚠️", title: "Não foi possível resgatar", message: err.message })
+    } finally {
+      setClaiming(false)
+    }
+  }
+
   useEffect(() => {
     load()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,9 +63,23 @@ export default function Dashboard() {
   if (error) return <div className="mx-auto max-w-7xl px-4 py-8"><ErrorState message={error} onRetry={load} /></div>
   if (!data) return <LoadingScreen label="Montando seu dashboard..." />
 
-  const { user, dailyChallenge, trails, recentAttempts, recentAchievements, stats, ranking, recommendation } = data
+  const {
+    user,
+    skin,
+    subscription,
+    hearts,
+    weeklyChallenge,
+    dailyChallenge,
+    trails,
+    recentAttempts,
+    recentAchievements,
+    stats,
+    ranking,
+    recommendation,
+  } = data
   const continueTrail = trails.inProgress[0]
   const firstName = user.name.split(" ")[0]
+  const isPremium = Boolean(subscription && subscription.isPremium)
   const today = new Date().toLocaleDateString("pt-BR", {
     weekday: "long",
     day: "2-digit",
@@ -51,11 +90,15 @@ export default function Dashboard() {
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:py-8">
       {/* Saudação + progresso */}
       <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="page-title">Olá, {firstName}</h1>
-          <p className="mt-1 text-sm capitalize text-slate-500">{today}</p>
+        <div className="flex items-center gap-3">
+          <EggAvatar skin={skin} size="sm" />
+          <div>
+            <h1 className="page-title">Olá, {firstName}</h1>
+            <p className="mt-1 text-sm capitalize text-slate-500">{today}</p>
+          </div>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <HeartsChip hearts={hearts} />
           <span className="chip bg-orange-50 px-3 py-1.5 text-sm text-orange-700 ring-1 ring-orange-200">
             🔥 {user.streak} {user.streak === 1 ? "dia" : "dias"} de sequência
           </span>
@@ -64,6 +107,29 @@ export default function Dashboard() {
           </span>
         </div>
       </div>
+
+      {/* Upsell para o plano gratuito */}
+      {!isPremium && (
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-5 py-4 text-white shadow-pop">
+          <div className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-amber-400/20 blur-2xl" />
+          <div className="relative flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🐣</span>
+              <div>
+                <p className="text-sm font-bold">
+                  Você está <span className="text-[#f5d24c]">na casca</span> — e o PRO abre o resto.
+                </p>
+                <p className="text-xs text-slate-300">
+                  Corações infinitos, relatórios de 90 dias, skins exclusivas e +150 XP/semana.
+                </p>
+              </div>
+            </div>
+            <Link to="/upgrade" className="btn-primary shrink-0 !py-2 text-sm">
+              Sair da casca · 7 dias grátis →
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/*
         `grid-cols-1` NÃO é decoração: sem ele a coluna é implícita e recebe
@@ -161,6 +227,72 @@ export default function Dashboard() {
             )}
           </div>
 
+          {/* Desafio semanal (PRO) */}
+          {weeklyChallenge && (
+            weeklyChallenge.locked ? (
+              <PaywallCard
+                compact
+                icon="🗓️"
+                title="Desafio semanal PRO"
+                description={`${weeklyChallenge.description} Recompensa: +${weeklyChallenge.xpReward} XP.`}
+                bullets={["Progresso salvo entre sessões", `+${weeklyChallenge.xpReward} XP por semana`]}
+                cta="Desbloquear desafio semanal"
+              />
+            ) : (
+              <div className="card border-amber-200/70 bg-gradient-to-br from-amber-50/70 via-white to-orange-50/60 p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-amber-500">
+                      🗓️ Desafio semanal PRO
+                    </p>
+                    <h3 className="mt-1 font-bold text-slate-900">{weeklyChallenge.title}</h3>
+                    <p className="text-sm text-slate-500">
+                      Recompensa:{" "}
+                      <strong className="text-[#f5d24c]">+{weeklyChallenge.xpReward} XP</strong>
+                    </p>
+                  </div>
+                  {weeklyChallenge.claimed ? (
+                    <span className="chip bg-emerald-100 text-emerald-700">✓ Resgatado</span>
+                  ) : weeklyChallenge.completed ? (
+                    <span className="chip bg-amber-100 text-amber-700">Pronto!</span>
+                  ) : (
+                    <span className="chip bg-amber-100 text-amber-600">
+                      {weeklyChallenge.progress}/{weeklyChallenge.target}
+                    </span>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <ProgressBar
+                    percent={weeklyChallenge.percent}
+                    color={weeklyChallenge.completed ? "emerald" : "amber"}
+                    label={
+                      weeklyChallenge.claimed
+                        ? "Bônus creditado — novo desafio na próxima segunda"
+                        : `Progresso da semana · ${weeklyChallenge.progress}/${weeklyChallenge.target} questões`
+                    }
+                  />
+                </div>
+                {!weeklyChallenge.claimed && (
+                  <div className="mt-3">
+                    {weeklyChallenge.completed ? (
+                      <button
+                        onClick={handleClaimWeekly}
+                        disabled={claiming}
+                        className="btn-primary disabled:opacity-60"
+                      >
+                        {claiming ? "Resgatando..." : `Resgatar +${weeklyChallenge.xpReward} XP`}
+                      </button>
+                    ) : (
+                      <Link to="/subjects" className="btn-secondary">
+                        Fazer mais {weeklyChallenge.target - weeklyChallenge.progress} questões →
+                      </Link>
+                    )}
+                  </div>
+                )}
+              </div>
+            )
+          )}
+
           {/* Continuar / recomendação */}
           {continueTrail ? (
             <div className="card p-5">
@@ -251,8 +383,48 @@ export default function Dashboard() {
             <MiniStat icon="🥇" value={ranking.position || "—"} label="Ranking" hint={`de ${ranking.total}`} />
           </div>
 
+          {/* Comunidade */}
+          <div className="card border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-5">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-2xl ring-1 ring-indigo-200">
+                👥
+              </span>
+              <div className="min-w-0">
+                <h3 className="font-bold text-slate-900">Estude em grupo</h3>
+                <p className="text-xs text-slate-600">
+                  Faça amigos, monte grupos de até 12 pessoas e dispute o ranking local.
+                </p>
+              </div>
+            </div>
+            <Link to="/social" className="btn-dark mt-3 w-full !py-2 text-sm">
+              Abrir comunidade →
+            </Link>
+          </div>
+
           {/* Recomendação (se houver trilha em andamento acima) */}
           {continueTrail && <RecommendationCard recommendation={recommendation} />}
+
+          {/* Seu plano */}
+          <div className="card p-5">
+            <div className="flex items-center justify-between">
+              <h3 className="section-title">Seu plano</h3>
+              {isPremium ? <ProBadge /> : <span className="text-xs font-semibold text-slate-400">gratuito</span>}
+            </div>
+            <p className="mt-2 text-sm font-bold text-slate-900">
+              {isPremium ? subscription.plan.name : "Na Casca"}
+            </p>
+            <p className="text-xs text-slate-500">
+              {isPremium
+                ? `Renova em ${new Date(subscription.currentPeriodEnd).toLocaleDateString("pt-BR")} · ${subscription.daysLeft} dias`
+                : "5 corações/dia · 14 dias de histórico · 1 skin"}
+            </p>
+            <div className="mt-3 flex items-center justify-between gap-2">
+              <HeartsChip hearts={hearts} />
+              <Link to="/upgrade" className="text-xs font-semibold text-[#f5d24c] hover:underline">
+                {isPremium ? "Gerenciar plano" : "Comparar planos"} →
+              </Link>
+            </div>
+          </div>
 
           {/* Conquistas recentes */}
           <div className="card p-5">

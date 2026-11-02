@@ -8,6 +8,8 @@ import * as subjectsSvc from "./subjects";
 import * as admin from "./admin";
 import { buildRecommendation } from "./stats";
 import { getDailyChallengeState, levelProgress } from "./gamification";
+import * as billing from "./billing";
+import * as social from "./social";
 
 /*
   Router local: mantém EXATAMENTE os mesmos caminhos que o backend Express
@@ -113,6 +115,10 @@ async function buildDashboard(userId) {
     recentAchievementsRows,
     statsData,
     rankingPosition,
+    subscription,
+    hearts,
+    weeklyChallenge,
+    skin,
   ] = await Promise.all([
     db.users.get(userId),
     getDailyChallengeState(userId),
@@ -121,6 +127,10 @@ async function buildDashboard(userId) {
     db.userAchievements.where("userId").equals(userId).toArray(),
     stats.buildStats(userId),
     stats.getPositionOf(userId, "general"),
+    billing.getSubscription(userId),
+    billing.getHeartsState(userId),
+    billing.getWeeklyChallenge(userId),
+    billing.getEquippedSkin(userId),
   ]);
 
   if (!user) throw apiError(404, "Usuário não encontrado");
@@ -184,6 +194,10 @@ async function buildDashboard(userId) {
       progress: levelProgress(user.xp),
       streak: user.streak,
     },
+    skin,
+    subscription,
+    hearts,
+    weeklyChallenge,
     dailyChallenge,
     trails: { inProgress, suggested },
     recentAttempts,
@@ -300,6 +314,20 @@ export async function localApi(path, { method = "GET", body, auth: withAuth = tr
     if (result.locked) {
       throw apiError(403, "Complete a etapa anterior para desbloquear esta.");
     }
+    if (result.blocked) {
+      const error = apiError(
+        402,
+        "Seus corações acabaram. Assine o Fora da Casca para praticar sem limites."
+      );
+      error.code = "PAYWALL";
+      error.feature = "unlimited_hearts";
+      error.payload = {
+        feature: "unlimited_hearts",
+        hearts: result.hearts,
+        upgradeUrl: "/upgrade",
+      };
+      throw error;
+    }
     return result;
   }
   m = pathname.match(/^\/questions\/(\d+)\/answer$/);
@@ -327,6 +355,101 @@ export async function localApi(path, { method = "GET", body, auth: withAuth = tr
   }
   if (method === "PATCH" && pathname === "/user") {
     return auth.updateProfile(userId, body || {});
+  }
+
+  /* ----------------------------- comunidade ----------------------------- */
+  if (method === "GET" && pathname === "/social/overview") {
+    return social.getSocialOverview(userId);
+  }
+  if (method === "GET" && pathname === "/social/search") {
+    return social.searchStudents(userId, query.q);
+  }
+  if (method === "POST" && pathname === "/social/friends/requests") {
+    return social.sendFriendRequest(userId, body?.targetId);
+  }
+  m = pathname.match(/^\/social\/friends\/requests\/(\d+)\/respond$/);
+  if (method === "POST" && m) {
+    return social.respondFriendRequest(userId, Number(m[1]), body?.action);
+  }
+  m = pathname.match(/^\/social\/friends\/requests\/(\d+)$/);
+  if (method === "DELETE" && m) {
+    return social.cancelFriendRequest(userId, Number(m[1]));
+  }
+  m = pathname.match(/^\/social\/friends\/(\d+)$/);
+  if (method === "DELETE" && m) {
+    return social.removeFriend(userId, Number(m[1]));
+  }
+
+  if (method === "POST" && pathname === "/social/groups") {
+    return social.createGroup(userId, body || {});
+  }
+  if (method === "GET" && pathname === "/social/groups/ranking") {
+    const scope = query.scope === "weekly" ? "weekly" : "general";
+    return social.getGroupRanking(userId, scope);
+  }
+  m = pathname.match(/^\/social\/groups\/invites\/(\d+)\/respond$/);
+  if (method === "POST" && m) {
+    return social.respondGroupInvite(userId, Number(m[1]), body?.action);
+  }
+  m = pathname.match(/^\/social\/groups\/(\d+)\/invites$/);
+  if (method === "POST" && m) {
+    return social.inviteToGroup(userId, Number(m[1]), body?.targetId);
+  }
+  m = pathname.match(/^\/social\/groups\/(\d+)\/leave$/);
+  if (method === "POST" && m) {
+    return social.leaveGroup(userId, Number(m[1]));
+  }
+  m = pathname.match(/^\/social\/groups\/(\d+)\/members\/(\d+)$/);
+  if (method === "DELETE" && m) {
+    return social.removeGroupMember(userId, Number(m[1]), Number(m[2]));
+  }
+  m = pathname.match(/^\/social\/groups\/(\d+)$/);
+  if (method === "GET" && m) {
+    const scope = query.scope === "weekly" ? "weekly" : "general";
+    return social.getGroupDetail(userId, Number(m[1]), scope);
+  }
+  if (method === "DELETE" && m) {
+    return social.deleteGroup(userId, Number(m[1]));
+  }
+
+  /* --------------------------- monetização --------------------------- */
+  if (method === "GET" && pathname === "/billing/overview") {
+    return billing.getBillingOverview(userId);
+  }
+  if (method === "GET" && pathname === "/billing/subscription") {
+    return billing.getSubscription(userId);
+  }
+  if (method === "POST" && pathname === "/billing/checkout") {
+    return billing.checkout(userId, body?.planId);
+  }
+  if (method === "POST" && pathname === "/billing/cancel") {
+    return billing.cancelSubscription(userId);
+  }
+  if (method === "GET" && pathname === "/billing/access") {
+    if (!query.feature) throw apiError(400, "Informe o recurso (?feature=...)");
+    return billing.checkFeatureAccess(userId, query.feature);
+  }
+  if (method === "POST" && pathname === "/billing/access") {
+    return billing.checkFeatureAccess(userId, body?.feature);
+  }
+  if (method === "GET" && pathname === "/billing/hearts") {
+    return billing.getHeartsState(userId);
+  }
+  if (method === "GET" && pathname === "/billing/skins") {
+    return billing.listSkins(userId);
+  }
+  m = pathname.match(/^\/billing\/skins\/([\w-]+)\/equip$/);
+  if (method === "POST" && m) {
+    return billing.equipSkin(userId, m[1]);
+  }
+  if (method === "GET" && pathname === "/billing/weekly-challenge") {
+    return billing.getWeeklyChallenge(userId);
+  }
+  if (method === "POST" && pathname === "/billing/weekly-challenge/claim") {
+    return billing.claimWeeklyChallenge(userId);
+  }
+  if (method === "POST" && pathname === "/billing/events") {
+    return billing.trackPaywallEvent(userId, body?.event, body?.meta);
   }
 
   /* ------------------------------- admin ------------------------------- */

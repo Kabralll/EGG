@@ -1,5 +1,6 @@
 import { db, apiError, allAttemptsOf } from "./db";
 import { levelProgress } from "./gamification";
+import { getEquippedSkin, getSubscription } from "./billing";
 import { sha256 } from "./sha256";
 
 /*
@@ -70,6 +71,7 @@ export function safeUser(user) {
     role: user.role,
     xp: user.xp,
     streak: user.streak,
+    skinId: user.skinId || "classic",
     createdAt: user.createdAt,
   };
 }
@@ -145,6 +147,7 @@ export async function register(data) {
     xp: 0,
     streak: 0,
     lastActiveDay: null,
+    skinId: "classic",
     createdAt: new Date(),
   });
 
@@ -180,10 +183,17 @@ export async function getProfile(userId) {
     if (topic) distinctSubjects.add(topic.subjectId);
   }
 
+  const [skin, subscription] = await Promise.all([
+    getEquippedSkin(userId),
+    getSubscription(userId),
+  ]);
+
   return {
     ...safeUser(user),
     progress: levelProgress(user.xp),
     streak: user.streak,
+    skin,
+    subscription,
     stats: {
       totalQuestions,
       correctAnswers,

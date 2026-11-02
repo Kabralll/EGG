@@ -17,6 +17,7 @@ model User {
   xp        Int      @default(0)
   streak    Int      @default(0)
   lastActiveDay String?
+  skinId    String   @default("classic")
   createdAt DateTime @default(now())
 
   attempts             QuestionAttempt[]
@@ -26,6 +27,14 @@ model User {
   challengeCompletions DailyChallengeCompletion[]
   xpTransactions       XpTransaction[]
   passwordResetTokens  PasswordResetToken[]
+
+  // monetização
+  subscription     Subscription?
+  entitlements     FeatureEntitlement[]
+  usageDays        UsageDay[]
+  weeklyClaims     WeeklyClaim[]
+  streakFreezes    StreakFreeze[]
+  paywallEvents    PaywallEvent[]
 }
 
 model Subject {
@@ -221,4 +230,96 @@ model PasswordResetToken {
   createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/* ----------------------------- Monetização -----------------------------
+   Espelha as stores do Dexie (frontend/src/offline/db.js v3). O app offline é
+   a referência funcional; estes modelos existem para paridade quando o
+   backend Express/Prisma for ligado. Preços em centavos para evitar float.
+*/
+
+model Subscription {
+  id               Int      @id @default(autoincrement())
+  userId           Int      @unique
+  planId           String // free | pro_monthly | pro_annual
+  status           String   @default("active") // active | trialing | canceled | expired
+  provider         String   @default("demo") // demo | stripe | mercadopago
+  priceCents       Int      @default(0)
+  currency         String   @default("BRL")
+  startedAt        DateTime @default(now())
+  currentPeriodEnd DateTime
+  trialEndsAt      DateTime?
+  canceledAt       DateTime?
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([status, currentPeriodEnd])
+}
+
+// Desbloqueios avulsos/promocionais que não dependem do plano (ex.: cortesia)
+model FeatureEntitlement {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  feature   String // unlimited_hearts | advanced_stats | exclusive_skins | weekly_challenge | no_ads
+  source    String   @default("grant") // grant | purchase | promo
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, feature])
+}
+
+// Uso diário: corações do plano gratuito (1 regenera a cada 30 min)
+model UsageDay {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  day       String // YYYY-MM-DD (fuso local)
+  hearts    Int      @default(5)
+  adsSeen   Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, day])
+}
+
+// Resgate do desafio semanal PRO (1 por semana)
+model WeeklyClaim {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  weekKey    String // YYYY-MM-DD da segunda-feira
+  xpAwarded  Int      @default(150)
+  claimedAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, weekKey])
+}
+
+// Congelamentos de sequência usados no mês (limite do plano PRO)
+model StreakFreeze {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  monthKey  String // YYYY-MM
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, monthKey])
+}
+
+// Funil do paywall: impressões, checkout iniciado/concluído, cancelamento
+model PaywallEvent {
+  id        Int      @id @default(autoincrement())
+  userId    Int?
+  event     String
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([event, createdAt])
+  @@index([userId, createdAt])
 }

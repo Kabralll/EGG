@@ -48,14 +48,18 @@ export function levelProgress(xp) {
   };
 }
 
-export function computeStreak(streak, lastActiveDay, todayKey = toDateKey()) {
+export function computeStreak(streak, lastActiveDay, todayKey = toDateKey(), { freeze = false } = {}) {
   if (lastActiveDay === todayKey) {
-    return { streak: Math.max(streak, 1), lastActiveDay: todayKey };
+    return { streak: Math.max(streak, 1), lastActiveDay: todayKey, froze: false };
   }
   if (lastActiveDay === yesterdayKey()) {
-    return { streak: streak + 1, lastActiveDay: todayKey };
+    return { streak: streak + 1, lastActiveDay: todayKey, froze: false };
   }
-  return { streak: 1, lastActiveDay: todayKey };
+  // Buraco de 2+ dias: o PRO pode congelar a sequência (benefício pago)
+  if (freeze && lastActiveDay) {
+    return { streak: streak + 1, lastActiveDay: todayKey, froze: true };
+  }
+  return { streak: 1, lastActiveDay: todayKey, froze: false };
 }
 
 /* ------------------------- Desafios diários ------------------------- */

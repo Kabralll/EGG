@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { PLANS, formatBRL, monthlyEquivalent } from "../offline/billing"
+import { seedStats } from "../offline/seed"
 
 const FEATURES = [
   {
@@ -93,8 +95,8 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500">
-              <span>✓ 58+ questões comentadas</span>
-              <span>✓ 5 trilhas completas</span>
+              <span>✓ {seedStats.questions}+ questões comentadas</span>
+              <span>✓ {seedStats.trails} trilhas completas</span>
               <span>✓ Sem custo</span>
             </div>
           </div>
@@ -215,6 +217,96 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* PLANOS */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="chip bg-amber-100 text-amber-800 ring-1 ring-amber-200">
+            ✦ Planos
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900">
+            Comece na casca. Evolua para fora dela.
+          </h2>
+          <p className="mt-3 text-slate-600">
+            O essencial é gratuito para sempre. Quando quiser estudar sem limites, o Fora da
+            Casca libera corações infinitos, relatórios avançados e personalização exclusiva.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
+          {PLANS.map((plan) => {
+            const isFree = plan.priceCents === 0
+            const monthly = monthlyEquivalent(plan)
+            return (
+              <div
+                key={plan.id}
+                className={`card relative flex flex-col p-6 ${
+                  plan.highlight
+                    ? "border-transparent bg-gradient-to-b from-slate-900 to-slate-800 text-white shadow-pop ring-2 ring-[#f5d24c]"
+                    : ""
+                }`}
+              >
+                {plan.badge && (
+                  <span className="absolute right-4 top-4 rounded-full bg-[#f5d24c] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-amber-950">
+                    {plan.badge}
+                  </span>
+                )}
+                <p className={`text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-amber-300" : "text-slate-400"}`}>
+                  {isFree ? "Gratuito" : "Assinatura"}
+                </p>
+                <h3 className={`mt-1 text-xl font-extrabold ${plan.highlight ? "text-white" : "text-slate-900"}`}>
+                  {plan.name}
+                </h3>
+                <p className={`mt-1 text-sm ${plan.highlight ? "text-slate-300" : "text-slate-500"}`}>
+                  {plan.tagline}
+                </p>
+
+                <div className="mt-5 flex items-end gap-1.5">
+                  <span className={`text-3xl font-extrabold ${plan.highlight ? "text-white" : "text-slate-900"}`}>
+                    {formatBRL(plan.priceCents)}
+                  </span>
+                  <span className={`pb-1 text-xs ${plan.highlight ? "text-slate-400" : "text-slate-500"}`}>
+                    {plan.periodLabel}
+                  </span>
+                </div>
+                <p className={`mt-1 h-4 text-xs ${plan.highlight ? "text-slate-400" : "text-slate-400"}`}>
+                  {!isFree && monthly !== plan.priceCents ? `≈ ${formatBRL(monthly)}/mês` : ""}
+                </p>
+
+                <ul className={`mt-4 space-y-2 text-sm ${plan.highlight ? "text-slate-200" : "text-slate-600"}`}>
+                  {(isFree
+                    ? ["5 corações por dia", "14 dias de histórico", "1 skin clássica", "Desafio diário"]
+                    : ["❤️ Corações infinitos", "📈 Relatórios de 90 dias + por assunto", "🎨 5 skins exclusivas", "🧊 2 congelamentos de streak/mês", "🗓️ Desafio semanal de +150 XP"]
+                  ).map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto pt-6">
+                  <Link
+                    to={isFree ? "/register" : "/upgrade"}
+                    className={`w-full ${plan.highlight ? "btn-primary" : "btn-secondary"}`}
+                  >
+                    {isFree ? "Criar conta grátis" : plan.trialDays ? `Testar ${plan.trialDays} dias grátis` : "Assinar"}
+                  </Link>
+                  {!isFree && (
+                    <p className={`mt-2 text-center text-[11px] ${plan.highlight ? "text-slate-400" : "text-slate-400"}`}>
+                      Sem cobrança no ambiente de demonstração
+                    </p>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <p className="mt-6 text-center text-xs text-slate-400">
+          Você pode cancelar quando quiser. Seu XP, trilhas e conquistas nunca são perdidos.
+        </p>
       </section>
 
       {/* CTA FINAL */}

@@ -2,14 +2,17 @@ import { useCallback, useEffect, useMemo, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { answerQuestion, getPractice } from "../services/practiceService"
 import { useAuth } from "../context/AuthContext"
+import { useSubscription } from "../context/SubscriptionContext"
 import { useToast } from "../context/ToastContext"
 import { difficultyLabel, difficultyStyle, EmptyState, ErrorState, ProgressBar, Spinner } from "../components/ui"
+import { HeartsChip, PaywallCard } from "../components/premium"
 
 const LETTERS = ["A", "B", "C", "D", "E", "F"]
 
 export default function Practice() {
   const [searchParams] = useSearchParams()
   const { refreshProfile } = useAuth()
+  const { refresh: refreshBilling } = useSubscription()
   const toast = useToast()
 
   const params = useMemo(
@@ -23,11 +26,19 @@ export default function Practice() {
     [searchParams]
   )
 
-  const [state, setState] = useState({ loading: true, error: null, questions: [], context: null })
+  const [state, setState] = useState({
+    loading: true,
+    error: null,
+    questions: [],
+    context: null,
+    paywall: null,
+    hearts: null,
+  })
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState(null)
   const [result, setResult] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [liveHearts, setLiveHearts] = useState(null)
   const [session, setSession] = useState({
     correct: 0,
     wrong: 0,
@@ -41,9 +52,17 @@ export default function Practice() {
 
   const load = useCallback(async () => {
     try {
-      setState((s) => ({ ...s, loading: true, error: null }))
+      setState((s) => ({ ...s, loading: true, error: null, paywall: null }))
       const data = await getPractice(params)
-      setState({ loading: false, error: null, questions: data.questions, context: data.context })
+      setState({
+        loading: false,
+        error: null,
+        questions: data.questions,
+        context: data.context,
+        paywall: null,
+        hearts: data.hearts || null,
+      })
+      setLiveHearts(data.hearts || null)
       setIndex(0)
       setSelected(null)
       setResult(null)
@@ -58,7 +77,21 @@ export default function Practice() {
         challengeCompleted: false,
       })
     } catch (err) {
-      setState({ loading: false, error: err.message, questions: [], context: null })
+      // 402 = paywall dos corações (o servidor local devolve `code: "PAYWALL"`)
+      if (err.code === "PAYWALL" || err.status === 402) {
+        const payload = err.payload || {}
+        setState({
+          loading: false,
+          error: null,
+          questions: [],
+          context: null,
+          paywall: payload,
+          hearts: payload.hearts || null,
+        })
+        setLiveHearts(payload.hearts || null)
+        return
+      }
+      setState({ loading: false, error: err.message, questions: [], context: null, paywall: null, hearts: null })
     }
   }, [params])
 
@@ -76,6 +109,7 @@ export default function Practice() {
     try {
       const data = await answerQuestion(question.id, selected)
       setResult(data)
+      if (data.hearts) setLiveHearts(data.hearts)
 
       setSession((s) => ({
         correct: s.correct + (data.isCorrect ? 1 : 0),
@@ -134,8 +168,36 @@ export default function Practice() {
           duration: 6000,
         })
       }
+      if (data.streakFrozen) {
+        toast.push({
+          type: "achievement",
+          icon: "🧊",
+          title: "Sequência congelada!",
+          message: "Seu congelamento PRO manteve a sequência viva. Continue assim.",
+          duration: 6000,
+        })
+      }
+      if (data.hearts && data.hearts.consumed) {
+        toast.push({
+          type: "info",
+          icon: "💔",
+          title: "Um coração a menos",
+          message: `${data.hearts.hearts}/${data.hearts.max} corações restantes hoje.`,
+          duration: 3500,
+        })
+      }
+      if (data.outOfHearts) {
+        toast.push({
+          type: "error",
+          icon: "💔",
+          title: "Corações esgotados",
+          message: "Assine o Fora da Casca para praticar sem limites.",
+          duration: 7000,
+        })
+      }
 
       refreshProfile()
+      refreshBilling()
     } catch (err) {
       toast.push({ type: "error", icon: "⚠️", title: "Não foi possível registrar", message: err.message })
     } finally {
@@ -152,6 +214,32 @@ export default function Practice() {
   /* ---------- Estados ---------- */
 
   if (state.loading) return <Spinner size="lg" label="Preparando suas questões..." />
+
+  if (state.paywall) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-10">
+        <PaywallCard
+          icon="💔"
+          title="Seus corações acabaram"
+          description="Você ainda pode revisar o conteúdo já respondido e acompanhar suas estatísticas. Para iniciar novas sessões, espere um coração regenerar (1 a cada 30 minutos) ou libere corações infinitos no Fora da Casca."
+          bullets={[
+            "Corações infinitos — errar nunca bloqueia o estudo",
+            "Relatórios avançados de 90 dias e por assunto",
+            "Skins exclusivas, desafio semanal e streak freeze",
+          ]}
+          cta="Recuperar meus corações"
+        />
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          <Link to="/dashboard" className="btn-secondary">
+            ← Voltar ao dashboard
+          </Link>
+          <Link to="/subjects" className="btn-ghost">
+            Revisar disciplinas
+          </Link>
+        </div>
+      </div>
+    )
+  }
 
   if (state.error) {
     return (
@@ -273,6 +361,15 @@ export default function Practice() {
                 🎉 Você subiu de nível nesta sessão!
               </div>
             )}
+            {liveHearts && !liveHearts.unlimited && liveHearts.hearts === 0 && (
+              <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                💔 Seus corações acabaram.{" "}
+                <Link to="/upgrade" className="font-bold underline">
+                  Libere corações infinitos no PRO
+                </Link>{" "}
+                ou volte em 30 minutos para o próximo.
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 border-t border-slate-100 p-5 sm:flex-row sm:justify-center">
@@ -315,9 +412,12 @@ export default function Practice() {
               Questão {index + 1} de {questions.length}
             </span>
           </div>
-          <span className="chip bg-emerald-100 text-emerald-700">
-            +{session.xp} XP nesta sessão
-          </span>
+          <div className="flex items-center gap-2">
+            {liveHearts && <HeartsChip hearts={liveHearts} />}
+            <span className="chip bg-emerald-100 text-emerald-700">
+              +{session.xp} XP nesta sessão
+            </span>
+          </div>
         </div>
         <div className="mt-2">
           <ProgressBar percent={progressPercent} size="sm" />
@@ -419,6 +519,29 @@ export default function Practice() {
               </p>
               <p className="mt-1 text-sm leading-relaxed text-slate-700">{result.explanation}</p>
             </div>
+
+            {!result.isCorrect && result.hearts && !result.hearts.unlimited && (
+              <div
+                className={`mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl px-4 py-3 text-sm ${
+                  result.outOfHearts
+                    ? "bg-rose-50 text-rose-700 ring-1 ring-rose-200"
+                    : "bg-rose-50/60 text-rose-600"
+                }`}
+              >
+                <span>
+                  💔 −1 coração ·{" "}
+                  <strong>
+                    {result.hearts.hearts}/{result.hearts.max}
+                  </strong>{" "}
+                  restantes hoje
+                </span>
+                {result.outOfHearts && (
+                  <Link to="/upgrade" className="font-bold underline">
+                    Recuperar com o PRO →
+                  </Link>
+                )}
+              </div>
+            )}
 
             {/* Eventos de progressão */}
             <div className="mt-3 flex flex-wrap gap-2">
